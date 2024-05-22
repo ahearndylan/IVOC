@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .counselors-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    .counselor-message {
+        text-align: center;
+        max-width: 450px;
+        margin: 20px 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        vertical-align: top; 
+        max-width: calc(40% - 120px);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex: 1 1 calc(33% - 40px); 
+
+    }
+
+    .counselor-message h2 {
+        font-family: 'Garamond', serif;
+        font-weight: normal;
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+    }
+
+    .counselor-message h3 {
+        font-family: 'Garamond', serif;
+        font-weight: normal;
+        font-size: 1.3rem;
+        color: #333;
+        margin-top: 0;
+    }
+
+    .counselor-message p {
+        font-size: 0.9rem;
+        margin-bottom: 1em;
+        color: #555;
+    }
+
+    .counselor-headshot img {
+        width: 180px;
+        height: auto;
+        display: block;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        border: 3px solid #ddd;
+    }
+
+    @media (max-width: 768px) {
+        .counselor-message {
+            margin: 10px;
+            padding: 10px;
+            width: calc(100% - 20px); 
+        }
+
+        .counselor-message h2, h3{
+            font-size: 1.2rem;
+        }
+
+        .counselor-headshot img {
+            width: 130px;
+        }
+    }
+
+    .counselor-description{
+        border-left: 4px solid #AA336A;
+        padding-left: 20px;
+    }
+</style>
+<br>
+<br>
+<br>
+<br>
+
+<div class="counselors-container">
+    <div class="counselor-message">
+        <h2>Keith Chester "K. Fingers"</h2>
+        <h3>Music Engineer</h3>
+        <div class="counselor-headshot">
+            <img src="{% static 'images/KEITH2.jpg' %}" alt="Counselor Name 1 Headshot"/>
+        </div>
+        <div class="counselor-description">
+        <p>Kieth has dedicated his career to working with youth as a counselor and mentor. He has a wealth of knowledge in music production, having produced several albums of his own.</p>
+        </div>
+    </div>
+
+    <div class="counselor-message">
+        <h2>Johneric Lavergne "Johneric Keys"</h2>
+        <h3>Music Engineer</h3>
+        <div class="counselor-headshot">
+            <img src="{% static 'images/Johneric2.png' %}" alt="Counselor Name 1 Headshot"/>
+        </div>
+        <div class="counselor-description">
+        <p>Johneric has over 10 years of experience working as a youth counselor in Worcester County and is also a skilled musician, producer, videographer, and photographer.</p>
+        </div>
+    </div>
+
+    <div class="counselor-message">
+        <h2>Lioner Alicea "DJ Kid Kash"</h2>
+        <h3>Music Engineer</h3>
+        <div class="counselor-headshot">
+            <img src="{% static 'images/Lioner2.jpeg' %}" alt="Counselor Name 1 Headshot"/>
+        </div>
+        <div class="counselor-description">
+        <p>Lioner has a bachelor's degree in audio engineering. He is an established music engineer and DJ.</p> 
+        </div>
+    </div>
+
+    <div class="counselor-message">
+        <h2>Cai Hall</h2>
+        <h3>Creative Coach</h3>
+        <div class="counselor-headshot">
+            <img src="{% static 'images/Cai2.jpeg' %}" alt="Counselor Name 1 Headshot"/>
+        </div>
+        <div class="counselor-description">
+        <p>Graduate student at Clark University.</p>
+        </div>
+    </div>
+
+    <div class="counselor-message">
+        <h2>Precious Sutton</h2>
+        <h3>Creative Coach</h3>
+        <div class="counselor-headshot">
+            <img src="{% static 'images/Precious2.jpg' %}" alt="Counselor Name 1 Headshot"/>
+        </div>
+        <div class="counselor-description">
+        <p>Undergraduate student studying Psychology with a minor in Creative Writing at Clark University.</p>
+        </div>
+    </div>
+
+    <div class="counselor-message">
+        <h2>Angelina</h2>
+        <h3>Creative Coach</h3>
+        <div class="counselor-headshot">
+            <img src="{% static 'images/creativecoach1.png' %}" alt="Counselor Name 1 Headshot"/>
+        </div>
+        <div class="counselor-description">
+        <p>Undergraduate Student at Clark University.</p>
+        </div>
+    </div>
+
+</div> 
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var modal = document.getElementById('chatModal');
+
+    var btn = document.querySelector('.chat-button');
+
+    var span = document.getElementsByClassName("close")[0];
+
+    function openModal() {
+        modal.style.display = "block";
+        modal.style.top = (window.pageYOffset + 200) + "px";
+
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    btn.onclick = openModal;
+
+    span.onclick = closeModal;
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var dropdown = document.querySelector('.dropdown-toggle');
+    var menu = document.querySelector('.dropdown-menu');
+
+    dropdown.addEventListener('click', function (event) {
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        event.stopPropagation();
+    });
+
+    window.addEventListener('click', function () {
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+        }
+    });
+});
+
+
+</script>
+{% endblock extra_js %}

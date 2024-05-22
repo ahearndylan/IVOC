@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+    .logout-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .logout-message {
+        color: #333;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .action-links {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .action-links a {
+        display: inline-block;
+        margin: 0 10px;
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .action-links a:hover {
+        text-decoration: underline;
+    }
+
+    h2, h3 {
+        color: #333;
+    }
+</style>
+<br>
+<br>
+
+<div class="logout-container">
+   <div class="logout-message">
+       <h2>Logged out</h2>
+       <p>You have been successfully logged out. Thank you for visiting.</p>
+   </div>
+
+   <div class="action-links">
+       <a href="{% url 'login' %}">Login Again</a> |
+       <a href="{% url 'home' %}">Return Home</a>
+   </div>
+</div>
+
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var modal = document.getElementById('chatModal');
+
+    var btn = document.querySelector('.chat-button');
+
+    var span = document.getElementsByClassName("close")[0];
+
+    function openModal() {
+        modal.style.display = "block";
+        modal.style.top = (window.pageYOffset + 200) + "px";
+
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    btn.onclick = openModal;
+
+    span.onclick = closeModal;
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+});
+
+
+</script>
+{% endblock extra_js %}

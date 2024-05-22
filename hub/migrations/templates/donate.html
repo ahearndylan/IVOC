@@ -1,0 +1,463 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        font-family: 'Nunito Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        background-color: #fff;
+        line-height: 1.6;
+    }
+
+    .hero-section {
+        color: #AA336A;
+        padding: 40px 20px;
+        text-align: center;
+        padding-bottom: 0%;
+    }
+
+    .hero-section h1 {
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+
+    .donation-container{
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+        padding-top: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+    }
+
+    .image-gallery-container{
+        max-width: 1000px;
+        margin: auto;
+        padding: 20px;
+        padding-top: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .image-gallery-container2{
+        max-width: 650px;
+        margin: auto;
+        padding: 20px;
+        padding-top: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .donate-content-container, .donate-images-container, .left-column {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        align-items: center;
+    }
+
+    .quote-container {
+        background-color: #f0f8ff;
+        border-left: 4px solid #AA336A;
+        padding: 15px;
+        margin: 20px 0;
+        font-style: italic;
+    }
+
+    .donate-image, .gallery-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        padding-left: 0;
+    }
+
+    h2 {
+        color: #AA336A;
+        margin-bottom: 0px;
+    }
+
+    .success-stories li, .donation-impact li {
+        background-color: #fff;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .supportus-button {
+        background-color: #AA336A;
+        color: #ffffff;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        display: block; 
+        width: max-content; 
+        margin: 0 auto; 
+        text-align: center; 
+    }
+
+    .supportus-button:hover {
+        background-color: darkgrey;
+    }
+
+    @media (max-width: 768px) {
+        .donation-container, .image-gallery-container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .progress-container {
+        width: 100%;
+        background-color: #ddd;
+        border-radius: 5px;
+        margin: 20px 0;
+    }
+
+    .progress-bar {
+        width: 0%;
+        height: 60px;
+        background-color: #AA336A;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 60px;
+        color: white;
+    }
+
+    .success-stories-slideshow {
+    position: relative;
+    width: calc(100% - 40px); /* Subtracting the total horizontal padding from 100% width */
+    margin: 5px; /* This adds space around the slideshow container */
+    padding: 20px;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    overflow: hidden; /* Prevents children from overflowing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adjust slide styling */
+.slide {
+    display: none;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    min-height: 150px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px;
+    margin: 0 10px; /* Adds a bit of margin to the left and right */
+    width: 80%;
+}
+
+/* Adjust navigation buttons */
+button.prev, button.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;  
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    color: #AA336A;
+    font-size: 24px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: #f9f9f9;
+    border: 1px solid #AA336A;
+    z-index: 2;
+    margin: 0; /* Remove any margin */
+}
+
+button.next {
+    right: 0; /* Align to the right edge of the container */
+}
+
+button.prev {
+    left: 0; /* Align to the left edge of the container */
+}
+
+button.prev:hover, button.next:hover {
+    background-color: #AA336A;
+    color: white;
+}
+
+.donation-impact {
+        list-style-type: none; /* Removes the bullet points */
+        padding: 0; /* Removes the default padding */
+    }
+
+    .donation-impact li {
+        background-color: #fff;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .custom-image-gallery-slideshow {
+    position: relative;
+    max-width: 600px; /* Adjust this value as needed */
+    height: 400px; /* Set a fixed height */
+    margin: auto;
+    padding: 20px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.custom-slide-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+    align-items: center; /* Center the images vertically */
+    justify-content: center; /* Center the images horizontally */
+}
+
+.custom-slide {
+    min-width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-slide img {
+    max-width: 80%;
+    max-height: 100%; /* Ensure images fit within the container */
+    height: auto;
+    border-radius: 8px;
+}
+
+button.custom-prev-slide, button.custom-next-slide {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    color: #AA336A;
+    font-size: 24px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: #f9f9f9;
+    border: 1px solid #AA336A;
+    z-index: 2;
+}
+
+button.custom-next-slide {
+    right: 10px;
+}
+
+button.custom-prev-slide {
+    left: 10px;
+}
+
+button.custom-prev-slide:hover, button.custom-next-slide:hover {
+    background-color: #AA336A;
+    color: white;
+}
+
+
+
+
+</style>
+<br>
+
+<div class="hero-section">
+    <h1>Support Our Mission</h1>
+    <p>"Empowering youth through music and media for a brighter future."</p>
+</div>
+
+<div class="donation-container">
+    <div class="left-column">
+        <img src="{% static 'images/IVOCdonate3.jpg' %}" alt="IVOC Donate Visual" class="donate-image">
+        <img src="{% static 'images/IVOCDonateIMG.png' %}" alt="Impact Visual" class="donate-image">
+    </div>
+
+    <div class="donate-content-container" id="donate-now">
+        <div class="quote-container">
+            <p>"How aware a community is about the environment its young people are growing up in is the barometer to their development. Music and media can be the bridge and the wedge between young people and the support systems in place for them. Growth and overall wellness come from healthy outlets of self-expression." - IVOC</p>
+        </div>
+
+        <h2>Our Impact</h2>
+        <p>At IVOC, we believe in the transformative power of music and media for youth. We have been diligently striving to make a significant impact in our community, fostering environments where creativity and growth can flourish:</p>
+        <div class="progress-container">
+            <div class="progress-bar" id="impactProgressBar"></div>
+        </div>
+
+
+
+
+
+
+        <h2>Success Stories</h2>
+        <div class="success-stories-slideshow">
+            <div class="slide active">
+                <p>"What I like about IVOC is how kids are allowed to participate and create music freely. It is also a space where you can be yourself and where you will never be judged."</p>
+            </div>
+            <div class="slide">
+                <p>"One thing I learned about myself during IVOC is that I am who I am and I don't have to try to please anybody else by being someone that I'm not."</p>
+            </div>
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+
+
+<!--        
+        <ul class="success-stories">
+            <li>"What I like about IVOC is how kids are allowed to participate and create music freely. It is also a space where you can be yourself and where you will never be judged"</li>
+            <li>"Something I learned about myself is how to work with others. For example, how to help (another member of the group) when he didn't know how to add on to the beat for the first time in the studio"</li>
+        </ul>
+-->
+        <h2>Your Donation Makes a Difference</h2>
+        <ul class="donation-impact">
+            <li>$25 can provide art supplies for one workshop</li>
+            <li>$50 can sponsor a youth's participation in our programs for a month</li>
+            <li>$100 can help maintain our community centers, ensuring a safe space for creativity and growth</li>
+            <li>Any contribution, regardless of size, supports our mission</li>
+        </ul>
+
+        <p>Join us in empowering youth. Every contribution, no matter the size, is a step towards a brighter future.</p>
+        <br>
+        <a href="https://ivocforyouth.com/checkout/donate?donatePageId=659a21b0dce9430958c77663" class="supportus-button">Donate to IVOC here</a>
+    </div>
+</div>
+
+<div class="custom-image-gallery-slideshow">
+    <div class="custom-slide-container">
+        <div class="custom-slide">
+            <img src="{% static 'images/IVOCdonate4.jpg' %}" alt="IVOC Visual 1" class="custom-gallery-image">
+        </div>
+        <div class="custom-slide">
+            <img src="{% static 'images/IVOCdonate6.jpg' %}" alt="IVOC Visual 2" class="custom-gallery-image" style="width: 70%; height: auto;">
+        </div>
+        <div class="custom-slide">
+            <img src="{% static 'images/IVOCdonate5.jpg' %}" alt="IVOC Visual 3" class="custom-gallery-image">
+        </div>
+        <div class="custom-slide">
+            <img src="{% static 'images/IVOCdonate11.png' %}" alt="IVOC Visual 4" class="custom-gallery-image" style="width: 70%; height: auto;">
+        </div>
+        <div class="custom-slide">
+            <img src="{% static 'images/IVOCdonate12.png' %}" alt="IVOC Visual 5" class="custom-gallery-image" style="width: 70%; height: auto;">
+        </div>
+    </div>
+    <button class="custom-prev-slide">&#10094;</button>
+    <button class="custom-next-slide">&#10095;</button>
+</div>
+
+
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    var maxValue = 350; 
+    var currentValue = 244;
+    var elem = document.getElementById('impactProgressBar');
+    var width = 0;
+    var id = setInterval(frame, 15);
+
+    function frame() {
+        if (width >= currentValue) {
+            clearInterval(id);
+        } else {
+            width++;
+            elem.style.width = (width / maxValue) * 100 + '%';
+            elem.innerHTML = width + ' youth impacted since 2021';
+        }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var dropdown = document.querySelector('.dropdown-toggle');
+    var menu = document.querySelector('.dropdown-menu');
+
+    dropdown.addEventListener('click', function (event) {
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        event.stopPropagation();
+    });
+
+    window.addEventListener('click', function () {
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var slides = document.querySelectorAll('.slide');
+    var currentIndex = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, idx) => {
+            slide.style.display = 'none';
+            slide.classList.remove('active');
+        });
+        slides[index].style.display = 'block';
+        slides[index].classList.add('active');
+    }
+
+    document.querySelector('.prev').addEventListener('click', function() {
+        currentIndex = currentIndex <= 0 ? slides.length - 1 : currentIndex - 1;
+        showSlide(currentIndex);
+    });
+
+    document.querySelector('.next').addEventListener('click', function() {
+        currentIndex = currentIndex >= slides.length - 1 ? 0 : currentIndex + 1;
+        showSlide(currentIndex);
+    });
+
+    showSlide(currentIndex); // Show the first slide initially
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var slideIndex = 0;
+    var slides = document.querySelectorAll('.custom-slide');
+    var totalSlides = slides.length;
+    var prevButton = document.querySelector('.custom-prev-slide');
+    var nextButton = document.querySelector('.custom-next-slide');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = (i === index) ? 'flex' : 'none';
+        });
+    }
+
+    function showNextSlide() {
+        slideIndex = (slideIndex + 1) % totalSlides;
+        showSlide(slideIndex);
+    }
+
+    function showPrevSlide() {
+        slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+        showSlide(slideIndex);
+    }
+
+    prevButton.addEventListener('click', showPrevSlide);
+    nextButton.addEventListener('click', showNextSlide);
+
+    // Show the first slide initially
+    showSlide(slideIndex);
+});
+
+</script>
+{% endblock extra_js %}
+

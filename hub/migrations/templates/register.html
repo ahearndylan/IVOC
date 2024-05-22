@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    .register-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .register-container h3, .register-container hr, .register-container form, .register-container div {
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form div {
+        margin: 10px 0; 
+    }
+
+    form button {
+        margin-top: 20px;
+    }
+
+    small {
+        color: red; 
+    }
+</style>
+<br>
+<br>
+
+<div class="register-container">
+    <h3>Register here</h3>
+    <br>
+    <hr>
+    <form action="" method="POST">
+       {% csrf_token %}
+       {% for field in form %}
+           <div>
+               <p>{{ field.label }}: <br> {{ field }}</p>
+               {% for error in field.errors %}
+                   <small>{{ error }}</small>
+               {% endfor %}
+           </div>
+       {% endfor %}
+       <button type="submit">Register</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var modal = document.getElementById('chatModal');
+
+    var btn = document.querySelector('.chat-button');
+
+    var span = document.getElementsByClassName("close")[0];
+
+    function openModal() {
+        modal.style.display = "block";
+        modal.style.top = (window.pageYOffset + 200) + "px";
+
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    btn.onclick = openModal;
+
+    span.onclick = closeModal;
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+});
+
+
+
+
+</script>
+{% endblock extra_js %}

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif; 
+        background-color: #f9f9f9; 
+    }
+    
+    .music-content-area {
+        max-width: 800px;
+        margin: 80px auto; 
+        padding: 40px;
+        background-color: #fff; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        text-align: center;
+    }
+
+    .music-content-title {
+        font-family: 'Georgia', serif; 
+        color: #AA336A; 
+        font-size: 40px; 
+        margin-bottom: 30px; 
+    }
+
+    .music-content-description {
+        font-size: 18px; 
+        line-height: 1.6; 
+        margin-bottom: 30px; 
+        color: #333; 
+    }
+
+    @media (max-width: 768px) {
+        .music-content-area {
+            padding: 20px; 
+            margin: 40px auto; 
+        }
+    }
+</style>
+<br>
+<br>
+<br>
+
+<div class="music-content-area">
+    <h1 class="music-content-title">Music</h1> 
+    <p class="music-content-description">
+        IVOC meets with 6 - 8 teens weekly for 10 weeks. Throughout this opportunity,
+        we learn to embrace the power of self-expression through music, cipher, spoken word,
+        lyric writing, and more.
+    </p>
+    <p class="music-content-description">
+        Each participant is provided the space and therapeutic guidance to express themselves.
+        The topics of discussion and the content that’s created each week are driven by our teen
+        participants. Healthy relationships are forged, team building takes place, along with
+        greater self-awareness and, most importantly, our teens share their truth and feel heard.
+    </p>
+    <p class="music-content-description">
+        By the end of this opportunity, participants will have recorded their truth over an instrumental.
+        Connect with us to find out more.
+    </p>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var modal = document.getElementById('chatModal');
+
+    var btn = document.querySelector('.chat-button');
+
+    var span = document.getElementsByClassName("close")[0];
+
+    function openModal() {
+        modal.style.display = "block";
+        modal.style.top = (window.pageYOffset + 200) + "px";
+
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    btn.onclick = openModal;
+
+    span.onclick = closeModal;
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var dropdown = document.querySelector('.dropdown-toggle');
+    var menu = document.querySelector('.dropdown-menu');
+
+    dropdown.addEventListener('click', function (event) {
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        event.stopPropagation();
+    });
+
+    window.addEventListener('click', function () {
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+        }
+    });
+});
+
+</script>
+{% endblock extra_js %}
+

@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        font-family: 'Arial', sans-serif; 
+        background-color: #f9f9f9; 
+    }
+    
+    .PV-content-area {
+        max-width: 800px;
+        margin: 80px auto; 
+        padding: 40px;
+        background-color: #fff; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        text-align: center;
+    }
+
+    .PV-content-title {
+        font-family: 'Georgia', serif; 
+        color: #AA336A; 
+        font-size: 40px; 
+        margin-bottom: 30px; 
+    }
+
+    .PV-content-description {
+        font-size: 18px; 
+        line-height: 1.6; 
+        margin-bottom: 30px; 
+        color: #333; 
+    }
+
+    @media (max-width: 768px) {
+        .PV-content-area {
+            padding: 20px; 
+            margin: 40px auto; 
+        }
+    }
+</style>
+<br>
+<br>
+<br>
+
+<div class="PV-content-area">
+    <h1 class="PV-content-title">Photo & Video</h1> 
+    <p class="PV-content-description">
+        Youth are provided the opportunity to collaborate with professional videographers and develop a 
+        project from beginning to end. This is an especially powerful internship opportunity for young aspiring 
+        videographers, writers, and future creatives alike. 
+    </p>
+
+    <p class="PV-content-description">
+        Throughout this opportunity, we ensure youth share 
+        equitable space with the team and their perspective is equally valued. IVOC core themes within this 
+        opportunity are self-identity (who are you), goal setting (to achieve the dream), and professionalism. 
+        Connect with us to learn more about this inspiring opportunity.
+    </p>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var modal = document.getElementById('chatModal');
+
+    var btn = document.querySelector('.chat-button');
+
+    var span = document.getElementsByClassName("close")[0];
+
+    function openModal() {
+        modal.style.display = "block";
+        modal.style.top = (window.pageYOffset + 200) + "px";
+
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    btn.onclick = openModal;
+
+    span.onclick = closeModal;
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var dropdown = document.querySelector('.dropdown-toggle');
+    var menu = document.querySelector('.dropdown-menu');
+
+    dropdown.addEventListener('click', function (event) {
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        event.stopPropagation();
+    });
+
+    window.addEventListener('click', function () {
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+        }
+    });
+});
+
+
+</script>
+{% endblock extra_js %}

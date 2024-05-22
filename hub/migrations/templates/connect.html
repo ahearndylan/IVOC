@@ -1,0 +1,207 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+   
+    .connect-me {
+        text-align: center;
+        line-height: 1.6;
+        font-size: 20px;
+        max-width: 600px;
+        margin: 60px auto;
+        padding: 40px 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 2px solid #AA336A;
+    }
+
+    #connectContent {
+        background-image: url('{% static "images/CREATEIVOC.jpg" %}');
+        background-repeat: no-repeat;
+        background-position: center 40%;
+        background-size: cover;
+        color: #333;
+        background-size: 70%; 
+    }
+
+
+    .underline-black {
+        text-decoration: underline;
+        text-decoration-color: black;
+        position: relative;
+        display: inline;
+    }
+
+    .underline-black::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0; 
+        height: 1px;
+        background-color: black;
+        transition: width 0.5s ease; 
+    }
+
+    .underline-black:hover::after {
+        width: 100%; 
+    }
+
+    @keyframes loadUnderline {
+        from {
+            width: 0;
+        }
+        to {
+            width: 100%;
+        }
+    }
+
+    .underline-black::after {
+        animation: loadUnderline 2s ease forwards;
+    }
+
+    .contact-info {
+        text-align: center;
+        font-size: 18px;
+        border: 1px solid black;
+        padding: 20px;
+        margin-top: 30px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+        background-color: black;
+        border-radius: 5px;
+    }
+
+    .contact-info p {
+        margin: 10px 0;
+        color: white;
+    }
+
+    .email-button-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 40px 0;
+    }
+
+    .email-button {
+        background-color: white;
+        color: black;
+        border: 2px solid black;
+        padding: 15px 30px;
+        text-decoration: none;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 5px;
+    }
+
+    .email-button:hover {
+        background-color: rgb(225, 219, 219);
+        border-color: #333;
+    }
+
+    
+
+    .connect-info {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 2px solid #AA336A;
+        border-radius: 8px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        position: relative;
+    }
+
+</style>
+<br>
+
+<div class="connect-page-background" id="connectContent">
+    <div class="connect-me">
+        <p>Perhaps you know a young person who has difficulty expressing their emotions, 
+           leading to concerning behavior. They might not be interested in therapy, but 
+           they need support. They could benefit from guidance on using their love for music, 
+           photos, or videos in a positive way. It can be tough for adolescents to talk openly 
+           with adults, but everyone communicates differently.</p>
+        <p class="underline-black">As we help teens express themselves, we help them heal.</p>
+        <p>Connect with us to help teens heal, grow, and express themselves.</p>
+    </div>
+
+        <div class="connect-info">
+
+            <div class="email-button-container">
+                <a href="mailto:info@ivocforyouth.com" class="email-button">Schedule an Appointment</a>
+            </div>
+
+            <div class="contact-info">
+                <p>info@ivocforyouth.com</p>
+                <p>(978) 822-6501</p>
+            </div>
+        </div>
+
+</div>
+<br>
+<br>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    var modal = document.getElementById('chatModal');
+
+    var btn = document.querySelector('.chat-button');
+
+    var span = document.getElementsByClassName("close")[0];
+
+    function openModal() {
+        modal.style.display = "block";
+        modal.style.top = (window.pageYOffset + 200) + "px";
+
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    btn.onclick = openModal;
+
+    span.onclick = closeModal;
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var dropdown = document.querySelector('.dropdown-toggle');
+    var menu = document.querySelector('.dropdown-menu');
+
+    dropdown.addEventListener('click', function (event) {
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        event.stopPropagation();
+    });
+
+    window.addEventListener('click', function () {
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+        }
+    });
+});
+
+</script>
+{% endblock extra_js %}
+
