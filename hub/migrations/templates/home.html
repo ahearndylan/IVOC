@@ -246,8 +246,8 @@ html, body {
             text-align: center;
             background-color: #AA336A; 
             padding: 60px 20px;
-
             width: 100vw;
+            height: 17vw;
             box-sizing: border-box; 
             left: 50%;
             right: 50%;
@@ -266,6 +266,8 @@ html, body {
             font-family: "Georgia", serif;
             height: 150px;
             transition: all 0.5s ease;
+            margin-top: -25px;
+            justify-content: center;
         }
 
 
@@ -489,6 +491,7 @@ html, body {
         <source src="{% static 'images/IVOCSummer.mp4' %}" type="video/mp4">
         Your browser does not support the video tag.
         </video>
+        <p></p>
         <p class="video-description"><b>Event: <i>Summer Jumpoff</i></b>- IVOC's inaugural youth showcase was a night to remember! We saw our students shine as they performed songs and showcased videos they created as a part of IVOC.’s music and videography programs in Worcester, MA.</p>
     </div>
     <div class="video-block">
@@ -496,6 +499,7 @@ html, body {
         <source src="{% static 'images/Project.mp4' %}" type="video/mp4">
         Your browser does not support the video tag.
         </video>
+        <p></p>
         <p class="video-description"><b>Project: <i>You Gotta See It To Be It</i></b> - This video was co-created with the help of our black and brown youth. We featured the inspiring story of Lou Brady, the President and CEO of Family Health Center of Worcester, so that our young viewers can see themselves in him. Please watch and share this with a young person who could use some uplifting.   <p>
     </div>
 </div>
@@ -506,6 +510,7 @@ html, body {
         <source src="{% static 'images/Our Promise.mp4' %}" type="video/mp4">
         Your browser does not support the video tag.
         </video>
+        <p></p>
         <p class="video-description"><b>Project: <i>Our Promise</i></b>- A collaborative production between IVOC Youth, Votary Films, and Family Health Center of Worcester (FHCW), “Our Promise” is based on FHCW’s mission to support and inspire up and coming professionals of color, by providing internship and mentorship opportunities.</p>
     </div>
     <div class="video-block">
@@ -513,11 +518,11 @@ html, body {
         <source src="{% static 'images/Testimonials.mp4' %}" type="video/mp4">
         Your browser does not support the video tag.
         </video>
-        <p class="video-description"><b>Testimonials: <i>Youth Voice</i></b> - This video was co-createdIVOC’s videography program provides opportunities for youth to engage in creative storytelling. They learn the technical aspect of videography and develop healthy communication skills along the way.   p>
+        <p></p>
+        <p class="video-description"><b>Testimonials: <i>Youth Voice</i></b> - This video was co-createdIVOC’s videography program provides opportunities for youth to engage in creative storytelling. They learn the technical aspect of videography and develop healthy communication skills along the way. </p>
     </div>
 </div>
 
-<br>
 <br>
 <br>
 <br>
@@ -530,9 +535,7 @@ html, body {
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
+
 {% endblock content %}
 
 {% block extra_js %}
