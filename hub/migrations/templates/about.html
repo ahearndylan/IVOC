@@ -2,227 +2,206 @@
 {% load static %}
 {% block content %}
 <style>
-
-    body {
-        font-family: 'Arial', sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background-color: #fff;
-        font-size: 16px;
-        align-items: center;
-    }
-
-    .about-container {
-        display: flex;
-        flex-direction: column; 
+    .section {
+        margin: 20px 0;
+        padding: 20px;
         background-color: #f9f9f9;
-        padding: 40px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        margin-top: 20px auto; 
-        max-width: 1200px;    
-    }
-
-    .about-section { 
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 15px; 
-    }
-
-    .about-text {
-        flex: 3;
-        padding-right: 20px;
-    }
-
-    .about-image {
-        flex: 1;
-        padding-left: 20px;
-        text-align: center;
-        padding-top: 70px;
-    }
-
-    .about-image img {
-        max-width: 400;
-        height: auto;
+        border: 1px solid #ddd;
         border-radius: 8px;
     }
 
-    h1 {
-        color: #AA336A;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .about-text p {
-        margin-bottom: 20px;
-        color: #000; 
-    }
-
-    .about-text b {
+    .section-heading {
+        font-size: 1.5em;
         color: black;
-        font-weight: bold;
-        background-image: url('{% static "images/pencil-stroke.png" %}');
-        background-repeat: no-repeat;
-        background-position: bottom;
-        background-size: 100% 7px; /* Adjust the size to fit the pencil stroke image */
-        padding-bottom: 3px;
-        position: relative; /* Make sure it's positioned to anchor pseudo-elements */
-        z-index: 1;
+        margin-bottom: 15px;
+        text-align: center;
     }
 
-    .about-text b:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0; /* Adjust based on exact positioning of the underline */
-        width: 0%; /* Start with no width */
-        height: 7px; /* Match the background-size height or adjust as needed */
-        background: url('{% static "images/pencil-stroke.png" %}') no-repeat;
-        background-size: cover; /* Or adjust as needed */
-        animation: underline-grow 2s ease forwards; /* Use the existing animation */
-    }
-
-    @keyframes underline-grow {
-        from {
-            width: 0;
-        }
-        to {
-            width: 100%;
-        }
+    .section-content {
+        margin-bottom: 20px;
     }
 
     .about-quote {
         font-size: 1.2em;
         text-align: center;
-        color: #000; 
+        color: #000;
+        margin-top: 40px;
+        padding: 20px;
+        border: 2px solid #AA336A;
+        border-radius: 8px;
         position: relative;
+        overflow: hidden; /* Add this to make sure the underline is contained */
     }
 
-    .double-underline {
-        text-decoration: none;
-        position: relative;
-        display: inline; 
-    }
-
-    .double-underline:after,
-    .double-underline:before {
+    .about-quote::after {
         content: '';
         position: absolute;
-        left: 50%;
+        left: 5%;
+        bottom: 10px; /* Adjust this to position the underline inside the box */
+        width: 0;
         height: 2px;
-        width: 80%;
-        background: #AA336A;
-        animation: underline-grow 1s ease forwards;
-        animation-delay: 0.5s; 
-
+        background-color: #AA336A;
+        border-radius: 10px 10px 0 0;
+        transition: width 2s ease;
     }
 
-    .double-underline:before {
-        top: -10px;  /* Position the line above the text */
+    .about-quote.animated::after {
+        width: 90%; /* Adjust this to match the width of the content */
+    }
+
+    .curved-underline {
+        position: relative;
+        display: inline-block;
+    }
+
+    .curved-underline::after {
+        content: '';
+        position: absolute;
         left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 10px;
+        border-bottom: 2px solid #AA336A;
+        border-radius: 10px 10px 0 0;
     }
 
-    .double-underline:after {
-        bottom: -10px;  /* Position the line below the text */
+    .curved-underline-animation {
+        position: relative;
+        display: inline-block;
+    }
+
+    .curved-underline-animation::after {
+        content: '';
+        position: absolute;
         left: 0;
+        bottom: -5px;
+        height: 2px;
+        background-color: #AA336A;
+        border-radius: 10px 10px 0 0;
+        width: 0;
+        transition: width 2s ease;
     }
 
-
-    @media (max-width: 768px) {
-        .about-section {
-            flex-direction: column;
-        }
-        
-        .about-text, .about-image {
-            flex-basis: 100%;
-        }
-        
-        .about-text {
-            padding-right: 0;
-        }
-        
-        .about-image {
-            padding-left: 0;
-        }
+    .animated::after {
+        width: 100%;
     }
 
+    .flex-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding-bottom: 0;
+    }
+
+    .flex-item {
+        flex: 1;
+        margin: 10px;
+        padding-bottom: 0;
+    }
+
+    .image-right {
+        max-width: 40%;
+        margin-left: 20px;
+        float: right;
+        margin: 0 0 10px 20px;
+    }
 </style>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="section flex-container">
+        <div class="flex-item section-content">
+            <h2 class="section-heading curved-underline-animation">What is IVOC:</h2>
+            <img src="{% static 'images/aboutIVOC.jpg' %}" alt="About IVOC" class="img-fluid rounded image-right">
+            <p>IVOC provides therapeutic services that foster personal empowerment through the creation of music and multimedia projects. Our approach encourages marginalized youth to partner with IVOC as they lean into the therapeutic process of self-expression. These healthy alternatives often prove to be effective in engaging adolescents who struggle with traditional modes of interpersonal communication.</p>
+            <p>We bring our professional music and videography equipment to schools and programs throughout Central Massachusetts, eliminating barriers and providing equitable resources for some of our most marginalized youth.</p>
+            <p>In addition to esteem-building and adopting healthy coping skills, our participants develop other important life skills and vocational skills. These skills are developed by taking a collaborative project from the planning stages through to completion. These interests can often blossom into passions that translate into career paths or lifelong avocations.</p>
+        </div>
+    </div>
 
-<br>
-<br>
-<br>
-<br>
-<div class="about-container">
-    <div class="about-section"> 
-        <div class="about-text">
-        <p><b>Our Vision:</b> A world where youth can experience equitable opportunity for healthy, spiritual, mental and physical growth with the support of caring adults.</p>
+    <div class="flex-container">
+        <div class="section flex-item">
+            <h2 class="section-heading curved-underline-animation">Our Vision:</h2>
+            <div class="section-content">
+                <p>A world where youth can experience equitable opportunity for healthy, spiritual, mental, and physical growth with the support of caring adults.</p>
+            </div>
+        </div>
 
-        <p><b>Our Mission:</b> Seeking to empower young adults, IVOC engages marginalized youth through non-traditional methods to help them better understand themselves, and express themselves.</p>
-            
-        <p><b>What is IVOC:</b> IVOC provides therapeutic services that foster personal empowerment through the creation of music and multimedia projects. Our approach encourages marginalized youth to partner with IVOC as they lean into the therapeutic process of self-expression. These healthy alternatives often prove to be effective in engaging adolescents who struggle with traditional modes of interpersonal communication. </p>
-            
-        <p>We bring our professional music and videography equipment to schools and programs throughout Central Massachusetts, eliminating barriers and providing equitable resources for some of our most marginalized youth.</p>
-            
-        <p>In addition to esteem-building and adopting healthy coping skills, our participants develop other important life skills and vocational skills. These skills are developed by taking a collaborative project from the planning stages through to completion. These interests can often blossom into passions that translate into career paths or lifelong avocations.</p>
+        <div class="section flex-item">
+            <h2 class="section-heading curved-underline-animation">Our Mission:</h2>
+            <div class="section-content">
+                <p>Seeking to empower young adults, IVOC engages marginalized youth through non-traditional methods to help them better understand themselves, and express themselves.</p>
+            </div>
+        </div>
     </div>
-    <div class = "about-image">
-        <img src="{% static 'images/aboutIVOC.jpg' %}" alt="About Default Image"/>
-    </div>
-    </div>
-    <div class="about-quote">
-        <h2 class="double-underline">"Worry weighs a person down: an encouraging word cheers a person up.”</h2>
+
+    <div class="about-quote mt-5">
+        <h2><i>"Worry weighs a person down: an encouraging word cheers a person up.”</i></h2>
     </div>
 </div>
-
+<br>
+<br>
 {% endblock %}
 
 {% block extra_js %}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    var modal = document.getElementById('chatModal');
+        var modal = document.getElementById('chatModal');
+        var btn = document.querySelector('.chat-button');
+        var span = document.getElementsByClassName("close")[0];
 
-    var btn = document.querySelector('.chat-button');
-
-    var span = document.getElementsByClassName("close")[0];
-
-    function openModal() {
-        modal.style.display = "block";
-        modal.style.top = (window.pageYOffset + 200) + "px";
-
-    }
-
-    function closeModal() {
-        modal.style.display = "none";
-    }
-
-    btn.onclick = openModal;
-
-    span.onclick = closeModal;
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            closeModal();
+        function openModal() {
+            modal.style.display = "block";
+            modal.style.top = (window.pageYOffset + 200) + "px";
         }
-    }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-    var dropdown = document.querySelector('.dropdown-toggle');
-    var menu = document.querySelector('.dropdown-menu');
-
-    dropdown.addEventListener('click', function (event) {
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        event.stopPropagation();
-    });
-
-    window.addEventListener('click', function () {
-        if (menu.style.display === 'block') {
-            menu.style.display = 'none';
+        function closeModal() {
+            modal.style.display = "none";
         }
-    });
-});
 
+        btn.onclick = openModal;
+        span.onclick = closeModal;
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        var dropdown = document.querySelector('.dropdown-toggle');
+        var menu = document.querySelector('.dropdown-menu');
+
+        dropdown.addEventListener('click', function (event) {
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            event.stopPropagation();
+        });
+
+        window.addEventListener('click', function () {
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            }
+        });
+
+        var headings = document.querySelectorAll('.curved-underline-animation');
+        var quote = document.querySelector('.about-quote');
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        headings.forEach(function(heading) {
+            observer.observe(heading);
+        });
+
+        observer.observe(quote);
+    });
 </script>
 {% endblock extra_js %}
-

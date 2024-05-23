@@ -6,6 +6,11 @@
     <title>IVOC</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <style>
 
@@ -302,6 +307,7 @@
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1;
+            
         }
 
         .dropdown-content a {
@@ -411,52 +417,6 @@
         }
 
         /* Container for the profile dropdown */
-.profile-dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 15px;
-}
-
-/* The button that triggers the profile dropdown */
-.profile-dropdown .dropdown-toggle {
-    cursor: pointer;
-    width: 30px; /* Adjust the size as needed */
-    height: 30px; /* Adjust the size as needed */
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover;
-    background-color: white;
-}
-
-/* The dropdown menu */
-.profile-dropdown .dropdown-menu {
-    display: none; /* Hidden by default */
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    right: 0; /* Align to the right to keep it within the page */
-    overflow: hidden; /* Prevent overflow */
-}
-
-/* The individual links inside the dropdown */
-.profile-dropdown .dropdown-menu a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Change color of links on hover */
-.profile-dropdown .dropdown-menu a:hover {
-    background-color: white;
-    text-decoration: underline;
-}
-
-/* Show the dropdown menu when the dropdown is hovered */
-.profile-dropdown:hover .dropdown-menu {
-    display: block;
-}
 
 
 
@@ -489,53 +449,127 @@
             box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25); 
         }
 
-        /* Container for the social media dropdown */
-.socialmedia-dropdown {
-    position: relative;
-    display: inline-block;
-    padding-right: 20px;
-    padding-left: 10px;
-}
 
-/* The button that triggers the dropdown */
-.socialmedia-dropdown .dropdown-toggle {
-    cursor: pointer;
-    width: 30px; /* Adjust the size as needed */
-    height: 30px; /* Adjust the size as needed */
-    background-color: white;
-}
 
-/* The dropdown menu */
-.socialmedia-dropdown .dropdown-menu {
-    display: none; /* Hidden by default */
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    right: 0; /* Align to the right to keep it within the page */
-    overflow: hidden; /* Prevent overflow */
-}
 
-/* The individual social media links inside the dropdown */
-.socialmedia-dropdown .dropdown-menu a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    white-space: nowrap; /* Prevent text wrapping */
-}
 
-/* Change color of links on hover */
-.socialmedia-dropdown .dropdown-menu a:hover {
-    background-color: white;
-    text-decoration: underline;
-}
 
-/* Show the dropdown menu when the dropdown is hovered */
-.socialmedia-dropdown:hover .dropdown-menu {
-    display: block;
-}
+
+
+
+
+
+
+
+
+
+
+        /* Profile Dropdown */
+    .profile-dropdown {
+        position: relative;
+        display: inline-block;
+        margin-left: 15px;
+    }
+
+    .profile-dropdown .dropdown-toggle {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+        background-color: white;
+    }
+
+    .profile-dropdown .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        left: auto;
+        right: 0;
+        
+    }
+
+    .profile-dropdown .dropdown-menu a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .profile-dropdown .dropdown-menu a:hover {
+        background-color: white;
+        text-decoration: underline;
+    }
+
+    .profile-dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* Social Media Dropdown */
+    .socialmedia-dropdown {
+        position: relative;
+        display: inline-block;
+        padding-right: 20px;
+        padding-left: 10px;
+    }
+
+    .socialmedia-dropdown .dropdown-toggle {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-color: white;
+    }
+
+    .socialmedia-dropdown .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        left: auto;
+        right: 0;
+    }
+
+    .socialmedia-dropdown .dropdown-menu a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        white-space: nowrap;
+    }
+
+    .socialmedia-dropdown .dropdown-menu a:hover {
+        background-color: white;
+        text-decoration: underline;
+    }
+
+    .socialmedia-dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -672,6 +706,7 @@
         
         <div class="footer">
             <div class="footer-top-line"></div> 
+            <br>
             <p>For more inquires about Inner Voice Outer Change, please contact us. Thank you for your interest in our work!</p>
             <p>&copy; IVOC for Youth. All rights reserved.</p>
             <br>
@@ -730,18 +765,50 @@
 <script>
 
 document.addEventListener('DOMContentLoaded', function () {
-    var dropdown = document.querySelector('.dropdown-toggle');
-    var menu = document.querySelector('.dropdown-menu');
+    var dropdowns = document.querySelectorAll('.socialmedia-dropdown');
 
-    dropdown.addEventListener('click', function (event) {
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        event.stopPropagation();
+    dropdowns.forEach(function (dropdown) {
+        var toggle = dropdown.querySelector('.dropdown-toggle');
+        var menu = dropdown.querySelector('.dropdown-menu');
+
+        toggle.addEventListener('mouseenter', function () {
+            menu.style.display = 'block';
+            adjustDropdownPosition(menu);
+        });
+
+        dropdown.addEventListener('mouseleave', function () {
+            menu.style.display = 'none';
+        });
+
+        menu.addEventListener('mouseenter', function () {
+            menu.style.display = 'block';
+        });
+
+        menu.addEventListener('mouseleave', function () {
+            menu.style.display = 'none';
+        });
     });
 
-    window.addEventListener('click', function () {
-        if (menu.style.display === 'block') {
-            menu.style.display = 'none';
+    function adjustDropdownPosition(menu) {
+        var rect = menu.getBoundingClientRect();
+        var screenWidth = window.innerWidth;
+
+        if (rect.right > screenWidth) {
+            menu.style.left = 'auto';
+            menu.style.right = '0';
+        } else {
+            menu.style.left = '0';
+            menu.style.right = 'auto';
         }
+    }
+
+    window.addEventListener('resize', function() {
+        var openMenus = document.querySelectorAll('.socialmedia-dropdown .dropdown-menu');
+        openMenus.forEach(function(menu) {
+            if (menu.style.display === 'block') {
+                adjustDropdownPosition(menu);
+            }
+        });
     });
 });
 
