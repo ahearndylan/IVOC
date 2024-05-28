@@ -135,24 +135,33 @@
         color: white;
     }
 
-    .success-stories-slideshow {
+    .success-stories-container {
     position: relative;
-    width: calc(100% - 40px); /* Subtracting the total horizontal padding from 100% width */
-    margin: 5px; /* This adds space around the slideshow container */
-    padding: 20px;
-    box-sizing: border-box; /* Ensures padding is included in the width */
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    overflow: hidden; /* Prevents children from overflowing */
+    width: 80%; 
+    margin: auto;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 200px;
+    justify-content: center;
 }
 
-/* Adjust slide styling */
+.success-stories-slideshow {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
 .slide {
-    display: none;
+    flex: 0 0 100%;
     padding: 20px;
     text-align: center;
     box-sizing: border-box;
@@ -161,16 +170,13 @@
     justify-content: center;
     background-color: white;
     border-radius: 5px;
-    margin: 0 10px; /* Adds a bit of margin to the left and right */
-    width: 80%;
-    overflow: hidden;
+    margin: 0;
 }
 
-/* Adjust navigation buttons */
 button.prev, button.next {
     cursor: pointer;
     position: absolute;
-    top: 50%;  
+    top: 50%;
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
@@ -182,21 +188,26 @@ button.prev, button.next {
     background-color: #f9f9f9;
     border: 1px solid #AA336A;
     z-index: 2;
-    margin: 0; /* Remove any margin */
+    margin: 0;
 }
 
 button.next {
-    right: 0; /* Align to the right edge of the container */
+    right: -50px;
 }
 
 button.prev {
-    left: 0; /* Align to the left edge of the container */
+    left: -50px;
 }
 
 button.prev:hover, button.next:hover {
     background-color: #AA336A;
     color: white;
 }
+
+
+
+
+
 
 .donation-impact {
         list-style-type: none; /* Removes the bullet points */
@@ -278,6 +289,7 @@ button.custom-prev-slide:hover, button.custom-next-slide:hover {
 
 
 </style>
+
 <br>
 
 <div class="hero-section">
@@ -308,22 +320,29 @@ button.custom-prev-slide:hover, button.custom-next-slide:hover {
 
 
         <h2>Success Stories</h2>
-        <div class="success-stories-slideshow">
-            <div class="slide active">
-                <p>"What I like about IVOC is how kids are allowed to participate and create music freely. It is also a space where you can be yourself and where you will never be judged."</p>
-            </div>
-            <div class="slide">
-                <p>"One thing I learned about myself during IVOC is that I am who I am and I don't have to try to please anybody else by being someone that I'm not."</p>
-            </div>
-            <div class="slide">
-                <p>"The thing I like about IVOC is how the whole thing is just expressing yourself with music and words. It feels like a safe place where you aren't judged"</p>
-            </div>
-            <div class="slide">
-                <p>"Something I learned about myself is how to work with others. For example, how to help (another member of the group) when he didn't know how to add on to the beat for the first time in the studio"</p>
-            </div>
+        <div class="success-stories-container">
             <button class="prev">&#10094;</button>
+            <div class="success-stories-slideshow">
+                <div class="slides-container">
+                    <div class="slide">
+                        <p>"What I like about IVOC is how kids are allowed to participate and create music freely. It is also a space where you can be yourself and where you will never be judged."</p>
+                    </div>
+                    <div class="slide">
+                        <p>"One thing I learned about myself during IVOC is that I am who I am and I don't have to try to please anybody else by being someone that I'm not."</p>
+                    </div>
+                    <div class="slide">
+                        <p>"Something I learned about myself is how to work with others. For example, how to help a friend when he didn't know how to add on to the beat for the first time in the studio"</p> 
+                    </div>
+                    <div class="slide">
+                        <p>"The thing I like about IVOC is how the whole thing is just expressing yourself with music and words. It feels like a safe place where you aren't judged"</p>
+                    </div>
+                </div>
+            </div>
             <button class="next">&#10095;</button>
         </div>
+        
+        
+        
 
 
 <!--        
@@ -345,7 +364,7 @@ button.custom-prev-slide:hover, button.custom-next-slide:hover {
         <a href="https://ivocforyouth.com/checkout/donate?donatePageId=659a21b0dce9430958c77663" class="supportus-button">Donate to IVOC here</a>
     </div>
 </div>
-
+<br>
 <div class="custom-image-gallery-slideshow">
     <div class="custom-slide-container">
         <div class="custom-slide">
@@ -368,7 +387,8 @@ button.custom-prev-slide:hover, button.custom-next-slide:hover {
     <button class="custom-next-slide">&#10095;</button>
 </div>
 
-
+<br>
+<br>
 
 {% endblock %}
 
@@ -417,15 +437,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     var slides = document.querySelectorAll('.slide');
+    var slidesContainer = document.querySelector('.slides-container');
     var currentIndex = 0;
 
     function showSlide(index) {
-        slides.forEach((slide, idx) => {
-            slide.style.display = 'none';
-            slide.classList.remove('active');
-        });
-        slides[index].style.display = 'block';
-        slides[index].classList.add('active');
+        var slideWidth = slides[0].clientWidth; // Get the width of a slide
+        var offset = -index * slideWidth; // Calculate the offset
+        slidesContainer.style.transform = 'translateX(' + offset + 'px)'; 
     }
 
     document.querySelector('.prev').addEventListener('click', function() {
@@ -473,4 +491,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </script>
 {% endblock extra_js %}
-
