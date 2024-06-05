@@ -5,249 +5,248 @@
 {% block content %}
 
 <style>
-
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
-     .alert-messages {
-            position: fixed;
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            z-index: 1050; 
-            text-align: center; 
-        }
+.alert-messages {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+    text-align: center;
+}
 
-        .alert-message {
-            background-color: #90ee90; 
-            color: black;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            display: inline-block; 
-            max-width: calc(100% - 40px);
-        }
+.alert-message {
+    background-color: #90ee90;
+    color: black;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: inline-block;
+    max-width: calc(100% - 40px);
+}
 
-        .closebtn {
-            margin-left: 15px;
-            color: black;
-            font-weight: bold;
-            float: right;
-            font-size: 22px;
-            line-height: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.closebtn {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        .closebtn:hover {
-            color: grey;
-        }
-        
-        .responsive-video {
-            width: 100%;
-            height: auto;
-            position: relative;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-        } 
+.closebtn:hover {
+    color: grey;
+}
 
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white; 
-            text-align: center;
-            z-index: 2; 
-        }
+.responsive-video {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
 
-        .video-overlay p {
-            position: relative;
-            top: -330px; 
-            margin-bottom: -50px; 
-            font-size: 25px;
-        }
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
 
-        #IVOClogo-homepage {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-        }
+.video-overlay p {
+    position: relative;
+    top: -330px;
+    margin-bottom: -50px;
+    font-size: 25px;
+}
 
-        #IVOClogo-homepage img {
-            width: 70%; 
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            text-align: center;
-            z-index: 2;
-        }
+#IVOClogo-homepage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
 
-        .getintouch-button-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px; 
-        }
+#IVOClogo-homepage img {
+    width: 70%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 2;
+}
 
-        .getintouch-button {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color: white;
-            color: black;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 0;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            border: 2px solid black; 
-            position: absolute;
-            top: 80%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            width: 100px;
-            height: auto;
-            font-size: 22px;
-            font-family: "Times New Roman", serif;
-            min-width: 200px; 
-            white-space: nowrap; 
-            overflow: hidden; 
-        }
+.getintouch-button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 
-        .getintouch-button:hover {
-            background-color: gray;
-        }
+.getintouch-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: 2px solid black;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 100px;
+    height: auto;
+    font-size: 22px;
+    font-family: "Times New Roman", serif;
+    min-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+}
 
-        .black-textbox {
-            background-color: black;
-            color: white;
-            padding: 20px;
-            margin: 0; 
-            text-align: center;
-            height: 300px;
-            font-size: 20px;
-            padding-top: 50px;
-            margin-top: 0;
+.getintouch-button:hover {
+    background-color: gray;
+}
 
-            position: relative;
-            width: 100vw;
-            box-sizing: border-box; 
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-        }
+.black-textbox {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    height: 300px;
+    font-size: 20px;
+    padding-top: 50px;
+    margin-top: 0;
 
-        .textbox-content {
-            max-width: 60%; 
-            margin: 0 auto; 
-            text-align: center;
-            font-family: "Georgia", serif;
-            font-size: 18px;
-            line-height: 30px;
-            padding-top: 20px; 
-            padding-bottom: 70px;
-        }
+    position: relative;
+    width: 100vw;
+    box-sizing: border-box;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
 
-        .pink-line {
-            height: 7px; 
-            background-color: #AA336A; 
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%; 
-            transform: translateY(-50%); 
-        }
+.textbox-content {
+    max-width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: "Georgia", serif;
+    font-size: 18px;
+    line-height: 30px;
+    padding-top: 20px;
+    padding-bottom: 70px;
+}
 
-        .homepage-video {
-            display: flex;
-            justify-content: center; 
-            align-items: center; 
-            margin-top: 0px;
-            padding-top: 0px;
-        }
+.pink-line {
+    height: 7px;
+    background-color: #AA336A;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+}
 
-        .homepage-video video {
-            display: block;
-            margin: 0 auto;
-            padding-top: 0;
-        }
+.homepage-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    padding-top: 0px;
+}
 
-        .pink-textbox{
-            background-color: #AA336A;
-            position: relative;
-            margin-top: 40px; 
-            text-align: center;
-            color: white;
-            padding: 60px 20px; 
-            font-size: 20px;
+.homepage-video video {
+    display: block;
+    margin: 0 auto;
+    padding-top: 0;
+}
 
-            width: 100vw;
-            box-sizing: border-box; 
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-        }
+.pink-textbox {
+    background-color: #AA336A;
+    position: relative;
+    margin-top: 40px;
+    text-align: center;
+    color: white;
+    padding: 60px 20px;
+    font-size: 20px;
 
-        .donate-button-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+    width: 100vw;
+    box-sizing: border-box;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
 
-        .donate-button {
-            display: inline-block;
-            padding: 35px 35px;
-            background-color: #AA336A;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 0;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            border: 2px solid white; 
-        }
+.donate-button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 
-        .donate-button:hover {
-            background-color: darkgrey;
-        }
+.donate-button {
+    display: inline-block;
+    padding: 35px 35px;
+    background-color: #AA336A;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: 2px solid white;
+}
 
-        .homepage-text{
-            text-align: center;
-            color: #AA336A;
-            font-size: 20px;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+.donate-button:hover {
+    background-color: darkgrey;
+}
 
-        .homepage-text p {
-            margin-bottom: 0px;
-        }
+.homepage-text {
+    text-align: center;
+    color: #AA336A;
+    font-size: 20px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 
-        .slider {
+.homepage-text p {
+    margin-bottom: 0px;
+}
+
+.slider {
     position: relative;
     overflow: hidden;
     text-align: center;
-    background-color: #AA336A; 
+    background-color: #AA336A;
     padding: 60px 20px;
     width: 100vw;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     left: 50%;
     right: 50%;
     margin-left: -50vw;
@@ -269,7 +268,6 @@ html, body {
     text-align: center;
     padding-left: 15%;
     padding-right: 5%;
-
 }
 
 .prev, .next {
@@ -277,92 +275,157 @@ html, body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 60px; 
+    width: 60px;
     height: 60px;
-    padding: 0; 
+    padding: 0;
     background-color: white;
     color: #AA336A;
     font-size: 20px;
-    border-radius: 50%; 
-    line-height: 60px; 
-    text-align: center; 
+    border-radius: 50%;
+    line-height: 60px;
+    text-align: center;
     z-index: 10;
 }
 
 .prev {
-    left: 12%;
+    left: 10%;
 }
 
 .next {
-    right: 12%;
+    right: 10%;
 }
 
-        .video-container {
-            margin: auto;
-            width: 1250px;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap; 
-        }
+.video-container {
+    margin: auto;
+    width: 1250px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 
-        .video-block {
-            flex-basis: 45%; 
-            text-align: center; 
-            margin-bottom: 20px; 
-        }
+.video-block {
+    flex-basis: 45%;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        .video-block video {
-            width: 100%; 
-            height: auto; 
-        }
+.video-block video {
+    width: 100%;
+    height: auto;
+}
 
-        .video-block p {
-            overflow-wrap: break-word;
-            word-wrap: break-word; 
-            white-space: normal;
-            font-family: "Georgia", serif;
-            font-size: 16px;
-            line-height: 25px;
-        }
+.video-block p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+    font-family: "Georgia", serif;
+    font-size: 16px;
+    line-height: 25px;
+}
 
-        .video-container .video-description {
-            word-wrap: break-word;
-        }
+.video-container .video-description {
+    word-wrap: break-word;
+}
 
-        .getintouch-homepage-bottom {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px; 
-        }
+.getintouch-homepage-bottom {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 
-        .getintouch {
-            display: inline-block;
-            padding: 20px 40px;
-            background-color: #AA336A;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            border: none; 
-            font-size: 25px;
-            border-radius: 5px; 
-        }
+.getintouch {
+    display: inline-block;
+    padding: 20px 40px;
+    background-color: #AA336A;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: none;
+    font-size: 25px;
+    border-radius: 5px;
+}
 
-        .getintouch:hover {
-            background-color: darkgrey; 
-        }
+.getintouch:hover {
+    background-color: darkgrey;
+}
 
-        .pink-line-top {
-            height: 7px;
-            background-color: #AA336A;
-            position: absolute;
-            top: 0%;
-            left: 0;
-            width: 100%;
-        }
+.pink-line-top {
+    height: 7px;
+    background-color: #AA336A;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .video-overlay p {
+        font-size: 18px;
+        top: -150px;
+        margin-bottom: 10px;
+    }
+
+    #IVOClogo-homepage img {
+        width: 50%;
+    }
+
+    .getintouch-button {
+        top: 70%;
+        font-size: 18px;
+    }
+
+    .black-textbox {
+        height: auto;
+        padding: 20px;
+    }
+
+    .textbox-content {
+        max-width: 90%;
+        font-size: 16px;
+    }
+
+    .homepage-video video {
+        width: 100%;
+        height: auto;
+    }
+
+    .pink-textbox {
+        padding: 30px 10px;
+    }
+
+    .homepage-text {
+        font-size: 18px;
+    }
+
+    .slider .prev, .slider .next {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        line-height: 40px;
+    }
+
+    .slide {
+        min-width: 100%;
+        padding: 10px;
+    }
+
+    .video-container {
+        width: 100%;
+    }
+
+    .video-block {
+        flex-basis: 100%;
+    }
+
+    .getintouch {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+}
 </style>
 
 {% if messages %}
@@ -375,9 +438,11 @@ html, body {
     {% endfor %}
 </div>
 {% endif %}
+<br>
+<br>
 
 <div class="responsive-video">
-    <video width= 100% height= 900px autoplay loop muted>
+    <video width="100%" height="auto" autoplay loop muted>
         <source src="{% static 'images/Video.mp4' %}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -386,7 +451,7 @@ html, body {
         <p><b>Building opportunities for youth empowerment through <i>self-expression</i></b></p>
 
         <div id="IVOClogo-homepage">
-            <img src="{% static 'images/IVOCHOMEPAGE.png' %}" alt="Ivoc Logo Homepage"/>
+            <img src="{% static 'images/IVOCHOMEPAGE.png' %}" alt="Ivoc Logo Homepage" />
         </div>
 
         <div class="getintouch-button-container">
@@ -398,7 +463,7 @@ html, body {
 <br>
 
 <div class="black-textbox">
-    <div class="pink-line-top"></div> 
+    <div class="pink-line-top"></div>
     <div class="textbox-content">
         <div class="pink-line"></div>
         <p>Inner Voice Outer Change (IVOC) provides therapeutic services that foster youth empowerment through the creation of music and multimedia projects. Our approach encourages marginalized youth to partner with IVOC as they lean into the therapeutic process of self-expression. These healthy alternatives often prove to be effective in engaging adolescents who struggle with traditional modes of interpersonal communication.</p>
@@ -411,7 +476,7 @@ html, body {
 <br>
 <br>
 <div class="homepage-video">
-    <video width= 1100px height= 650px autoplay muted loop controls>
+    <video width="100%" height="auto" autoplay muted loop controls>
         <source src="{% static 'images/IVOC Upstream Initiative.mp4' %}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -438,7 +503,7 @@ html, body {
     <p><b>Our Why:</b> The conversation that changed everything. The birth of IVOC happened when we finally started listening to our youth.</p>
     <br>
     <div class="homepage-video">
-        <video width= 800px height= 550px controls>
+        <video width="100%" height="auto" controls>
             <source src="{% static 'images/The birth of IVOC.mp4' %}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -476,8 +541,6 @@ html, body {
     <button class="next" onclick="changeSlide(1)">&#10095;</button>
 </div>
 
-
-
 <br>
 <br>
 <br>
@@ -487,39 +550,39 @@ html, body {
 
 <div class="video-container">
     <div class="video-block">
-        <video width="320" height="240" controls poster="{% static 'images/SummerThumbnail.jpg' %}">
-        <source src="{% static 'images/IVOCSummer.mp4' %}" type="video/mp4">
-        Your browser does not support the video tag.
+        <video width="100%" height="auto" controls poster="{% static 'images/SummerThumbnail.jpg' %}">
+            <source src="{% static 'images/IVOCSummer.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
         </video>
         <p></p>
         <p class="video-description"><b>Event: <i>Summer Jumpoff</i></b>- IVOC's inaugural youth showcase was a night to remember! We saw our students shine as they performed songs and showcased videos they created as a part of IVOC.’s music and videography programs in Worcester, MA.</p>
     </div>
     <div class="video-block">
-        <video width="320" height="240" controls poster="{% static 'images/ProjectThumbnail.jpg' %}">
-        <source src="{% static 'images/Project.mp4' %}" type="video/mp4">
-        Your browser does not support the video tag.
+        <video width="100%" height="auto" controls poster="{% static 'images/ProjectThumbnail.jpg' %}">
+            <source src="{% static 'images/Project.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
         </video>
         <p></p>
-        <p class="video-description"><b>Project: <i>You Gotta See It To Be It</i></b> - This video was co-created with the help of our black and brown youth. We featured the inspiring story of Lou Brady, the President and CEO of Family Health Center of Worcester, so that our young viewers can see themselves in him. Please watch and share this with a young person who could use some uplifting.   <p>
+        <p class="video-description"><b>Project: <i>You Gotta See It To Be It</i></b> - This video was co-created with the help of our black and brown youth. We featured the inspiring story of Lou Brady, the President and CEO of Family Health Center of Worcester, so that our young viewers can see themselves in him. Please watch and share this with a young person who could use some uplifting.</p>
     </div>
 </div>
 
 <div class="video-container">
     <div class="video-block">
-        <video width="320" height="240" controls poster="{% static 'images/PromiseThumbnail.jpg' %}">
-        <source src="{% static 'images/Our Promise.mp4' %}" type="video/mp4">
-        Your browser does not support the video tag.
+        <video width="100%" height="auto" controls poster="{% static 'images/PromiseThumbnail.jpg' %}">
+            <source src="{% static 'images/Our Promise.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
         </video>
         <p></p>
         <p class="video-description"><b>Project: <i>Our Promise</i></b>- A collaborative production between IVOC Youth, Votary Films, and Family Health Center of Worcester (FHCW), “Our Promise” is based on FHCW’s mission to support and inspire up and coming professionals of color, by providing internship and mentorship opportunities.</p>
     </div>
     <div class="video-block">
-        <video width="320" height="240" controls poster="{% static 'images/ThumbnailTestimonial.png' %}">
-        <source src="{% static 'images/Testimonials.mp4' %}" type="video/mp4">
-        Your browser does not support the video tag.
+        <video width="100%" height="auto" controls poster="{% static 'images/ThumbnailTestimonial.png' %}">
+            <source src="{% static 'images/Testimonials.mp4' %}" type="video/mp4">
+            Your browser does not support the video tag.
         </video>
         <p></p>
-        <p class="video-description"><b>Testimonials: <i>Youth Voice</i></b> - This video was co-createdIVOC’s videography program provides opportunities for youth to engage in creative storytelling. They learn the technical aspect of videography and develop healthy communication skills along the way. </p>
+        <p class="video-description"><b>Testimonials: <i>Youth Voice</i></b> - This video was co-createdIVOC’s videography program provides opportunities for youth to engage in creative storytelling. They learn the technical aspect of videography and develop healthy communication skills along the way.</p>
     </div>
 </div>
 
@@ -540,7 +603,6 @@ html, body {
 
 {% block extra_js %}
 <script>
-
 document.addEventListener("DOMContentLoaded", function () {
     let currentSlide = 0; // Start at the first slide (index 0)
     const slidesContainer = document.querySelector('.slides-container');
@@ -579,25 +641,14 @@ document.addEventListener("DOMContentLoaded", function () {
     showSlide(currentSlide);
 });
 
-
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     var modal = document.getElementById('chatModal');
-
     var btn = document.querySelector('.chat-button');
-
     var span = document.getElementsByClassName("close")[0];
 
     function openModal() {
         modal.style.display = "block";
         modal.style.top = (window.pageYOffset + 200) + "px";
-
     }
 
     function closeModal() {
@@ -605,17 +656,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     btn.onclick = openModal;
-
     span.onclick = closeModal;
-
     window.onclick = function (event) {
         if (event.target == modal) {
             closeModal();
         }
     }
 });
-
-
 
 document.addEventListener('DOMContentLoaded', function () {
     var dropdown = document.querySelector('.dropdown-toggle');

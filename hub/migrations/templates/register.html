@@ -37,7 +37,28 @@
     small {
         color: red; 
     }
+
+    @media (max-width: 768px) {
+        .register-container {
+            margin: 20px;
+            padding: 15px;
+        }
+
+        form div {
+            margin: 5px 0;
+        }
+
+        form button {
+            margin-top: 15px;
+        }
+
+        .register-container h3 {
+            font-size: 1.5rem;
+        }
+    }
 </style>
+<br>
+<br>
 <br>
 <br>
 
@@ -63,35 +84,29 @@
 {% block extra_js %}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    var modal = document.getElementById('chatModal');
+        var modal = document.getElementById('chatModal');
 
-    var btn = document.querySelector('.chat-button');
+        var btn = document.querySelector('.chat-button');
 
-    var span = document.getElementsByClassName("close")[0];
+        var span = document.getElementsByClassName("close")[0];
 
-    function openModal() {
-        modal.style.display = "block";
-        modal.style.top = (window.pageYOffset + 200) + "px";
-
-    }
-
-    function closeModal() {
-        modal.style.display = "none";
-    }
-
-    btn.onclick = openModal;
-
-    span.onclick = closeModal;
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            closeModal();
+        function openModal() {
+            modal.style.display = "block";
+            modal.style.top = (window.pageYOffset + 200) + "px";
         }
-    }
-});
 
+        function closeModal() {
+            modal.style.display = "none";
+        }
 
+        btn.onclick = openModal;
+        span.onclick = closeModal;
 
-
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    });
 </script>
 {% endblock extra_js %}

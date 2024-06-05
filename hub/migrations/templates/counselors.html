@@ -13,37 +13,24 @@
 
     .counselor-message {
         text-align: center;
-        max-width: 450px;
-        margin: 20px 20px;
+        margin: 20px;
         padding: 20px;
         background-color: #f9f9f9;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        vertical-align: top; 
-        max-width: calc(40% - 120px);
+        flex: 1 1 calc(33% - 40px);
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        flex: 1 1 calc(33% - 40px); 
-
     }
 
-    .counselor-message h2 {
+    .counselor-message h2, .counselor-message h3 {
         font-family: 'Garamond', serif;
         font-weight: normal;
-        font-size: 1.5rem;
         color: #333;
-        margin-bottom: 0.5rem;
-    }
-
-    .counselor-message h3 {
-        font-family: 'Garamond', serif;
-        font-weight: normal;
-        font-size: 1.3rem;
-        color: #333;
-        margin-top: 0;
+        margin: 0.5rem 0;
     }
 
     .counselor-message p {
@@ -62,13 +49,18 @@
     }
 
     @media (max-width: 768px) {
-        .counselor-message {
-            margin: 10px;
-            padding: 10px;
-            width: calc(100% - 20px); 
+        .counselors-container {
+            flex-direction: column;
+            align-items: center;
         }
 
-        .counselor-message h2, h3{
+        .counselor-message {
+            margin: 10px 0;
+            width: 100%;
+            max-width: 90%;
+        }
+
+        .counselor-message h2, .counselor-message h3 {
             font-size: 1.2rem;
         }
 
@@ -77,7 +69,7 @@
         }
     }
 
-    .counselor-description{
+    .counselor-description {
         border-left: 4px solid #AA336A;
         padding-left: 20px;
     }
@@ -153,7 +145,6 @@
         <p>Undergraduate Student at Clark University.</p>
         </div>
     </div>
-
 </div> 
 
 {% endblock %}
@@ -161,49 +152,43 @@
 {% block extra_js %}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    var modal = document.getElementById('chatModal');
+        var modal = document.getElementById('chatModal');
+        var btn = document.querySelector('.chat-button');
+        var span = document.getElementsByClassName("close")[0];
 
-    var btn = document.querySelector('.chat-button');
-
-    var span = document.getElementsByClassName("close")[0];
-
-    function openModal() {
-        modal.style.display = "block";
-        modal.style.top = (window.pageYOffset + 200) + "px";
-
-    }
-
-    function closeModal() {
-        modal.style.display = "none";
-    }
-
-    btn.onclick = openModal;
-
-    span.onclick = closeModal;
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            closeModal();
+        function openModal() {
+            modal.style.display = "block";
+            modal.style.top = (window.pageYOffset + 200) + "px";
         }
-    }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-    var dropdown = document.querySelector('.dropdown-toggle');
-    var menu = document.querySelector('.dropdown-menu');
+        function closeModal() {
+            modal.style.display = "none";
+        }
 
-    dropdown.addEventListener('click', function (event) {
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        event.stopPropagation();
-    });
+        btn.onclick = openModal;
+        span.onclick = closeModal;
 
-    window.addEventListener('click', function () {
-        if (menu.style.display === 'block') {
-            menu.style.display = 'none';
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     });
-});
 
+    document.addEventListener('DOMContentLoaded', function () {
+        var dropdown = document.querySelector('.dropdown-toggle');
+        var menu = document.querySelector('.dropdown-menu');
 
+        dropdown.addEventListener('click', function (event) {
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            event.stopPropagation();
+        });
+
+        window.addEventListener('click', function () {
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            }
+        });
+    });
 </script>
 {% endblock extra_js %}

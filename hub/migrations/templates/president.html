@@ -12,33 +12,33 @@
     .president-message {
         text-align: center;
         max-width: 900px;
-        margin: 50px auto; 
+        margin: 50px auto;
         padding: 20px;
         background-color: #f9f9f9;
-        border-radius: 8px; 
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .president-message h1 {
         margin: 20px 0;
         font-family: 'Garamond', serif;
         font-weight: normal;
-        font-size: 2rem; 
+        font-size: 2rem;
         color: #333;
     }
 
     .president-message p {
         font-size: 1rem;
-        margin-bottom: 1.5em; 
-        color: #555; 
+        margin-bottom: 1.5em;
+        color: #555;
     }
 
     .president-quote {
         font-style: italic;
         margin-bottom: 2em;
-        font-size: 1.1rem; 
-        border-left: 4px solid #AA336A; 
-        padding-left: 20px; 
+        font-size: 1.1rem;
+        border-left: 4px solid #AA336A;
+        padding-left: 20px;
     }
 
     .president-quote b {
@@ -46,11 +46,11 @@
     }
 
     #president-headshot img {
-        width: 200px; 
+        width: 200px;
         height: auto;
         display: block;
-        margin: 20px auto 40px; 
-        border-radius: 50%; 
+        margin: 20px auto 40px;
+        border-radius: 50%;
         border: 4px solid #ddd;
     }
 
@@ -59,16 +59,26 @@
             margin: 20px;
             padding: 10px;
         }
-        
+
         .president-message h1 {
-            font-size: 1.5rem; 
+            font-size: 1.5rem;
         }
 
         #president-headshot img {
-            width: 150px; 
+            width: 150px;
+        }
+
+        .president-quote {
+            font-size: 1rem;
+            padding-left: 10px;
+        }
+
+        .president-message p {
+            font-size: 0.9rem;
         }
     }
 </style>
+<br>
 <br>
 <br>
 
@@ -80,85 +90,58 @@
     </div>
 
     <div class="president-quote">
+        <p><i><b>“The chance to provide youth with an opportunity to heal, grow, and thrive by way of therapeutic intervention is what drives my passion, it's what keeps me in the field of social work.”</b></i></p>
+    </div>
 
-        <p><i><b>“The chance to provide youth with an opportunity to heal, grow, 
-            and thrive by way of therapeutic intervention is what drives my 
-            passion, it's what keeps me in the field of social work.”</b></i></p>
-        </div>
+    <p>A strong believer in God and the power of faith, a therapist, educator, and youth advocate, Isiah brings over 20 years of professional Social Work experience to IVOC. He provides clinical services and support to a diversified population of youth and families throughout the Commonwealth of Massachusetts. Isiah has a Master of Social Work degree from Springfield College and an undergraduate degree in Sociology from Fitchburg State University. Group therapy, individual - 1on1 psychotherapy, family therapy, support networking, clinical case management, and behavior modification are all well within Isiah’s scope of practice. Isiah’s clinical approach is guided by a strength-based, client-centered framework.</p>
 
-            
-        <p> A strong believer in God and the power of faith, a therapist, educator, 
-            and youth advocate, Isiah brings over 20 years of professional Social 
-            Work experience to IVOC. He provides clinical services and support to 
-            a diversified population of youth and families throughout the Commonwealth 
-            of Massachusetts. Isiah has a Master of Social Work degree from Springfield 
-            College and an undergraduate degree in Sociology from Fitchburg State University. 
-            Group therapy, individual - 1on1 psychotherapy, family therapy, support networking,
-            clinical case management, and behavior modification are all well within Isiah’s scope 
-            of practice. Isiah’s clinical approach is guided by a strength-based, client-centered 
-            framework. </p>
-        
-        <p>As a former school-based, behavioral health clinician and former Social Worker for the 
-            Department of Children and Families, Isiah has experience working with limited resources.
-            Isiah is motivated to create chances for young people to use their natural strengths and 
-            skills. Utilizing said skills as a therapeutic tool to express themselves and build additional 
-            strengths along the way is the key.</p>
-        
-        
-        <p><b>Statement of Care:</b> “A community's level of awareness of the environment in which our youth are 
-            growing up is directly proportional to their growth and development. Music and multimedia serve 
-            as both a barrier and a bridge between our youth and the systems designed to support them. Growth 
-            and overall wellness come from healthy outlets of self-expression.” </p>
+    <p>As a former school-based, behavioral health clinician and former Social Worker for the Department of Children and Families, Isiah has experience working with limited resources. Isiah is motivated to create chances for young people to use their natural strengths and skills. Utilizing said skills as a therapeutic tool to express themselves and build additional strengths along the way is the key.</p>
+
+    <p><b>Statement of Care:</b> “A community's level of awareness of the environment in which our youth are growing up is directly proportional to their growth and development. Music and multimedia serve as both a barrier and a bridge between our youth and the systems designed to support them. Growth and overall wellness come from healthy outlets of self-expression.”</p>
 </div>
-        
+
 {% endblock %}
 
 {% block extra_js %}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    var modal = document.getElementById('chatModal');
+        var modal = document.getElementById('chatModal');
+        var btn = document.querySelector('.chat-button');
+        var span = document.getElementsByClassName("close")[0];
 
-    var btn = document.querySelector('.chat-button');
-
-    var span = document.getElementsByClassName("close")[0];
-
-    function openModal() {
-        modal.style.display = "block";
-        modal.style.top = (window.pageYOffset + 200) + "px";
-
-    }
-
-    function closeModal() {
-        modal.style.display = "none";
-    }
-
-    btn.onclick = openModal;
-
-    span.onclick = closeModal;
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            closeModal();
+        function openModal() {
+            modal.style.display = "block";
+            modal.style.top = (window.pageYOffset + 200) + "px";
         }
-    }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-    var dropdown = document.querySelector('.dropdown-toggle');
-    var menu = document.querySelector('.dropdown-menu');
+        function closeModal() {
+            modal.style.display = "none";
+        }
 
-    dropdown.addEventListener('click', function (event) {
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        event.stopPropagation();
-    });
+        btn.onclick = openModal;
+        span.onclick = closeModal;
 
-    window.addEventListener('click', function () {
-        if (menu.style.display === 'block') {
-            menu.style.display = 'none';
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     });
-});
 
+    document.addEventListener('DOMContentLoaded', function () {
+        var dropdown = document.querySelector('.dropdown-toggle');
+        var menu = document.querySelector('.dropdown-menu');
 
+        dropdown.addEventListener('click', function (event) {
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            event.stopPropagation();
+        });
+
+        window.addEventListener('click', function () {
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            }
+        });
+    });
 </script>
 {% endblock extra_js %}
