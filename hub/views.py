@@ -55,7 +55,9 @@ def send_message(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
-        full_message = f"Message from {name}, Email: {email}\n\n{message}"
+        age = request.POST.get('age')
+
+        full_message = f"Message from {name}\nEmail: {email}\nAge: {age}\n\n{message}"
 
         send_mail(
             subject=f"Message from {name} via IVOC Website",

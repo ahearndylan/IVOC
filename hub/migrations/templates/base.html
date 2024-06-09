@@ -352,6 +352,8 @@
             width: 50%; 
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             border-radius: 10px; 
+            max-height: 80vh; /* Maximum height to enable scrolling */
+            overflow-y: auto; /* Enable vertical scrolling */
         }
 
         .close {
@@ -408,6 +410,25 @@
             width: 25%; 
             margin: 8px 0; 
         }
+
+        .chat-welcome-message {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+
+
+.chat-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
         .footer-top-line {
             height: 7px;
@@ -732,23 +753,31 @@
             </a>        
         </div>
 
-            <div id="chatModal" class="modal" style="display: none;">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <form action="{% url 'send_email' %}" method="post" class="chat-form">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <div class="form-group button-container">
-                            <button type="submit" class="submit-button">Send Message</button>
-                        </div>
+        <div id="chatModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p class="chat-welcome-message">Welcome to IVOC! Thank you for reaching out. We will get back to you soon.</p>
+                <form action="{% url 'send_email' %}" method="post" class="chat-form">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <select id="age" name="age" required>
+                            <option value="" disabled selected>Select your age group</option>
+                            <option value="minor"><18</option>
+                            <option value="adult">18+</option>
+                        </select>
+                    </div>
+                    <div class="form-group button-container">
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </div>
 
                     </form>
                 </div>

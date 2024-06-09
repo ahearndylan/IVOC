@@ -112,6 +112,69 @@
         background-color: darkgrey;
     }
 
+    .donation-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.center-mode-carousel {
+    position: relative;
+    max-width: 80%;
+    height: 400px;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    flex: 0 0 40%;
+    margin: 0 10px;
+    opacity: 0.5;
+    transform: scale(0.8);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.carousel-slide img {
+    max-width: 80%; /* Ensure images fit within the carousel slide */
+    height: auto;
+    border-radius: 8px;
+}
+
+.carousel-slide.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.carousel-prev-slide, .carousel-next-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.carousel-prev-slide {
+    left: 10px;
+}
+
+.carousel-next-slide {
+    right: 10px;
+}
+
+
+
     @media (max-width: 768px) {
         .donation-container, .image-gallery-container {
             grid-template-columns: 1fr;
@@ -204,25 +267,17 @@ button.prev:hover, button.next:hover {
     color: white;
 }
 
-
-
-
-
-
 .donation-impact {
-        list-style-type: none; /* Removes the bullet points */
-        padding: 0; /* Removes the default padding */
-    }
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1rem;
+}
 
-    .donation-impact li {
-        background-color: #fff;
-        margin-bottom: 10px;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-    }
-
-    .custom-image-gallery-slideshow {
+.custom-image-gallery-slideshow {
     position: relative;
     max-width: 600px; /* Adjust this value as needed */
     height: 400px; /* Set a fixed height */
@@ -285,9 +340,6 @@ button.custom-prev-slide:hover, button.custom-next-slide:hover {
     color: white;
 }
 
-
-
-
 </style>
 
 <br>
@@ -314,11 +366,6 @@ button.custom-prev-slide:hover, button.custom-next-slide:hover {
             <div class="progress-bar" id="impactProgressBar"></div>
         </div>
 
-
-
-
-
-
         <h2>Success Stories</h2>
         <div class="success-stories-container">
             <button class="prev">&#10094;</button>
@@ -340,52 +387,43 @@ button.custom-prev-slide:hover, button.custom-next-slide:hover {
             </div>
             <button class="next">&#10095;</button>
         </div>
-        
-        
-        
 
-
-<!--        
-        <ul class="success-stories">
-            <li>"What I like about IVOC is how kids are allowed to participate and create music freely. It is also a space where you can be yourself and where you will never be judged"</li>
-            <li>"Something I learned about myself is how to work with others. For example, how to help (another member of the group) when he didn't know how to add on to the beat for the first time in the studio"</li>
-        </ul>
--->
         <h2>Your Donation Makes a Difference</h2>
-        <ul class="donation-impact">
-            <li>$25 can provide art supplies for one workshop</li>
-            <li>$50 can sponsor a youth's participation in our programs for a month</li>
-            <li>$100 can help maintain our community centers, ensuring a safe space for creativity and growth</li>
-            <li>Any contribution, regardless of size, supports our mission</li>
-        </ul>
-
-        <p>Join us in empowering youth. Every contribution, no matter the size, is a step towards a brighter future.</p>
         <br>
+        <div class="donation-impact">
+            Every contribution helps us provide essential resources and opportunities for youth to thrive through our programs. Your support fosters creativity and growth within our community. Donations help fund field trips, self-care initiatives, and community self-care outlets, ensuring our youth have access to valuable experiences and support systems. All contributions, no matter the size, is a step towards a brighter future.
+        </div>
+        <div class="donation-center">
+            <p>Join us in making a meaningful impact today.</p>
+        </div>
+            <br>
         <a href="https://ivocforyouth.com/checkout/donate?donatePageId=659a21b0dce9430958c77663" class="supportus-button">Donate to IVOC here</a>
     </div>
 </div>
 <br>
-<div class="custom-image-gallery-slideshow">
-    <div class="custom-slide-container">
-        <div class="custom-slide">
-            <img src="{% static 'images/grant1.jpg' %}" alt="IVOC Visual 1" class="custom-gallery-image" style="width: 70%; height: auto;">
+<div class="center-mode-carousel">
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="{% static 'images/a.png' %}" alt="IVOC Visual 1" class="carousel-image">
         </div>
-        <div class="custom-slide">
-            <img src="{% static 'images/grant2.jpg' %}" alt="IVOC Visual 2" class="custom-gallery-image" style="width: 70%; height: auto;">
+        <div class="carousel-slide active">
+            <img src="{% static 'images/b.png' %}" alt="IVOC Visual 2" class="carousel-image">
         </div>
-        <div class="custom-slide">
-            <img src="{% static 'images/grant3.jpg' %}" alt="IVOC Visual 3" class="custom-gallery-image" style="width: 70%; height: auto;">
+        <div class="carousel-slide">
+            <img src="{% static 'images/c.png' %}" alt="IVOC Visual 3" class="carousel-image">
         </div>
-        <div class="custom-slide">
-            <img src="{% static 'images/grant4.png' %}" alt="IVOC Visual 4" class="custom-gallery-image" style="width: 70%; height: auto;">
+        <div class="carousel-slide">
+            <img src="{% static 'images/d.png' %}" alt="IVOC Visual 4" class="carousel-image">
         </div>
-        <div class="custom-slide">
-            <img src="{% static 'images/grant5.png' %}" alt="IVOC Visual 5" class="custom-gallery-image" style="width: 70%; height: auto;">
+        <div class="carousel-slide">
+            <img src="{% static 'images/e.png' %}" alt="IVOC Visual 5" class="carousel-image">
         </div>
     </div>
-    <button class="custom-prev-slide">&#10094;</button>
-    <button class="custom-next-slide">&#10095;</button>
+    <button class="carousel-prev-slide">&#10094;</button>
+    <button class="carousel-next-slide">&#10095;</button>
 </div>
+
+
 
 <br>
 <br>
@@ -393,8 +431,68 @@ button.custom-prev-slide:hover, button.custom-next-slide:hover {
 {% endblock %}
 
 {% block extra_js %}
-
 <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    var slides = document.querySelectorAll('.carousel-slide');
+    var currentIndex = 1; // Start with the second slide as active
+    var totalSlides = slides.length;
+
+    function cloneSlides() {
+        var carouselContainer = document.querySelector('.carousel-container');
+        slides.forEach(slide => {
+            var clone = slide.cloneNode(true);
+            carouselContainer.appendChild(clone);
+        });
+    }
+
+    function updateSlides() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            if (index === currentIndex) {
+                slide.classList.add('active');
+            }
+        });
+
+        var offset = -currentIndex * (slides[0].clientWidth + 30) + ((slides[0].clientWidth + 30) / 2); // Adjust 30 for margin
+        document.querySelector('.carousel-container').style.transform = 'translateX(' + offset + 'px)';
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % (totalSlides * 2);
+        if (currentIndex >= totalSlides) {
+            setTimeout(() => {
+                document.querySelector('.carousel-container').style.transition = 'none';
+                currentIndex = currentIndex % totalSlides;
+                updateSlides();
+            }, 500);
+        } else {
+            document.querySelector('.carousel-container').style.transition = 'transform 0.5s ease-in-out';
+        }
+        updateSlides();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides * 2) % (totalSlides * 2);
+        if (currentIndex < totalSlides) {
+            setTimeout(() => {
+                document.querySelector('.carousel-container').style.transition = 'none';
+                currentIndex = (currentIndex + totalSlides) % totalSlides;
+                updateSlides();
+            }, 500);
+        } else {
+            document.querySelector('.carousel-container').style.transition = 'transform 0.5s ease-in-out';
+        }
+        updateSlides();
+    }
+
+    document.querySelector('.carousel-prev-slide').addEventListener('click', prevSlide);
+    document.querySelector('.carousel-next-slide').addEventListener('click', nextSlide);
+
+    cloneSlides();
+    updateSlides(); // Initialize the carousel
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
     var maxValue = 350;
@@ -488,6 +586,5 @@ document.addEventListener('DOMContentLoaded', function () {
     // Show the first slide initially
     showSlide(slideIndex);
 });
-
 </script>
 {% endblock extra_js %}

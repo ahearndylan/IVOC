@@ -1,15 +1,12 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     var modal = document.getElementById('chatModal');
-
     var btn = document.querySelector('.chat-button');
-
     var span = document.getElementsByClassName("close")[0];
 
     function openModal() {
         modal.style.display = "block";
-        modal.style.top = (window.pageYOffset + 200) + "px";
-
+        modal.style.top = (window.pageYOffset + 50) + "px"; // Adjusted top position
     }
 
     function closeModal() {
@@ -17,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     btn.onclick = openModal;
-
     span.onclick = closeModal;
 
     window.onclick = function (event) {
@@ -26,4 +22,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
+
 

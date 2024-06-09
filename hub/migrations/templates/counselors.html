@@ -4,33 +4,37 @@
 {% block content %}
 <style>
     .counselors-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center; 
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
         max-width: 80%;
         margin: 0 auto;
     }
 
     .counselor-message {
+        display: grid;
+        grid-template-rows: auto auto auto auto auto;
         text-align: center;
         margin: 20px;
         padding: 20px;
         background-color: #f9f9f9;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        flex: 1 1 calc(33% - 40px);
         box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
     }
 
-    .counselor-message h2, .counselor-message h3 {
+    .counselor-message h2 {
         font-family: 'Garamond', serif;
         font-weight: normal;
         color: #333;
-        margin: 0.5rem 0;
+        margin: 0.2rem 0 0.1rem 0; /* Reduced bottom margin */
+    }
+
+    .counselor-message h3 {
+        font-family: 'Garamond', serif;
+        font-weight: normal;
+        color: #555;
+        margin: 0.5rem 0; /* Reduced top and bottom margin */
     }
 
     .counselor-message p {
@@ -50,18 +54,7 @@
 
     @media (max-width: 768px) {
         .counselors-container {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .counselor-message {
-            margin: 10px 0;
-            width: 100%;
-            max-width: 90%;
-        }
-
-        .counselor-message h2, .counselor-message h3 {
-            font-size: 1.2rem;
+            grid-template-columns: 1fr;
         }
 
         .counselor-headshot img {
@@ -73,29 +66,41 @@
         border-left: 4px solid #AA336A;
         padding-left: 20px;
     }
+
+    .category-heading {
+        text-align: center;
+        width: 100%;
+        font-family: 'Garamond', serif;
+        color: #333;
+        margin-top: 40px;
+        grid-column: span 2; /* Spans the heading across the full width */
+    }
 </style>
 <br>
 <br>
 <br>
 <br>
 
-<div class="counselors-container">
+<div class="counselors-container">    
+
     <div class="counselor-message">
-        <h2>Keith Chester "K. Fingers"</h2>
+        <h2>Keith Chester</h2>
+        <h3>"K. Fingers"</h3>
         <h3>Music Engineer</h3>
         <div class="counselor-headshot">
-            <img src="{% static 'images/KEITH2.jpg' %}" alt="Counselor Name 1 Headshot"/>
+            <img src="{% static 'images/KEITH2.jpg' %}" alt="Keith Chester Headshot"/>
         </div>
         <div class="counselor-description">
-        <p>Kieth has dedicated his career to working with youth as a counselor and mentor. He has a wealth of knowledge in music production, having produced several albums of his own.</p>
+        <p>Keith has dedicated his career to working with youth as a counselor and mentor. He has a wealth of knowledge in music production, having produced several albums of his own.</p>
         </div>
     </div>
 
     <div class="counselor-message">
-        <h2>Johneric Lavergne "Johneric Keys"</h2>
+        <h2>Johneric Lavergne</h2>
+        <h3>"Johneric Keys"</h3>
         <h3>Music Engineer</h3>
         <div class="counselor-headshot">
-            <img src="{% static 'images/Johneric2.png' %}" alt="Counselor Name 1 Headshot"/>
+            <img src="{% static 'images/Johneric2.png' %}" alt="Johneric Lavergne Headshot"/>
         </div>
         <div class="counselor-description">
         <p>Johneric has over 10 years of experience working as a youth counselor in Worcester County and is also a skilled musician, producer, videographer, and photographer.</p>
@@ -103,21 +108,22 @@
     </div>
 
     <div class="counselor-message">
-        <h2>Lioner Alicea "DJ Kid Kash"</h2>
+        <h2>Lioner Alicea</h2>
+        <h3>"DJ Kid Kash"</h3>
         <h3>Music Engineer</h3>
         <div class="counselor-headshot">
-            <img src="{% static 'images/Lioner2.jpeg' %}" alt="Counselor Name 1 Headshot"/>
+            <img src="{% static 'images/Lioner2.jpeg' %}" alt="Lioner Alicea Headshot"/>
         </div>
         <div class="counselor-description">
         <p>Lioner has a bachelor's degree in audio engineering. He is an established music engineer and DJ.</p> 
         </div>
     </div>
-
+    
     <div class="counselor-message">
         <h2>Cai Hall</h2>
         <h3>Creative Coach</h3>
         <div class="counselor-headshot">
-            <img src="{% static 'images/Cai2.jpeg' %}" alt="Counselor Name 1 Headshot"/>
+            <img src="{% static 'images/Cai2.jpeg' %}" alt="Cai Hall Headshot"/>
         </div>
         <div class="counselor-description">
         <p>Graduate student at Clark University.</p>
@@ -125,10 +131,10 @@
     </div>
 
     <div class="counselor-message">
-        <h2>Precious Sutton</h2>
+        <h2>Precious Sutton</h3>
         <h3>Creative Coach</h3>
         <div class="counselor-headshot">
-            <img src="{% static 'images/Precious2.jpg' %}" alt="Counselor Name 1 Headshot"/>
+            <img src="{% static 'images/Precious2.jpg' %}" alt="Precious Sutton Headshot"/>
         </div>
         <div class="counselor-description">
         <p>Undergraduate student studying Psychology with a minor in Creative Writing at Clark University.</p>
@@ -136,10 +142,10 @@
     </div>
 
     <div class="counselor-message">
-        <h2>Angelina</h2>
+        <h2>Angelina</h3>
         <h3>Creative Coach</h3>
         <div class="counselor-headshot">
-            <img src="{% static 'images/creativecoach1.png' %}" alt="Counselor Name 1 Headshot"/>
+            <img src="{% static 'images/Angelina.jpg' %}" alt="Angelina Headshot"/>
         </div>
         <div class="counselor-description">
         <p>Undergraduate Student at Clark University.</p>
