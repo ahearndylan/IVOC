@@ -38,6 +38,14 @@
             padding: 20px; 
             margin: 40px auto; 
         }
+
+        .music-content-title {
+            font-size: 30px;
+        }
+
+        .music-content-description {
+            font-size: 16px;
+        }
     }
 </style>
 <br>
@@ -68,49 +76,47 @@
 {% block extra_js %}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    var modal = document.getElementById('chatModal');
+        var modal = document.getElementById('chatModal');
 
-    var btn = document.querySelector('.chat-button');
+        var btn = document.querySelector('.chat-button');
 
-    var span = document.getElementsByClassName("close")[0];
+        var span = document.getElementsByClassName("close")[0];
 
-    function openModal() {
-        modal.style.display = "block";
-        modal.style.top = (window.pageYOffset + 200) + "px";
-
-    }
-
-    function closeModal() {
-        modal.style.display = "none";
-    }
-
-    btn.onclick = openModal;
-
-    span.onclick = closeModal;
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            closeModal();
+        function openModal() {
+            modal.style.display = "block";
+            modal.style.top = (window.pageYOffset + 200) + "px";
         }
-    }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-    var dropdown = document.querySelector('.dropdown-toggle');
-    var menu = document.querySelector('.dropdown-menu');
+        function closeModal() {
+            modal.style.display = "none";
+        }
 
-    dropdown.addEventListener('click', function (event) {
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        event.stopPropagation();
-    });
+        btn.onclick = openModal;
+        span.onclick = closeModal;
 
-    window.addEventListener('click', function () {
-        if (menu.style.display === 'block') {
-            menu.style.display = 'none';
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     });
-});
 
+    document.addEventListener('DOMContentLoaded', function () {
+        var dropdown = document.querySelector('.dropdown-toggle');
+        var menu = document.querySelector('.dropdown-menu');
+
+        dropdown.addEventListener('click', function (event) {
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            event.stopPropagation();
+        });
+
+        window.addEventListener('click', function () {
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            }
+        });
+    });
 </script>
 {% endblock extra_js %}
+
 

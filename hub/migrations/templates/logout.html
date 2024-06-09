@@ -41,7 +41,33 @@
     h2, h3 {
         color: #333;
     }
+
+    @media (max-width: 768px) {
+        .logout-container {
+            margin: 20px;
+            padding: 15px;
+        }
+
+        .logout-message {
+            margin-bottom: 15px;
+        }
+
+        .action-links {
+            margin-top: 15px;
+        }
+
+        .action-links a {
+            margin: 5px 0;
+            display: block;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
 </style>
+<br>
+<br>
 <br>
 <br>
 
@@ -62,33 +88,30 @@
 {% block extra_js %}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    var modal = document.getElementById('chatModal');
+        var modal = document.getElementById('chatModal');
 
-    var btn = document.querySelector('.chat-button');
+        var btn = document.querySelector('.chat-button');
 
-    var span = document.getElementsByClassName("close")[0];
+        var span = document.getElementsByClassName("close")[0];
 
-    function openModal() {
-        modal.style.display = "block";
-        modal.style.top = (window.pageYOffset + 200) + "px";
-
-    }
-
-    function closeModal() {
-        modal.style.display = "none";
-    }
-
-    btn.onclick = openModal;
-
-    span.onclick = closeModal;
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            closeModal();
+        function openModal() {
+            modal.style.display = "block";
+            modal.style.top = (window.pageYOffset + 200) + "px";
         }
-    }
-});
 
+        function closeModal() {
+            modal.style.display = "none";
+        }
 
+        btn.onclick = openModal;
+        span.onclick = closeModal;
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    });
 </script>
 {% endblock extra_js %}
+

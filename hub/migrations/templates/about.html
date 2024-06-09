@@ -30,14 +30,14 @@
         border: 2px solid #AA336A;
         border-radius: 8px;
         position: relative;
-        overflow: hidden; /* Add this to make sure the underline is contained */
+        overflow: hidden;
     }
 
     .about-quote::after {
         content: '';
         position: absolute;
         left: 5%;
-        bottom: 10px; /* Adjust this to position the underline inside the box */
+        bottom: 10px;
         width: 0;
         height: 2px;
         background-color: #AA336A;
@@ -46,7 +46,7 @@
     }
 
     .about-quote.animated::after {
-        width: 90%; /* Adjust this to match the width of the content */
+        width: 90%;
     }
 
     .curved-underline {
@@ -105,6 +105,37 @@
         margin-left: 20px;
         float: right;
         margin: 0 0 10px 20px;
+    }
+
+    /* Media queries for mobile responsiveness */
+    @media only screen and (max-width: 768px) {
+        .section {
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .section-heading {
+            font-size: 1.2em;
+        }
+
+        .about-quote {
+            font-size: 1em;
+            padding: 10px;
+        }
+
+        .flex-container {
+            flex-direction: column;
+        }
+
+        .flex-item {
+            margin: 10px 0;
+        }
+
+        .image-right {
+            max-width: 100%;
+            margin: 0 0 10px 0;
+            float: none;
+        }
     }
 </style>
 <br>

@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
@@ -10,7 +9,6 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-   
     .connect-me {
         text-align: center;
         line-height: 1.6;
@@ -22,6 +20,7 @@
         border-radius: 8px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         border: 2px solid #AA336A;
+        padding-bottom: 10px;
     }
 
     #connectContent {
@@ -30,43 +29,31 @@
         background-position: center 40%;
         background-size: cover;
         color: #333;
-        background-size: 70%; 
+        background-size: 70%;
     }
 
-
-    .underline-black {
-        text-decoration: underline;
-        text-decoration-color: black;
+    .underline-container {
+        display: inline-block;
         position: relative;
-        display: inline;
     }
 
-    .underline-black::after {
+    .underline-container::before {
         content: '';
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 0; 
-        height: 1px;
+        width: 100%;
+        height: 2px;
         background-color: black;
-        transition: width 0.5s ease; 
+        transform: scaleX(0);
+        transform-origin: bottom left;
+        animation: underline 2s forwards;
     }
 
-    .underline-black:hover::after {
-        width: 100%; 
-    }
-
-    @keyframes loadUnderline {
-        from {
-            width: 0;
-        }
+    @keyframes underline {
         to {
-            width: 100%;
+            transform: scaleX(1);
         }
-    }
-
-    .underline-black::after {
-        animation: loadUnderline 2s ease forwards;
     }
 
     .contact-info {
@@ -112,8 +99,6 @@
         border-color: #333;
     }
 
-    
-
     .connect-info {
         max-width: 500px;
         margin: 20px auto;
@@ -125,7 +110,37 @@
         position: relative;
     }
 
+    @media (max-width: 768px) {
+        .connect-me {
+            font-size: 18px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .contact-info {
+            font-size: 16px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .email-button {
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+        .connect-info {
+            max-width: 100%;
+            margin: 10px auto;
+            padding: 15px;
+        }
+    }
+
+    .connect-spacing{
+        padding-top: 15px;
+    }
 </style>
+<br>
+<br>
 <br>
 
 <div class="connect-page-background" id="connectContent">
@@ -135,22 +150,24 @@
            they need support. They could benefit from guidance on using their love for music, 
            photos, or videos in a positive way. It can be tough for adolescents to talk openly 
            with adults, but everyone communicates differently.</p>
-        <p class="underline-black">As we help teens express themselves, we help them heal.</p>
-        <p>Connect with us to help teens heal, grow, and express themselves.</p>
+        <div class="underline-container">
+            <span>As we help teens express themselves, we help them heal.</span>
+        </div>
+        <div class="connect-spacing">
+            <p>Connect with us to help teens heal, grow, and express themselves.</p>
+        </div>
     </div>
 
-        <div class="connect-info">
-
-            <div class="email-button-container">
-                <a href="mailto:info@ivocforyouth.com" class="email-button">Schedule an Appointment</a>
-            </div>
-
-            <div class="contact-info">
-                <p>info@ivocforyouth.com</p>
-                <p>(978) 822-6501</p>
-            </div>
+    <div class="connect-info">
+        <div class="email-button-container">
+            <a href="mailto:info@ivocforyouth.com" class="email-button">Schedule an Appointment</a>
         </div>
 
+        <div class="contact-info">
+            <p>info@ivocforyouth.com</p>
+            <p>(978) 822-6501</p>
+        </div>
+    </div>
 </div>
 <br>
 <br>
@@ -159,49 +176,45 @@
 {% block extra_js %}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    var modal = document.getElementById('chatModal');
+        var modal = document.getElementById('chatModal');
 
-    var btn = document.querySelector('.chat-button');
+        var btn = document.querySelector('.chat-button');
 
-    var span = document.getElementsByClassName("close")[0];
+        var span = document.getElementsByClassName("close")[0];
 
-    function openModal() {
-        modal.style.display = "block";
-        modal.style.top = (window.pageYOffset + 200) + "px";
-
-    }
-
-    function closeModal() {
-        modal.style.display = "none";
-    }
-
-    btn.onclick = openModal;
-
-    span.onclick = closeModal;
-
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            closeModal();
+        function openModal() {
+            modal.style.display = "block";
+            modal.style.top = (window.pageYOffset + 200) + "px";
         }
-    }
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-    var dropdown = document.querySelector('.dropdown-toggle');
-    var menu = document.querySelector('.dropdown-menu');
+        function closeModal() {
+            modal.style.display = "none";
+        }
 
-    dropdown.addEventListener('click', function (event) {
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        event.stopPropagation();
-    });
+        btn.onclick = openModal;
+        span.onclick = closeModal;
 
-    window.addEventListener('click', function () {
-        if (menu.style.display === 'block') {
-            menu.style.display = 'none';
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     });
-});
 
+    document.addEventListener('DOMContentLoaded', function () {
+        var dropdown = document.querySelector('.dropdown-toggle');
+        var menu = document.querySelector('.dropdown-menu');
+
+        dropdown.addEventListener('click', function (event) {
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            event.stopPropagation();
+        });
+
+        window.addEventListener('click', function () {
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            }
+        });
+    });
 </script>
 {% endblock extra_js %}
-
