@@ -343,7 +343,7 @@ button.custom-prev-slide:hover, button.custom-next-slide:hover {
 </style>
 
 <br>
-
+<br>
 <div class="hero-section">
     <h1>Support Our Mission</h1>
     <p>"Empowering youth through music and media for a brighter future."</p>
@@ -394,7 +394,7 @@ button.custom-prev-slide:hover, button.custom-next-slide:hover {
             Every contribution helps us provide essential resources and opportunities for youth to thrive through our programs. Your support fosters creativity and growth within our community. Donations help fund field trips, self-care initiatives, and community self-care outlets, ensuring our youth have access to valuable experiences and support systems. All contributions, no matter the size, is a step towards a brighter future.
         </div>
         <div class="donation-center">
-            <p>Join us in making a meaningful impact today.</p>
+            <p>Join us in making a meaningful impact today!</p>
         </div>
             <br>
         <a href="https://ivocforyouth.com/checkout/donate?donatePageId=659a21b0dce9430958c77663" class="supportus-button">Donate to IVOC here</a>
@@ -495,12 +495,6 @@ document.addEventListener('DOMContentLoaded', function () {
     updateSlides(); // Initialize the carousel
 });
 
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     var maxValue = 350;
     var currentValue = 244;
@@ -593,5 +587,32 @@ document.addEventListener('DOMContentLoaded', function () {
     // Show the first slide initially
     showSlide(slideIndex);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+        var modal = document.getElementById('chatModal');
+
+        var btn = document.querySelector('.chat-button');
+
+        var span = document.getElementsByClassName("close")[0];
+
+        function openModal() {
+            modal.style.display = "block";
+            modal.style.top = (window.pageYOffset + 200) + "px";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        btn.onclick = openModal;
+        span.onclick = closeModal;
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    });
+
 </script>
 {% endblock extra_js %}
