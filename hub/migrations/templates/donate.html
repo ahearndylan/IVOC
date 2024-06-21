@@ -113,72 +113,64 @@
     }
 
     .donation-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 
-.center-mode-carousel {
-    position: relative;
-    max-width: 80%;
-    height: 400px;
-    margin: auto;
-    overflow: hidden;
-    padding: 20px 0;
-}
+    .center-mode-carousel {
+        position: relative;
+        max-width: 80%;
+        height: 400px;
+        margin: auto;
+        overflow: hidden;
+        padding: 20px 0;
+    }
 
-.carousel-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
+    .carousel-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
 
-.carousel-slide {
-    flex: 0 0 40%;
-    margin: 0 10px;
-    opacity: 0.5;
-    transform: scale(0.8);
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
+    .carousel-slide {
+        flex: 0 0 40%;
+        margin: 0 10px;
+        opacity: 0.5;
+        transform: scale(0.8);
+        transition: transform 0.5s ease, opacity 0.5s ease;
+    }
 
-.carousel-slide img {
-    max-width: 80%; /* Ensure images fit within the carousel slide */
-    height: auto;
-    border-radius: 8px;
-}
+    .carousel-slide img {
+        max-width: 80%; /* Ensure images fit within the carousel slide */
+        height: auto;
+        border-radius: 8px;
+    }
 
-.carousel-slide.active {
-    transform: scale(1);
-    opacity: 1;
-}
+    .carousel-slide.active {
+        transform: scale(1);
+        opacity: 1;
+    }
 
-.carousel-prev-slide, .carousel-next-slide {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    padding: 10px;
-    border-radius: 50%;
-    z-index: 10;
-}
+    .carousel-prev-slide, .carousel-next-slide {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.7);
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        padding: 10px;
+        border-radius: 50%;
+        z-index: 10;
+    }
 
-.carousel-prev-slide {
-    left: 10px;
-}
+    .carousel-prev-slide {
+        left: 10px;
+    }
 
-.carousel-next-slide {
-    right: 10px;
-}
-
-
-
-    @media (max-width: 768px) {
-        .donation-container, .image-gallery-container {
-            grid-template-columns: 1fr;
-        }
+    .carousel-next-slide {
+        right: 10px;
     }
 
     .progress-container {
@@ -199,145 +191,203 @@
     }
 
     .success-stories-container {
-    position: relative;
-    width: 80%; 
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        position: relative;
+        width: 80%; 
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.success-stories-slideshow {
-    flex: 1;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-}
+    .success-stories-slideshow {
+        flex: 1;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: #f8f8f8;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+    }
 
-.slides-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-}
+    .slides-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
 
-.slide {
-    flex: 0 0 100%;
-    padding: 20px;
-    text-align: center;
-    box-sizing: border-box;
-    min-height: 100%;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 5px;
-    margin: 0;
-}
+    .slide {
+        flex: 0 0 100%;
+        padding: 20px;
+        text-align: center;
+        box-sizing: border-box;
+        min-height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border-radius: 5px;
+        margin: 0;
+    }
 
-button.prev, button.next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    color: #AA336A;
-    font-size: 24px;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
-    background-color: #f9f9f9;
-    border: 1px solid #AA336A;
-    z-index: 2;
-    margin: 0;
-}
+    button.prev, button.next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        color: #AA336A;
+        font-size: 24px;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        background-color: #f9f9f9;
+        border: 1px solid #AA336A;
+        z-index: 2;
+        margin: 0;
+    }
 
-button.next {
-    right: -50px;
-}
+    button.next {
+        right: -50px;
+    }
 
-button.prev {
-    left: -50px;
-}
+    button.prev {
+        left: -50px;
+    }
 
-button.prev:hover, button.next:hover {
-    background-color: #AA336A;
-    color: white;
-}
+    button.prev:hover, button.next:hover {
+        background-color: #AA336A;
+        color: white;
+    }
 
-.donation-impact {
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 1rem;
-}
+    .donation-impact {
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 1rem;
+    }
 
-.custom-image-gallery-slideshow {
-    position: relative;
-    max-width: 600px; /* Adjust this value as needed */
-    height: 400px; /* Set a fixed height */
-    margin: auto;
-    padding: 20px;
-    overflow: hidden;
-    border-radius: 8px;
-}
+    .custom-image-gallery-slideshow {
+        position: relative;
+        max-width: 600px; 
+        height: 400px; 
+        margin: auto;
+        padding: 20px;
+        overflow: hidden;
+        border-radius: 8px;
+    }
 
-.custom-slide-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-    height: 100%;
-    align-items: center; /* Center the images vertically */
-    justify-content: center; /* Center the images horizontally */
-}
+    .custom-slide-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+        height: 100%;
+        align-items: center; 
+        justify-content: center; 
+    }
 
-.custom-slide {
-    min-width: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
+    .custom-slide {
+        min-width: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
 
-.custom-slide img {
-    max-width: 80%;
-    max-height: 100%; /* Ensure images fit within the container */
-    height: auto;
-    border-radius: 8px;
-}
+    .custom-slide img {
+        max-width: 80%;
+        max-height: 100%; 
+        height: auto;
+        border-radius: 8px;
+    }
 
-button.custom-prev-slide, button.custom-next-slide {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    color: #AA336A;
-    font-size: 24px;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
-    background-color: #f9f9f9;
-    border: 1px solid #AA336A;
-    z-index: 2;
-}
+    button.custom-prev-slide, button.custom-next-slide {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        color: #AA336A;
+        font-size: 24px;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        background-color: #f9f9f9;
+        border: 1px solid #AA336A;
+        z-index: 2;
+    }
 
-button.custom-next-slide {
-    right: 10px;
-}
+    button.custom-next-slide {
+        right: 10px;
+    }
 
-button.custom-prev-slide {
-    left: 10px;
-}
+    button.custom-prev-slide {
+        left: 10px;
+    }
 
-button.custom-prev-slide:hover, button.custom-next-slide:hover {
-    background-color: #AA336A;
-    color: white;
+    button.custom-prev-slide:hover, button.custom-next-slide:hover {
+        background-color: #AA336A;
+        color: white;
+    }
+
+    @media (max-width: 1024px) {
+            .donation-container {
+                display: block; 
+                padding: 20px; 
+            }
+
+            .left-column {
+                order: -1; 
+                margin-bottom: 20px; 
+            }
+
+            .donate-content-container {
+                padding: 20px; 
+            }
+
+            
+        }
+
+    @media (max-width: 480px) {
+
+            .progress-container {
+            font-size: 14px;
+        }
+
+
+        .center-mode-carousel {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .carousel-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .carousel-slide {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            margin: 0 5px; 
+            padding: 0;
+            opacity: 1;
+            transform: scale(1);
+            transition: none;
+        }
+
+        .carousel-slide img {
+            max-width: 40%;
+            height: auto;
+            margin: 0;
+        }
+
+        button.carousel-prev-slide, button.carousel-next-slide {
+            display: none; 
+        }    
 }
 
 </style>
@@ -433,67 +483,103 @@ button.custom-prev-slide:hover, button.custom-next-slide:hover {
 {% block extra_js %}
 <script>
 
+
 document.addEventListener('DOMContentLoaded', function () {
+    var isMobile = window.matchMedia("(max-width: 480px)").matches;
     var slides = document.querySelectorAll('.carousel-slide');
-    var currentIndex = 1; // Start with the second slide as active
-    var totalSlides = slides.length;
 
-    function cloneSlides() {
+    if (isMobile) {
         var carouselContainer = document.querySelector('.carousel-container');
-        slides.forEach(slide => {
-            var clone = slide.cloneNode(true);
-            carouselContainer.appendChild(clone);
-        });
-    }
+        var startX = 0;
+        var scrollLeft = 0;
 
-    function updateSlides() {
-    slides.forEach((slide, index) => {
-        slide.classList.remove('active');
-        if (index === currentIndex) {
-            slide.classList.add('active');
+        function startDragging(e) {
+            startX = e.pageX || e.touches[0].pageX;
+            scrollLeft = carouselContainer.scrollLeft;
+            carouselContainer.classList.add('active');
         }
-    });
 
-    var slideWidth = slides[0].clientWidth;
-    var additionalOffset = 150; // Adjust this value as needed to move slides to the right
-    var offset = -currentIndex * (slideWidth + 30) + ((slideWidth + 30) / 2) + additionalOffset; // Adjust 30 for margin
-    document.querySelector('.carousel-container').style.transform = 'translateX(' + offset + 'px)';
-}
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % (totalSlides * 2);
-        if (currentIndex >= totalSlides) {
-            setTimeout(() => {
-                document.querySelector('.carousel-container').style.transition = 'none';
-                currentIndex = currentIndex % totalSlides;
-                updateSlides();
-            }, 500);
-        } else {
-            document.querySelector('.carousel-container').style.transition = 'transform 0.5s ease-in-out';
+        function stopDragging() {
+            carouselContainer.classList.remove('active');
         }
-        updateSlides();
-    }
 
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + totalSlides * 2) % (totalSlides * 2);
-        if (currentIndex < totalSlides) {
-            setTimeout(() => {
-                document.querySelector('.carousel-container').style.transition = 'none';
-                currentIndex = (currentIndex + totalSlides) % totalSlides;
-                updateSlides();
-            }, 500);
-        } else {
-            document.querySelector('.carousel-container').style.transition = 'transform 0.5s ease-in-out';
+        function scroll(e) {
+            if (!carouselContainer.classList.contains('active')) return;
+            e.preventDefault();
+            var x = e.pageX || e.touches[0].pageX;
+            var walk = (x - startX) * 2; // Adjust scroll speed
+            carouselContainer.scrollLeft = scrollLeft - walk;
         }
-        updateSlides();
+
+        carouselContainer.addEventListener('mousedown', startDragging);
+        carouselContainer.addEventListener('mouseleave', stopDragging);
+        carouselContainer.addEventListener('mouseup', stopDragging);
+        carouselContainer.addEventListener('mousemove', scroll);
+        carouselContainer.addEventListener('touchstart', startDragging);
+        carouselContainer.addEventListener('touchend', stopDragging);
+        carouselContainer.addEventListener('touchmove', scroll);
+    } else {
+        var currentIndex = 1; 
+        var totalSlides = slides.length;
+
+        function cloneSlides() {
+            var carouselContainer = document.querySelector('.carousel-container');
+            slides.forEach(slide => {
+                var clone = slide.cloneNode(true);
+                carouselContainer.appendChild(clone);
+            });
+        }
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentIndex) {
+                    slide.classList.add('active');
+                }
+            });
+
+            var slideWidth = slides[0].clientWidth;
+            var additionalOffset = 150; 
+            var offset = -currentIndex * (slideWidth + 30) + ((slideWidth + 30) / 2) + additionalOffset; 
+            document.querySelector('.carousel-container').style.transform = 'translateX(' + offset + 'px)';
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % (totalSlides * 2);
+            if (currentIndex >= totalSlides) {
+                setTimeout(() => {
+                    document.querySelector('.carousel-container').style.transition = 'none';
+                    currentIndex = currentIndex % totalSlides;
+                    updateSlides();
+                }, 500);
+            } else {
+                document.querySelector('.carousel-container').style.transition = 'transform 0.5s ease-in-out';
+            }
+            updateSlides();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides * 2) % (totalSlides * 2);
+            if (currentIndex < totalSlides) {
+                setTimeout(() => {
+                    document.querySelector('.carousel-container').style.transition = 'none';
+                    currentIndex = (currentIndex + totalSlides) % totalSlides;
+                    updateSlides();
+                }, 500);
+            } else {
+                document.querySelector('.carousel-container').style.transition = 'transform 0.5s ease-in-out';
+            }
+            updateSlides();
+        }
+
+        document.querySelector('.carousel-prev-slide').addEventListener('click', prevSlide);
+        document.querySelector('.carousel-next-slide').addEventListener('click', nextSlide);
+
+        cloneSlides();
+        updateSlides(); // Initialize the carousel
     }
-
-    document.querySelector('.carousel-prev-slide').addEventListener('click', prevSlide);
-    document.querySelector('.carousel-next-slide').addEventListener('click', nextSlide);
-
-    cloneSlides();
-    updateSlides(); // Initialize the carousel
 });
+
 
 document.addEventListener('DOMContentLoaded', function () {
     var maxValue = 350;
@@ -505,7 +591,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function frame(timestamp) {
         if (!startTime) startTime = timestamp;
         var progress = timestamp - startTime;
-        width = Math.min(progress / 10, currentValue); // Adjust the divisor to control the speed
+        width = Math.min(progress / 10, currentValue); 
 
         elem.style.width = (width / maxValue) * 100 + '%';
         elem.innerHTML = currentValue + ' youth impacted since 2021';
@@ -540,8 +626,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var currentIndex = 1;
 
     function showSlide(index) {
-        var slideWidth = slides[0].clientWidth; // Get the width of a slide
-        var offset = -index * slideWidth; // Calculate the offset
+        var slideWidth = slides[0].clientWidth; 
+        var offset = -index * slideWidth; 
         slidesContainer.style.transform = 'translateX(' + offset + 'px)'; 
     }
 
@@ -555,7 +641,7 @@ document.addEventListener('DOMContentLoaded', function () {
         showSlide(currentIndex);
     });
 
-    showSlide(currentIndex); // Show the first slide initially
+    showSlide(currentIndex); 
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -584,7 +670,6 @@ document.addEventListener('DOMContentLoaded', function () {
     prevButton.addEventListener('click', showPrevSlide);
     nextButton.addEventListener('click', showNextSlide);
 
-    // Show the first slide initially
     showSlide(slideIndex);
 });
 

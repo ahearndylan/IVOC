@@ -5,7 +5,6 @@
 {% block content %}
 
 <style>
-
 html, body {
     margin: 0;
     padding: 0;
@@ -14,233 +13,232 @@ html, body {
     overflow-x: hidden; 
 }
 
-     .alert-messages {
-            position: fixed;
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            z-index: 1050; 
-            text-align: center; 
-        }
+.alert-messages {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    z-index: 1050; 
+    text-align: center; 
+}
 
-        .alert-message {
-            background-color: #90ee90; 
-            color: black;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            display: inline-block; 
-            max-width: calc(100% - 40px);
-        }
+.alert-message {
+    background-color: #90ee90; 
+    color: black;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: inline-block; 
+    max-width: calc(100% - 40px);
+}
 
-        .closebtn {
-            margin-left: 15px;
-            color: black;
-            font-weight: bold;
-            float: right;
-            font-size: 22px;
-            line-height: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.closebtn {
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        .closebtn:hover {
-            color: grey;
-        }
-        
-        .responsive-video {
-            width: 100%;
-            height: auto;
-            position: relative;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-        } 
+.closebtn:hover {
+    color: grey;
+}
 
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white; 
-            text-align: center;
-            z-index: 2; 
-        }
+.responsive-video {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+} 
 
-        .video-overlay p {
-            position: relative;
-            top: -330px; 
-            margin-bottom: -50px; 
-            font-size: 25px;
-        }
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white; 
+    text-align: center;
+    z-index: 2; 
+}
 
-        #IVOClogo-homepage {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-        }
+.video-overlay p {
+    position: relative;
+    top: -50%;
+    transform: translateY(-50%);
+    margin-bottom: 10px; 
+    font-size: 25px;
+}
 
-        #IVOClogo-homepage img {
-            width: 70%; 
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            text-align: center;
-            z-index: 2;
-        }
+#IVOClogo-homepage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
 
-        .getintouch-button-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px; 
-        }
+#IVOClogo-homepage img {
+    width: 70%; 
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 2;
+}
 
-        .getintouch-button {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color: white;
-            color: black;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 0;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            border: 2px solid black; 
-            position: absolute;
-            top: 80%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            width: 100px;
-            height: auto;
-            font-size: 22px;
-            font-family: "Times New Roman", serif;
-            min-width: 200px; 
-            white-space: nowrap; 
-            overflow: hidden; 
-        }
+.getintouch-button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
 
-        .getintouch-button:hover {
-            background-color: gray;
-        }
+.getintouch-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: 2px solid black; 
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 100px;
+    height: auto;
+    font-size: 22px;
+    font-family: "Times New Roman", serif;
+    min-width: 200px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+}
 
-        .black-textbox {
-            background-color: black;
-            color: white;
-            padding: 20px;
-            margin: 0; 
-            text-align: center;
-            height: 300px;
-            font-size: 20px;
-            padding-top: 50px;
-            margin-top: 0;
+.getintouch-button:hover {
+    background-color: gray;
+}
 
-            position: relative;
-            width: 100vw;
-            box-sizing: border-box; 
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-        }
+.black-textbox {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin: 0; 
+    text-align: center;
+    height: auto;
+    font-size: 20px;
+    padding-top: 50px;
+    margin-top: 0;
+    position: relative;
+    width: 100vw;
+    box-sizing: border-box; 
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
 
-        .textbox-content {
-            max-width: 60%; 
-            margin: 0 auto; 
-            text-align: center;
-            font-family: "Georgia", serif;
-            font-size: 18px;
-            line-height: 30px;
-            padding-top: 20px; 
-            padding-bottom: 70px;
-        }
+.textbox-content {
+    max-width: 80%; 
+    margin: 0 auto; 
+    text-align: center;
+    font-family: "Georgia", serif;
+    font-size: 18px;
+    line-height: 30px;
+    padding-top: 20px; 
+    padding-bottom: 20px;
+}
 
-        .pink-line {
-            height: 7px; 
-            background-color: #AA336A; 
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%; 
-            transform: translateY(-50%); 
-        }
+.pink-line {
+    height: 7px; 
+    background-color: #AA336A; 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%; 
+    transform: translateY(-50%); 
+}
 
-        .homepage-video {
-            display: flex;
-            justify-content: center; 
-            align-items: center; 
-            margin-top: 0px;
-            padding-top: 0px;
-        }
+.homepage-video {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 0px;
+    padding-top: 0px;
+}
 
-        .homepage-video video {
-            display: block;
-            margin: 0 auto;
-            padding-top: 0;
-        }
+.homepage-video video {
+    display: block;
+    margin: 0 auto;
+    padding-top: 0;
+}
 
-        .pink-textbox{
-            background-color: #AA336A;
-            position: relative;
-            margin-top: 40px; 
-            text-align: center;
-            color: white;
-            padding: 60px 20px; 
-            font-size: 20px;
+.pink-textbox {
+    background-color: #AA336A;
+    position: relative;
+    margin-top: 40px; 
+    text-align: center;
+    color: white;
+    padding: 60px 20px; 
+    font-size: 20px;
+    width: 100vw;
+    box-sizing: border-box; 
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
 
-            width: 100vw;
-            box-sizing: border-box; 
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-        }
+.donate-button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 
-        .donate-button-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+.donate-button {
+    display: inline-block;
+    padding: 35px 35px;
+    background-color: #AA336A;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: 2px solid white; 
+}
 
-        .donate-button {
-            display: inline-block;
-            padding: 35px 35px;
-            background-color: #AA336A;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 0;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            border: 2px solid white; 
-        }
+.donate-button:hover {
+    background-color: darkgrey;
+}
 
-        .donate-button:hover {
-            background-color: darkgrey;
-        }
+.homepage-text {
+    text-align: center;
+    color: #AA336A;
+    font-size: 20px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
 
-        .homepage-text{
-            text-align: center;
-            color: #AA336A;
-            font-size: 20px;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+.homepage-text p {
+    margin-bottom: 0px;
+}
 
-        .homepage-text p {
-            margin-bottom: 0px;
-        }
-
-        .slider {
+.slider {
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -269,7 +267,6 @@ html, body {
     text-align: center;
     padding-left: 15%;
     padding-right: 5%;
-
 }
 
 .prev, .next {
@@ -297,72 +294,806 @@ html, body {
     right: 12%;
 }
 
-        .video-container {
-            margin: auto;
-            width: 1250px;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap; 
-        }
+.video-container {
+    margin: auto;
+    width: 1250px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; 
+}
 
-        .video-block {
-            flex-basis: 45%; 
-            text-align: center; 
-            margin-bottom: 20px; 
-        }
+.video-block {
+    flex-basis: 45%; 
+    text-align: center; 
+    margin-bottom: 20px; 
+}
 
-        .video-block video {
-            width: 100%; 
-            height: auto; 
-        }
+.video-block video {
+    width: 100%; 
+    height: auto; 
+}
 
-        .video-block p {
-            overflow-wrap: break-word;
-            word-wrap: break-word; 
-            white-space: normal;
-            font-family: "Georgia", serif;
-            font-size: 16px;
-            line-height: 25px;
-        }
+.video-block p {
+    overflow-wrap: break-word;
+    word-wrap: break-word; 
+    white-space: normal;
+    font-family: "Georgia", serif;
+    font-size: 16px;
+    line-height: 25px;
+}
 
-        .video-container .video-description {
-            word-wrap: break-word;
-        }
+.video-container .video-description {
+    word-wrap: break-word;
+}
 
-        .getintouch-homepage-bottom {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px; 
-        }
+.getintouch-homepage-bottom {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
 
-        .getintouch {
-            display: inline-block;
-            padding: 20px 40px;
-            background-color: #AA336A;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            border: none; 
-            font-size: 25px;
-            border-radius: 5px; 
-        }
+.getintouch {
+    display: inline-block;
+    padding: 20px 40px;
+    background-color: #AA336A;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: none; 
+    font-size: 25px;
+    border-radius: 5px; 
+}
 
-        .getintouch:hover {
-            background-color: darkgrey; 
-        }
+.getintouch:hover {
+    background-color: darkgrey; 
+}
 
-        .pink-line-top {
-            height: 7px;
-            background-color: #AA336A;
-            position: absolute;
-            top: 0%;
-            left: 0;
-            width: 100%;
-        }
+.pink-line-top {
+    height: 7px;
+    background-color: #AA336A;
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: auto; /* Prevent default left alignment */
+    right: 0;
+}
+
+.social-dropdown-menu {
+    position: absolute;
+    left: auto; /* Adjust this */
+    right: 0;   /* Prevent it from going off screen */
+}
+
+
+
+@media (max-width: 1024px) {
+    .responsive-video {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 400px; /* Keeping the same height as before */
+        overflow: hidden;
+        margin-top: 80px; /* Adjust this value for smaller screens */
+    }
+
+    .responsive-video video {
+        position: absolute;
+        top: -10%; /* Adjust this value to control the vertical crop */
+        left: 0;
+        width: 100%;
+        height: 120%; /* Adjusted to zoom out the video */
+        object-fit: cover;
+    }
+
+    .video-overlay p {
+        font-size: 22px;
+        top: -200px;
+    }
+
+    .getintouch-button {
+        top: 85%;
+        font-size: 18px;
+        padding: 6px;
+    }
+
+    .IVOClogo-homepage {
+        max-width: 150%;
+    }
+
+    #IVOClogo-homepage img {
+        width: 80%; /* Enlarging the image */
+        height: auto; /* Keeping aspect ratio */
+    }
+
+    .black-textbox, .pink-textbox {
+        padding: 40px;
+    }
+
+    .black-textbox{
+        font-size: 22px;
+    }
+
+    .pink-textbox p {
+        font-size: 22px;
+    }
+
+    .homepage-text p {
+        font-size: 22px;
+    }
+
+    .textbox-content {
+        max-width: 100%;
+
+    }
+
+    .textbox-content p {
+        font-size: 18px;
+    }
+
+    .pink-line, .pink-line-top {
+        height: 4px;
+    }
+
+    .slider {
+        padding: 10px;
+        position: relative;
+    }
+
+    .slides-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    .slide {
+        min-width: 100%; /* Ensure each slide takes the full width of the container */
+        padding: 20px; /* Adjust padding as needed */
+        color: white;
+        font-size: 22px; /* Adjust font size for readability */
+        font-family: "Georgia", serif;
+        text-align: center;
+        line-height: 1.5; /* Adjust line height for readability */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        align-items: center; /* Center content horizontally */
+        height: 300px; /* Allow height to adjust based on content */
+        box-sizing: border-box; /* Include padding in element's total width and height */
+    }
+
+    .slide p:first-child {
+        margin-bottom: 10px; /* Add some space between the quote and the testimonials line */
+    }
+
+    .prev, .next {
+        width: 40px; /* Adjust size */
+        height: 40px;
+        font-size: 16px;
+        position: absolute;
+        top: 80%;
+        line-height: 40px;
+        border-radius: 50%;
+        background-color: white;
+        color: #AA336A;
+        text-align: center;
+    }
+
+    .prev {
+        left: 50%;
+        transform: translateX(-150%);
+    }
+
+    .next {
+        right: 50%;
+        transform: translateX(150%);
+    }
+
+    .getintouch {
+        padding: 25px 40px; /* Increased padding for bigger button */
+        font-size: 24px; /* Increased font size */
+        background-color: #AA336A; /* Make sure the color matches your design */
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        border: none;
+    }
+
+    .homepage-video {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: auto; /* Allow height to adjust based on content */
+        overflow: hidden;
+    }
+
+    .homepage-video video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .video-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+        width: 100%; /* Ensure the container takes full width */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+
+    .video-block {
+        flex: 1 1 calc(50% - 40px); /* Take 50% of the container minus the gap */
+        text-align: center;
+        margin-bottom: 20px;
+        max-width: calc(50% - 40px); /* Ensure it doesn't exceed 50% of the container width */
+    }
+
+    .video-block video {
+        width: 100%;
+        height: auto;
+    }
+
+    .video-block p {
+        font-size: 18px;
+    }
+
+    .format-home {
+        font-size: 20px; /* Adjust font size as needed */
+    }
+
+    .donate-button {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 820px) {
+    .responsive-video {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 400px; /* Keeping the same height as before */
+        overflow: hidden;
+        margin-top: 80px; /* Adjust this value for smaller screens */
+    }
+
+    .responsive-video video {
+        position: absolute;
+        top: -10%; /* Adjust this value to control the vertical crop */
+        left: 0;
+        width: 100%;
+        height: 120%; /* Adjusted to zoom out the video */
+        object-fit: cover;
+    }
+
+    .video-overlay p {
+        font-size: 20px;
+        top: -150px;
+    }
+
+    .getintouch-button {
+        top: 85%;
+        font-size: 18px;
+        padding: 6px;
+    }
+
+    .IVOClogo-homepage {
+        max-width: 150%;
+    }
+
+    #IVOClogo-homepage img {
+        width: 80%; /* Enlarging the image */
+        height: auto; /* Keeping aspect ratio */
+    }
+
+    .black-textbox, .pink-textbox {
+        padding: 40px;
+    }
+
+    .black-textbox{
+        font-size: 22px;
+    }
+
+    .pink-textbox p {
+        font-size: 22px;
+    }
+
+    .homepage-text p {
+        font-size: 22px;
+    }
+
+    .textbox-content {
+        max-width: 100%;
+
+    }
+
+    .textbox-content p {
+        font-size: 18px;
+    }
+
+    .pink-line, .pink-line-top {
+        height: 4px;
+    }
+
+    .slider {
+        padding: 10px;
+        position: relative;
+    }
+
+    .slides-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    .slide {
+        min-width: 100%; /* Ensure each slide takes the full width of the container */
+        padding: 20px; /* Adjust padding as needed */
+        color: white;
+        font-size: 22px; /* Adjust font size for readability */
+        font-family: "Georgia", serif;
+        text-align: center;
+        line-height: 1.5; /* Adjust line height for readability */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        align-items: center; /* Center content horizontally */
+        height: 300px; /* Allow height to adjust based on content */
+        box-sizing: border-box; /* Include padding in element's total width and height */
+    }
+
+    .slide p:first-child {
+        margin-bottom: 10px; /* Add some space between the quote and the testimonials line */
+    }
+
+    .prev, .next {
+        width: 40px; /* Adjust size */
+        height: 40px;
+        font-size: 16px;
+        position: absolute;
+        top: 80%;
+        line-height: 40px;
+        border-radius: 50%;
+        background-color: white;
+        color: #AA336A;
+        text-align: center;
+    }
+
+    .prev {
+        left: 50%;
+        transform: translateX(-150%);
+    }
+
+    .next {
+        right: 50%;
+        transform: translateX(150%);
+    }
+
+    .getintouch {
+        padding: 25px 40px; /* Increased padding for bigger button */
+        font-size: 24px; /* Increased font size */
+        background-color: #AA336A; /* Make sure the color matches your design */
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        border: none;
+    }
+
+    .homepage-video {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: auto; /* Allow height to adjust based on content */
+        overflow: hidden;
+    }
+
+    .homepage-video video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .video-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 20px;
+        width: 100%; /* Ensure the container takes full width */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+
+    .video-block {
+        flex: 1 1 calc(50% - 40px); /* Take 50% of the container minus the gap */
+        text-align: center;
+        margin-bottom: 20px;
+        max-width: calc(50% - 40px); /* Ensure it doesn't exceed 50% of the container width */
+    }
+
+    .video-block video {
+        width: 100%;
+        height: auto;
+    }
+
+    .video-block p {
+        font-size: 18px;
+    }
+
+    .format-home {
+        font-size: 20px; /* Adjust font size as needed */
+    }
+}
+
+@media (max-width: 768px) {
+    .responsive-video {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        margin-top: 80px; /* Adjust this value for smaller screens */
+    }
+
+    .responsive-video video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .video-overlay p {
+        font-size: 18px;
+        top: -120px; /* Adjust this value to control the vertical position */
+    }
+
+    .getintouch-button {
+        top: 85%;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .IVOClogo-homepage {
+        max-width: 150%;
+    }
+
+    #IVOClogo-homepage img {
+        width: 80%; /* Enlarging the image */
+        height: auto; /* Keeping aspect ratio */
+    }
+
+    .black-textbox, .pink-textbox {
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    .pink-textbox p {
+        font-size: 16px;
+    }
+
+    .homepage-text p {
+        font-size: 18px;
+    }
+
+    .textbox-content {
+        max-width: 100%;
+    }
+
+    .textbox-content p {
+        font-size: 16px;
+    }
+
+    .pink-line, .pink-line-top {
+        height: 4px;
+    }
+
+    .slider {
+        padding: 10px;
+        position: relative;
+    }
+
+    .slides-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    .slide {
+        min-width: 100%; /* Ensure each slide takes the full width of the container */
+        padding: 20px; /* Adjust padding as needed */
+        color: white;
+        font-size: 18px; /* Adjust font size for readability */
+        font-family: "Georgia", serif;
+        text-align: center;
+        line-height: 1.5; /* Adjust line height for readability */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        align-items: center; /* Center content horizontally */
+        height: 300px; /* Allow height to adjust based on content */
+        box-sizing: border-box; /* Include padding in element's total width and height */
+    }
+
+    .slide p:first-child {
+        margin-bottom: 10px; /* Add some space between the quote and the testimonials line */
+    }
+
+    .prev, .next {
+        width: 40px; /* Adjust size */
+        height: 40px;
+        font-size: 16px;
+        position: absolute;
+        top: 80%;
+        line-height: 40px;
+        border-radius: 50%;
+        background-color: white;
+        color: #AA336A;
+        text-align: center;
+    }
+
+    .prev {
+        left: 50%;
+        transform: translateX(-150%);
+    }
+
+    .next {
+        right: 50%;
+        transform: translateX(150%);
+    }
+
+    .video-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Adjust the spacing between the video blocks */
+        gap: 20px; /* Add gap between video blocks */
+    }
+
+    .video-block {
+        flex-basis: 48%; /* Ensure each video block takes appropriate space */
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .video-block video {
+        width: 100%;
+        height: auto;
+    }
+
+    .video-block p {
+        font-size: 14px;
+    }
+
+    .getintouch {
+        padding: 20px 30px; /* Increased padding for bigger button */
+        font-size: 20px; /* Increased font size */
+        background-color: #AA336A; /* Make sure the color matches your design */
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        border: none;
+    }
+
+    .homepage-video {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: auto; /* Allow height to adjust based on content */
+        overflow: hidden;
+    }
+
+    .homepage-video video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .responsive-video {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: 400px; /* Keeping the same height as before */
+        overflow: hidden;
+        margin-top: 80px; /* Adjust this value for smaller screens */
+    }
+
+    .responsive-video video {
+        position: absolute;
+        top: -10%; /* Adjust this value to control the vertical crop */
+        left: 0;
+        width: 100%;
+        height: 120%; /* Adjusted to zoom out the video */
+        object-fit: cover;
+    }
+
+    .video-overlay p {
+        font-size: 18px;
+        top: -85px;
+    }
+
+    .getintouch-button {
+        top: 85%;
+        font-size: 16px;
+        padding: 6px;
+    }
+
+    .IVOClogo-homepage {
+        max-width: 150%;
+    }
+
+    #IVOClogo-homepage img {
+        width: 100%; /* Enlarging the image */
+        height: auto; /* Keeping aspect ratio */
+    }
+
+    .black-textbox, .pink-textbox {
+        padding: 20px;
+        font-size: 12px;
+    }
+
+    .pink-textbox p {
+        font-size: 16px;
+    }
+
+    .homepage-text p {
+        font-size: 16px;
+    }
+
+    .textbox-content {
+        max-width: 100%;
+    }
+
+    .textbox-content p {
+        font-size: 16px;
+    }
+
+    .pink-line, .pink-line-top {
+        height: 4px;
+    }
+
+    .slider {
+        padding: 10px;
+        position: relative;
+    }
+
+    .slides-container {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    .slide {
+        min-width: 100%; /* Ensure each slide takes the full width of the container */
+        padding: 20px; /* Adjust padding as needed */
+        color: white;
+        font-size: 18px; /* Adjust font size for readability */
+        font-family: "Georgia", serif;
+        text-align: center;
+        line-height: 1.5; /* Adjust line height for readability */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        align-items: center; /* Center content horizontally */
+        height: 300px; /* Allow height to adjust based on content */
+        box-sizing: border-box; /* Include padding in element's total width and height */
+    }
+
+    .slide p:first-child {
+        margin-bottom: 10px; /* Add some space between the quote and the testimonials line */
+    }
+
+    .prev, .next {
+        width: 40px; /* Adjust size */
+        height: 40px;
+        font-size: 16px;
+        position: absolute;
+        top: 80%;
+        line-height: 40px;
+        border-radius: 50%;
+        background-color: white;
+        color: #AA336A;
+        text-align: center;
+    }
+
+    .prev {
+        left: 50%;
+        transform: translateX(-150%);
+    }
+
+    .next {
+        right: 50%;
+        transform: translateX(150%);
+    }
+
+    .video-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the video blocks horizontally */
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px; /* Add some padding for better spacing */
+    }
+
+    .video-block {
+        width: 100%; /* Ensure each video block takes full width */
+        max-width: 100%; /* Prevent it from exceeding the container width */
+        margin-bottom: 20px; /* Add space between video blocks */
+        text-align: center; /* Center the text below videos */
+    }
+
+    .video-block video {
+        width: 90%; /* Make the video take 90% of the container width */
+        height: auto; /* Maintain aspect ratio */
+        margin: 0 auto; /* Center the video */
+    }
+
+    .video-block p {
+        font-size: 16px; /* Adjust font size for readability */
+        text-align: center; /* Center the text */
+        width: 90%; /* Keep the text width consistent with the video */
+        margin: 0 auto; /* Center the text block */
+        padding-top: 3%;
+    }
+
+    .getintouch {
+        padding: 15px 30px; /* Increased padding for bigger button */
+        font-size: 20px; /* Increased font size */
+        background-color: #AA336A; /* Make sure the color matches your design */
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        border: none;
+    }
+
+    .homepage-video {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        height: auto; /* Allow height to adjust based on content */
+        overflow: hidden;
+    }
+
+    .homepage-video video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .donate-button {
+        font-size: 18px;
+    }
+
+    .format-home {
+        font-size: 14px; /* Adjust the font size as needed */
+    }
+    
+}
+
 </style>
 
 {% if messages %}
