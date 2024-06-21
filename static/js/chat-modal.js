@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function openModal() {
         modal.style.display = "block";
-        modal.style.top = (window.pageYOffset + 50) + "px"; // Adjusted top position
+        modal.style.top = (window.pageYOffset + 100) + "px"; // Adjusted top position
     }
 
     function closeModal() {
