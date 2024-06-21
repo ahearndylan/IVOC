@@ -6,12 +6,16 @@
 <style>
     .login-container {
         max-width: 400px;
-        margin: 50px auto;
+        margin: auto;
         padding: 20px;
         background-color: #f9f9f9;
         border: 1px solid #ddd;
         border-radius: 10px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .login-container h3, .login-container hr, .login-container form, .login-container p {
@@ -85,6 +89,13 @@
     </form>
     <p>Don't have an account? <a href="{% url 'register' %}">Signup here</a></p>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 {% endblock %}
 
 {% block extra_js %}

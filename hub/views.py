@@ -14,17 +14,25 @@ def home(request):
    return render(request, 'home.html')
 
 def register(request):
-   if request.method == 'POST':
-       form = UserRegistrationForm(request.POST)
-       if form.is_valid():
-           form.save()
-
-           messages.success(request, f'Your account has been created. You can log in now!')   
-           return redirect('login')
-   else:
-       form = UserRegistrationForm()
-   context = {'form': form}
-   return render(request, 'register.html', context)
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            subscribe_newsletter = form.cleaned_data.get('subscribe_newsletter')
+            if subscribe_newsletter:
+                email = form.cleaned_data.get('email')
+                send_mail(
+                    subject='Newsletter Subscription Request',
+                    message=f'The following email has requested to be added to the newsletter: {email}',
+                    from_email=settings.EMAIL_HOST_USER,
+                    recipient_list=['dahearn2021@gmail.com'],
+                )
+            messages.success(request, 'Your account has been created. You can log in now!')
+            return redirect('login')
+    else:
+        form = UserRegistrationForm()
+    context = {'form': form}
+    return render(request, 'register.html', context)
 
 def connect(request):
     return render(request, 'connect.html')
