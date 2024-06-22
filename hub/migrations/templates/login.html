@@ -38,6 +38,16 @@
         margin-top: 20px;
     }
 
+    .signup-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .signup-container p {
+        margin-right: -100px; /* Adjust this value to control the spacing */
+    }
+
     .login-container p {
         margin-top: 20px;
     }
@@ -87,7 +97,19 @@
        {% endfor %}
        <button type="submit">Login</button>
     </form>
-    <p>Don't have an account? <a href="{% url 'register' %}">Signup here</a></p>
+    
+    <div class="signup-container">
+        <p>Don't have an account?</p>
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Signup</button>
+        </form>
+    </div>
+
+    <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
 </div>
 <br>
 <br>
@@ -103,5 +125,3 @@
 <script src="{% static 'js/chat-modal.js' %}"></script>
 
 {% endblock extra_js %}
-
-
