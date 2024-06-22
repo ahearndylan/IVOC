@@ -3,8 +3,10 @@
 
 {% block content %}
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
     body {
-        font-family: 'Nunito Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Lora', 'Nunito Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #333;
         background-color: #fff;
         line-height: 1.6;
@@ -82,6 +84,7 @@
     }
 
     h2 {
+        font-family: 'Montserrat', sans-serif;
         color: #AA336A;
         margin-bottom: 0px;
     }
@@ -142,7 +145,7 @@
     }
 
     .carousel-slide img {
-        max-width: 80%; /* Ensure images fit within the carousel slide */
+        max-width: 80%; 
         height: auto;
         border-radius: 8px;
     }
@@ -333,26 +336,25 @@
     }
 
     @media (max-width: 1024px) {
-            .donation-container {
-                display: block; 
-                padding: 20px; 
-            }
 
-            .left-column {
-                order: -1; 
-                margin-bottom: 20px; 
-            }
-
-            .donate-content-container {
-                padding: 20px; 
-            }
-
-            
+        .donation-container {
+            display: block; 
+            padding: 20px; 
         }
+
+        .left-column {
+            order: -1; 
+            margin-bottom: 20px; 
+        }
+
+        .donate-content-container {
+            padding: 20px; 
+        }            
+    }
 
     @media (max-width: 480px) {
 
-            .progress-container {
+        .progress-container {
             font-size: 14px;
         }
 
@@ -389,7 +391,6 @@
             display: none; 
         }    
 }
-
 </style>
 
 <br>
@@ -472,8 +473,6 @@
     <button class="carousel-prev-slide">&#10094;</button>
     <button class="carousel-next-slide">&#10095;</button>
 </div>
-
-
 
 <br>
 <br>

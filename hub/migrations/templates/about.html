@@ -2,12 +2,19 @@
 {% load static %}
 {% block content %}
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+    body {
+        font-family: 'Lora', serif;
+    }
+
     .section {
         margin: 20px 0;
         padding: 20px;
         background-color: #f9f9f9;
         border: 1px solid #ddd;
         border-radius: 8px;
+        font-family: 'Lora', serif;
     }
 
     .section-heading {
@@ -15,14 +22,15 @@
         color: black;
         margin-bottom: 15px;
         text-align: center;
+        font-family: 'Montserrat', sans-serif;
     }
 
     .section-content {
         margin-bottom: 20px;
+        font-family: 'Lora', serif;
     }
 
     .about-quote {
-        font-size: 1.2em;
         text-align: center;
         color: #000;
         margin-top: 40px;
@@ -31,7 +39,13 @@
         border-radius: 8px;
         position: relative;
         overflow: hidden;
+        font-family: 'Lora', serif;
     }
+
+    .about-quote h2 i {
+        font-size: .95em !important; 
+    }
+
 
     .about-quote::after {
         content: '';
@@ -52,6 +66,7 @@
     .curved-underline-animation {
         position: relative;
         display: inline-block;
+        font-family: 'Montserrat', sans-serif;
     }
 
     .curved-underline-animation::after {
@@ -59,15 +74,15 @@
         position: absolute;
         left: 0;
         bottom: -5px;
-        height: 5px; /* Adjust to match SVG height */
-        width: 0; /* Start with width 0 for animation */
+        height: 5px; 
+        width: 0; 
         background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="5"><path d="M0,2.5 Q50,0 100,2.5 T200,2.5" stroke="%23AA336A" stroke-width="2" fill="none"/></svg>') no-repeat;
         transition: width 2s ease;
-        background-size: 100% 100%; /* Ensure the SVG scales correctly */
+        background-size: 100% 100%; 
     }
 
     .animated::after {
-        width: 100%; /* Animate to full width */
+        width: 100%; 
     }
 
     .flex-container {
@@ -82,6 +97,7 @@
         flex: 1;
         margin: 10px;
         padding-bottom: 0;
+        font-family: 'Lora', serif;
     }
 
     .image-right {
@@ -91,7 +107,6 @@
         margin: 0 0 10px 20px;
     }
 
-    /* Media queries for mobile responsiveness */
     @media only screen and (max-width: 768px) {
         .section {
             margin: 10px 0;

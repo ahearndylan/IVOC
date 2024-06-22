@@ -3,6 +3,14 @@
 
 {% block content %}
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+    body {
+        font-family: 'Lora', 'Nunito Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fff;
+        line-height: 1.6;
+    }
+
     .counselors-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -24,20 +32,23 @@
     }
 
     .counselor-message h2 {
-        font-family: 'Garamond', serif;
+        font-family: 'Montserrat', sans-serif;
         font-weight: normal;
         color: #333;
-        margin: 0.2rem 0 0.1rem 0; /* Reduced bottom margin */
+        margin: 0.2rem 0 0.1rem 0; 
+        font-size: 1.8rem;
     }
 
     .counselor-message h3 {
-        font-family: 'Garamond', serif;
+        font-family: 'Montserrat', sans-serif;
         font-weight: normal;
         color: #555;
-        margin: 0.5rem 0; /* Reduced top and bottom margin */
+        margin: 0.5rem 0; 
+        font-size: 1.3rem;
     }
 
     .counselor-message p {
+        font-family: 'Lora', serif;
         font-size: 0.9rem;
         margin-bottom: 1em;
         color: #555;
@@ -70,10 +81,10 @@
     .category-heading {
         text-align: center;
         width: 100%;
-        font-family: 'Garamond', serif;
+        font-family: 'Montserrat', sans-serif;
         color: #333;
         margin-top: 40px;
-        grid-column: span 2; /* Spans the heading across the full width */
+        grid-column: span 2; 
     }
 </style>
 <br>
@@ -82,7 +93,6 @@
 <br>
 
 <div class="counselors-container">    
-
     <div class="counselor-message">
         <h2>Keith Chester</h2>
         <h3>"K. Fingers"</h3>
@@ -115,7 +125,7 @@
             <img src="{% static 'images/Lioner2.jpeg' %}" alt="Lioner Alicea Headshot"/>
         </div>
         <div class="counselor-description">
-        <p>Lioner has a bachelor's degree in audio engineering. He is an established music engineer and DJ.</p> 
+        <p>Lioner holds a bachelor's degree in audio engineering, providing a strong academic foundation and technical knowledge in the field. He is an established music engineer and DJ.</p> 
         </div>
     </div>
     

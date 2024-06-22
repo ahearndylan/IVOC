@@ -3,10 +3,12 @@
 {% block content %}
 
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
     body, html {
         margin: 0;
         padding: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Lora', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .connect-me {
@@ -42,15 +44,15 @@
         position: absolute;
         left: 0;
         bottom: -5px;
-        height: 5px; /* Adjust to match SVG height */
-        width: 0; /* Start with width 0 for animation */
+        height: 5px; 
+        width: 0; 
         background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="5"><path d="M0,2.5 Q50,0 100,2.5 T200,2.5" stroke="black" stroke-width="2" fill="none"/></svg>') no-repeat;
         transition: width 2s ease;
-        background-size: 100% 100%; /* Ensure the SVG scales correctly */
+        background-size: 100% 100%; 
     }
 
     .animated::after {
-        width: 100%; /* Animate to full width */
+        width: 100%; 
     }
 
     .contact-info {
@@ -107,6 +109,10 @@
         position: relative;
     }
 
+    .connect-spacing {
+        padding-top: 15px;
+    }
+
     @media (max-width: 768px) {
         .connect-me {
             font-size: 18px;
@@ -130,10 +136,6 @@
             margin: 10px auto;
             padding: 15px;
         }
-    }
-
-    .connect-spacing {
-        padding-top: 15px;
     }
 </style>
 <br>
@@ -176,4 +178,3 @@
 <script src="{% static 'js/connect-underline.js' %}"></script>
 
 {% endblock extra_js %}
-
