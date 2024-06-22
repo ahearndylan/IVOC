@@ -1,20 +1,14 @@
-function toggleDropdown(element, event) {
+function toggleDropdown(event) {
     event.preventDefault(); 
-    event.stopPropagation(); 
-    var dropdownContent = element.nextElementSibling;
-
-    console.log("Dropdown clicked:", element.textContent);
-
-    // Close all dropdowns
-    document.querySelectorAll('.dropdown-content-mobile').forEach(function(content) {
-        content.classList.remove('open');
-    });
-
-    dropdownContent.classList.toggle('open');
+    var parent = event.currentTarget.parentNode;
+    if (parent.classList.contains('open')) {
+        parent.classList.remove('open');
+    } else {
+        parent.classList.add('open');
+    }
 }
 
-document.querySelectorAll('.dropdown-mobile > a').forEach(function(dropdownLink) {
-    dropdownLink.addEventListener('click', function(event) {
-        toggleDropdown(this, event);
-    });
-});
+function toggleHamburgerMenu() {
+    var menu = document.querySelector('.hamburger-menu');
+    menu.classList.toggle('open');
+}

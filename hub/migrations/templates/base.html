@@ -282,7 +282,7 @@
             background-color: #f9f9f9;
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
+            z-index: 3001;
         }
 
         .dropdown-content a {
@@ -298,10 +298,16 @@
 
         .dropdown:hover .dropdown-content {
             display: block;
+            z-index: 1000;
         }
 
         .dropdown:hover .dropbtn {
             background-color: white;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            z-index: 3000; 
         }
 
         .modal {
@@ -463,6 +469,11 @@
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             left: auto;
             right: 0;
+            z-index: 3001;
+        }
+
+        .profile-dropdown:hover .dropdown-menu {
+            display: block;
         }
 
         .profile-dropdown .dropdown-menu a {
@@ -475,10 +486,6 @@
         .profile-dropdown .dropdown-menu a:hover {
             background-color: white;
             text-decoration: underline;
-        }
-
-        .profile-dropdown:hover .dropdown-menu {
-            display: block;
         }
 
         .socialmedia-dropdown {
@@ -543,7 +550,7 @@
             left: 0;
             height: calc(100% - 100px); 
             width: 100%;
-            z-index: 2000;
+            z-index: 100;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -590,6 +597,7 @@
             display: none;
             flex-direction: column;
             align-items: center;
+            z-index: 100
         }
 
         .dropdown-mobile{
@@ -688,7 +696,7 @@
                 left: 0;
                 height: calc(100% - 100px);
                 width: 100%;
-                z-index: 2000;
+                z-index: 100;
                 padding: 20px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             }
@@ -713,6 +721,12 @@
                 font-size: 14px; 
                 width: 70%; 
             }
+
+            .hamburger-menu .dropdown-content-mobile .dropdown-item,
+            .hamburger-menu .dropdown-content-mobile a {
+                font-size: 24px; 
+                color: #000;
+            }
         }
 
         @media (min-width: 1025px) {
@@ -724,6 +738,42 @@
             .socialmedia-dropdown-mobile {
                 display: none;
             }
+        }
+
+        @media (max-width: 780px) {
+
+            .hamburger-menu .dropdown-content-mobile .dropdown-item,
+            .hamburger-menu .dropdown-content-mobile a {
+                font-size: 24px; 
+                color: #000;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .hamburger-menu .dropdown-content-mobile .dropdown-item,
+            .hamburger-menu .dropdown-content-mobile a {
+                font-size: 24px; 
+                color: #000;
+            }
+
+            .footer {
+                box-sizing: border-box;
+            }
+            
+            .footer p {
+                margin-left: 10px;
+                margin-right: 10px;
+                font-size: 14px;
+            }
+            
+            .icon-small {
+                width: 25px;
+                height: 25px;
+                padding: 3px;
+                margin: 0 2px;
+            }
+
         }
     </style>
 </head>

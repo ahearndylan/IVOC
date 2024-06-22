@@ -122,6 +122,7 @@
 
         .section-heading {
             font-size: 1.2em;
+            margin-right: 20%;
         }
 
         .about-quote {
@@ -138,11 +139,22 @@
         }
 
         .image-right {
-            max-width: 100%;
+            max-width: 35%;
             margin: 0 0 10px 0;
             float: none;
         }
     }
+
+    @media (max-width: 480px) {
+        .image-right {
+            width: 50%;
+            max-width: 80%; /* Further reduce size on smaller screens */
+            margin: 0 auto; /* Center the image */
+            margin-left: 25%;
+            margin-bottom: 5%;
+        }
+    }
+
 </style>
 <br>
 <br>
