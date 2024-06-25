@@ -38,6 +38,10 @@
         color: red; 
     }
 
+    .hidden {
+        display: none;
+    }
+
 
     @media (max-width: 1024px) {
         .register-container {
@@ -88,7 +92,7 @@
            <div>
                <p>{{ field.label }}: <br> {{ field }}</p>
                {% for error in field.errors %}
-                   <small>{{ error }}</small>
+                   <small class="hidden">{{ error }}</small>
                {% endfor %}
            </div>
        {% endfor %}

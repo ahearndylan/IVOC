@@ -121,7 +121,12 @@
        {% endfor %}
        <button type="submit">Login</button>
     </form>
-    
+
+    <form action="{% url 'logout' %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+
     <div class="signup-container">
         <p>Don't have an account?</p>
         <form action="{% url 'register' %}" method="POST">
@@ -129,11 +134,6 @@
             <button type="submit">Signup</button>
         </form>
     </div>
-
-    <form action="{% url 'logout' %}" method="POST">
-        {% csrf_token %}
-        <button type="submit">Logout</button>
-    </form>
 </div>
 <br>
 <br>
