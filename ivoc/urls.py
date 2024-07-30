@@ -37,6 +37,8 @@ urlpatterns = [
    path('photoANDvideo/', user_views.photoANDvideo, name='photoANDvideo'),
    path('counselors/', user_views.counselors, name='counselors'),
    path('send_email/', views.send_message, name='send_email'),
+   path('services/', user_views.services, name='services'),
+
 
 ]
 

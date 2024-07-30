@@ -25,7 +25,7 @@ def register(request):
                     subject='Newsletter Subscription Request',
                     message=f'The following email has requested to be added to the newsletter: {email}',
                     from_email=settings.EMAIL_HOST_USER,
-                    recipient_list=['dahearn2021@gmail.com'],
+                    recipient_list=['info@ivocforyouth.com'],
                 )
             messages.success(request, 'Your account has been created. You can log in now!')
             return redirect('login')
@@ -58,6 +58,9 @@ def photoANDvideo(request):
 def counselors(request):
     return render(request, 'counselors.html')
 
+def services(request):
+    return render(request, 'services.html')
+
 def send_message(request):
     if request.method == "POST":
         name = request.POST.get('name')
@@ -71,7 +74,7 @@ def send_message(request):
             subject=f"Message from {name} via IVOC Website",
             message=full_message,
             from_email=settings.EMAIL_HOST_USER,
-            recipient_list=['dahearn2021@gmail.com'],
+            recipient_list=['info@ivocforyouth.com'],
         )
         
         messages.success(request, "Your message has been sent. Thank you!")

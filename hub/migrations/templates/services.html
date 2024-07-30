@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+    body {
+        font-family: 'Lora', 'Arial', sans-serif; 
+        background-color: #f9f9f9; 
+    }
+    
+    .content-area {
+        max-width: 800px;
+        margin: 80px auto; 
+        padding: 40px;
+        background-color: #fff; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        text-align: center;
+    }
+
+    .content-title {
+        font-family: 'Montserrat', sans-serif; 
+        color: #AA336A; 
+        font-size: 40px; 
+        margin-bottom: 30px; 
+    }
+
+    .content-description {
+        font-family: 'Lora', serif;
+        font-size: 18px; 
+        line-height: 1.6; 
+        margin-bottom: 30px; 
+        color: #333; 
+    }
+
+    .email-button {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 18px;
+        color: #fff;
+        background-color: #AA336A;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-family: 'Montserrat', sans-serif;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .email-button:hover {
+        background-color: darkgray;
+        transform: translateY(-3px);
+    }
+
+    @media (max-width: 1024px) {
+        .content-area {
+            margin-top: 15%;
+            margin-bottom: 50%;
+        }
+    }
+
+    @media (max-width: 820px) {
+        .content-area {
+            margin-top: 15%;
+            margin-bottom: 33%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .content-area {
+            padding: 20px; 
+            margin: 40px auto; 
+            margin-bottom: 35%;
+            margin-top: 10%;
+        }
+
+        .content-title {
+            font-size: 30px;
+        }
+
+        .content-description {
+            font-size: 16px;
+        }
+
+        .email-button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    }
+</style>
+<br>
+<br>
+<br>
+
+<div class="content-area">
+    <h1 class="content-title">IVOC Counseling Services</h1> 
+    <p class="content-description">
+        We are pleased to provide you with a convenient way to manage your individual mental health services. Unlock your inner strength and achieve meaningful transformation with Inner Voice Outer Change Counseling Services. Start your journey to better mental health today and discover the power of your inner voice.
+    </p>
+
+    <a href="https://itucker.clientsecure.me/" target="_blank" class="email-button">Learn More</a>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script src="{% static 'js/chat-modal.js' %}"></script>
+
+{% endblock extra_js %}
