@@ -40,7 +40,7 @@
         padding: 12px 24px;
         font-size: 18px;
         color: #fff;
-        background-color: #AA336A;
+        background-color: black;
         border: none;
         border-radius: 5px;
         text-decoration: none;
@@ -51,6 +51,12 @@
     .email-button:hover {
         background-color: darkgray;
         transform: translateY(-3px);
+    }
+
+    .content-image {
+        max-width: 70%;
+        height: auto;
+        margin-bottom: 30px;
     }
 
     @media (max-width: 1024px) {
@@ -94,7 +100,9 @@
 <br>
 
 <div class="content-area">
-    <h1 class="content-title">IVOC Counseling Services</h1> 
+
+    <img src="{% static 'images/ivocMHS1.png' %}" alt="IVOC Counseling Services" class="content-image"/>
+
     <p class="content-description">
         We are pleased to provide you with a convenient way to manage your individual mental health services. Unlock your inner strength and achieve meaningful transformation with Inner Voice Outer Change Counseling Services. Start your journey to better mental health today and discover the power of your inner voice.
     </p>

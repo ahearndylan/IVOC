@@ -8,7 +8,12 @@ ENV PYTHONUNBUFFERED 1
 # Set work directory
 WORKDIR /code
 
-# Install dependencies
+# Install psycopg2 dependencies
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    gcc
+
+# Install Python dependencies
 COPY requirements.txt /code/
 RUN pip install --no-cache-dir -r requirements.txt
 
