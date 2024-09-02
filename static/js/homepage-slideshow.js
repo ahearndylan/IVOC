@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let currentSlide = 0; // Start at the first slide (index 0)
+    let currentSlide = 0; 
     const slidesContainer = document.querySelector('.slides-container');
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
@@ -26,12 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         setTimeout(() => {
             isAnimating = false;
-        }, 500); // Duration matches the CSS transition duration
+        }, 500); 
     }
 
     document.querySelector('.prev').addEventListener('click', () => changeSlide(-1));
     document.querySelector('.next').addEventListener('click', () => changeSlide(1));
 
-    // Initialize the slideshow to start at slide 0 (index 0)
     showSlide(currentSlide);
 });

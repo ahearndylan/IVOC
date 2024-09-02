@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!carouselContainer.classList.contains('active')) return;
             e.preventDefault();
             var x = e.pageX || e.touches[0].pageX;
-            var walk = (x - startX) * 2; // Adjust scroll speed
+            var walk = (x - startX) * 2;
             carouselContainer.scrollLeft = scrollLeft - walk;
         }
 
@@ -90,6 +90,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.carousel-next-slide').addEventListener('click', nextSlide);
 
         cloneSlides();
-        updateSlides(); // Initialize the carousel
+        updateSlides(); 
     }
 });
