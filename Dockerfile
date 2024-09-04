@@ -17,14 +17,14 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt /code/
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy project
+# Copy the project
 COPY . /code/
 
-# Collect static files (if needed)
+# Collect static files with Whitenoise
 RUN python manage.py collectstatic --noinput
 
 # Expose port 8000
 EXPOSE 8000
 
-# Run the Django development server
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "ivoc.wsgi:application"]
+# Start the Gunicorn server (using 3 workers for better performance)
+CMD ["gunicorn", "--workers", "3", "--bind", "0.0.0.0:8000", "ivoc.wsgi:application"]
