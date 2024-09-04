@@ -1,60 +1,60 @@
 document.addEventListener('DOMContentLoaded', function () {
     const carouselContainer = document.querySelector('.carousel-container');
     const slides = Array.from(document.querySelectorAll('.carousel-slide'));
-    let currentIndex = 0;
     const totalSlides = slides.length;
-    const clonedSlides = [...slides]; // Clone slides for seamless effect
+    let currentIndex = 0;
+    let isTransitioning = false;
 
-    // Clone first and last few slides to the container
-    clonedSlides.slice(0, 3).forEach(slide => carouselContainer.appendChild(slide.cloneNode(true)));
-    clonedSlides.slice(-3).forEach(slide => carouselContainer.insertBefore(slide.cloneNode(true), slides[0]));
+    // Clone the first and last slides to make the carousel seamless
+    const firstSlide = slides[0].cloneNode(true);
+    const lastSlide = slides[slides.length - 1].cloneNode(true);
+    carouselContainer.appendChild(firstSlide);
+    carouselContainer.insertBefore(lastSlide, slides[0]);
 
-    function updateCarousel() {
-        slides.forEach((slide, index) => {
-            slide.classList.remove('active');
-            if (index === currentIndex) {
-                slide.classList.add('active');
-            }
-        });
+    const updateCarousel = () => {
+        if (!isTransitioning) {
+            isTransitioning = true;
+            // Move the slides container
+            const offset = -(currentIndex + 1) * 100 / (totalSlides + 2); // Adjust for cloned slides
+            carouselContainer.style.transition = 'transform 0.5s ease-in-out';
+            carouselContainer.style.transform = `translateX(${offset}%)`;
+        }
+    };
 
-        const offset = -currentIndex * 100 / totalSlides; // Translate based on current slide
-        carouselContainer.style.transform = `translateX(${offset}%)`;
-    }
+    // Handle transition end for seamless effect
+    carouselContainer.addEventListener('transitionend', () => {
+        isTransitioning = false;
+        // If we're at the cloned first slide, jump to the actual first slide
+        if (currentIndex === totalSlides) {
+            carouselContainer.style.transition = 'none'; // Disable transition
+            currentIndex = 0; // Reset to first actual slide
+            carouselContainer.style.transform = `translateX(-100%)`;
+        }
+        // If we're at the cloned last slide, jump to the actual last slide
+        if (currentIndex === -1) {
+            carouselContainer.style.transition = 'none'; // Disable transition
+            currentIndex = totalSlides - 1; // Reset to last actual slide
+            carouselContainer.style.transform = `translateX(-${totalSlides * 100 / (totalSlides + 2)}%)`;
+        }
+    });
 
-    function moveToNextSlide() {
-        currentIndex++;
-        if (currentIndex >= totalSlides) {
-            // Skip animation and reset to start of original slides for seamless effect
-            carouselContainer.style.transition = 'none';
-            currentIndex = 0;
-            updateCarousel();
-            setTimeout(() => {
-                carouselContainer.style.transition = 'transform 0.5s ease-in-out';
-            }, 50); // Add small delay for smooth transition
-        } else {
+    const moveToNextSlide = () => {
+        if (!isTransitioning) {
+            currentIndex++;
             updateCarousel();
         }
-    }
+    };
 
-    function moveToPrevSlide() {
-        currentIndex--;
-        if (currentIndex < 0) {
-            // Skip animation and reset to end of original slides for seamless effect
-            carouselContainer.style.transition = 'none';
-            currentIndex = totalSlides - 1;
-            updateCarousel();
-            setTimeout(() => {
-                carouselContainer.style.transition = 'transform 0.5s ease-in-out';
-            }, 50); // Add small delay for smooth transition
-        } else {
+    const moveToPrevSlide = () => {
+        if (!isTransitioning) {
+            currentIndex--;
             updateCarousel();
         }
-    }
+    };
 
-    // Attach event listeners to buttons
     document.querySelector('.carousel-next-slide').addEventListener('click', moveToNextSlide);
     document.querySelector('.carousel-prev-slide').addEventListener('click', moveToPrevSlide);
 
-    // Initialize the carousel
-    updateCarousel();
+    // Initialize the carousel position to the first actual slide
+    carouselContainer.style.transform = `translateX(-100%)`;
 });
