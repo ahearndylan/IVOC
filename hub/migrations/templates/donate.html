@@ -124,59 +124,60 @@
     }
 
     .center-mode-carousel {
-        position: relative;
-        max-width: 80%;
-        height: 400px;
-        margin: auto;
-        overflow: hidden;
-        padding: 20px 0;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
 
-    .carousel-container {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-    }
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    justify-content: center;
+}
 
-    .carousel-slide {
-        flex: 0 0 40%;
-        margin: 0 10px;
-        opacity: 0.5;
-        transform: scale(0.8);
-        transition: transform 0.5s ease, opacity 0.5s ease;
-    }
+.carousel-slide {
+    min-width: 20%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0.5;
+    transform: scale(0.8);
+}
 
-    .carousel-slide img {
-        max-width: 80%; 
-        height: auto;
-        border-radius: 8px;
-    }
+.carousel-slide img {
+    width: 100px;
+    height: auto;
+}
 
-    .carousel-slide.active {
-        transform: scale(1);
-        opacity: 1;
-    }
+.carousel-slide.active {
+    transform: scale(1.2);
+    opacity: 1;
+}
 
-    .carousel-prev-slide, .carousel-next-slide {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(255, 255, 255, 0.7);
-        border: none;
-        cursor: pointer;
-        font-size: 24px;
-        padding: 10px;
-        border-radius: 50%;
-        z-index: 10;
-        outline: none;
-    }
+.carousel-prev-slide, .carousel-next-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 10;
+}
 
-    .carousel-prev-slide {
-        left: 10px;
-    }
+.carousel-prev-slide {
+    left: 10px;
+}
 
-    .carousel-next-slide {
-        right: 10px;
-    }
+.carousel-next-slide {
+    right: 10px;
+}
+
 
     .progress-container {
         width: 100%;
@@ -460,25 +461,28 @@
 </div>
 <br>
 
-<div id="carouselExample" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="{% static 'images/a.png' %}" class="d-block w-100" alt="Slide 1">
+<div class="center-mode-carousel">
+    <button class="carousel-prev-slide">&#10094;</button>
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="{% static 'images/a.png' %}" alt="Slide 1">
         </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/b.png' %}" class="d-block w-100" alt="Slide 2">
+        <div class="carousel-slide">
+            <img src="{% static 'images/b.png' %}" alt="Slide 2">
         </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/c.png' %}" class="d-block w-100" alt="Slide 3">
+        <div class="carousel-slide">
+            <img src="{% static 'images/c.png' %}" alt="Slide 3">
         </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/d.png' %}" class="d-block w-100" alt="Slide 4">
+        <div class="carousel-slide">
+            <img src="{% static 'images/d.png' %}" alt="Slide 4">
         </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/e.png' %}" class="d-block w-100" alt="Slide 5">
+        <div class="carousel-slide">
+            <img src="{% static 'images/e.png' %}" alt="Slide 5">
         </div>
     </div>
+    <button class="carousel-next-slide">&#10095;</button>
 </div>
+
 
 
 <br>
