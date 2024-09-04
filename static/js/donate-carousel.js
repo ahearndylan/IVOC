@@ -1,59 +1,53 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var carouselContainer = document.querySelector('.carousel-container');
-    var slides = Array.from(document.querySelectorAll('.carousel-slide'));
-    var currentIndex = 0;
-    var slideWidth = slides[0].clientWidth;
-    var moving = false;
+    const carouselContainer = document.querySelector('.carousel-container');
+    const originalSlides = document.querySelectorAll('.carousel-slide');
+    const totalOriginalSlides = originalSlides.length;
+    let currentIndex = 0;
+    let slideWidth = originalSlides[0].clientWidth;
+    let isTransitioning = false;
 
-    // Initialize the carousel positioning
-    function setupCarousel() {
-        carouselContainer.style.transition = 'none';
-        carouselContainer.style.transform = 'translateX(0px)';
-        requestAnimationFrame(() => {
-            carouselContainer.style.transition = 'transform 0.5s ease';
+    // Function to clone all slides
+    function cloneSlides() {
+        originalSlides.forEach(slide => {
+            const clone = slide.cloneNode(true);
+            carouselContainer.appendChild(clone);
         });
     }
 
-    // Handle the seamless transition to the right
-    function moveRight() {
-        if (moving) return;
-        moving = true;
-        currentIndex++;
-        carouselContainer.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
+    // Function to update the carousel's position
+    function updateCarousel() {
+        const offset = -currentIndex * slideWidth;
+        carouselContainer.style.transform = `translateX(${offset}px)`;
+        carouselContainer.style.transition = 'transform 0.5s ease';
+    }
 
-        if (currentIndex === slides.length - 1) {
+    // Function to handle seamless looping
+    function handleLoop() {
+        if (currentIndex >= totalOriginalSlides) {
+            // If it reaches the end of the original slides, reset to the first without animation
+            carouselContainer.style.transition = 'none'; // Disable transition for instant jump
+            currentIndex = 0; // Reset index to 0
+            updateCarousel(); // Update carousel to start
+            // Re-enable transitions after the transform reset
             setTimeout(() => {
-                slides.push(slides.shift()); // Move the first slide to the end
-                carouselContainer.appendChild(slides[slides.length - 1]); // Append moved slide to the container
-                carouselContainer.style.transition = 'none';
-                currentIndex--;
-                carouselContainer.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
-                requestAnimationFrame(() => {
-                    carouselContainer.style.transition = 'transform 0.5s ease';
-                    moving = false;
-                });
-            }, 500);
-        } else {
-            setTimeout(() => {
-                moving = false;
-            }, 500);
+                carouselContainer.style.transition = 'transform 0.5s ease';
+            }, 50); // Small delay to ensure the transition reset is rendered
         }
     }
 
-    // Handle the seamless transition to the left
-    function moveLeft() {
-        if (moving || currentIndex <= 0) return;
-        moving = true;
-        currentIndex--;
-        carouselContainer.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
-
+    // Event listeners for next navigation
+    document.querySelector('.carousel-next-slide').addEventListener('click', function () {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex++;
+        updateCarousel();
         setTimeout(() => {
-            moving = false;
-        }, 500);
-    }
+            handleLoop();
+            isTransitioning = false;
+        }, 500); // Match the timeout to transition duration
+    });
 
-    document.querySelector('.carousel-next-slide').addEventListener('click', moveRight);
-    document.querySelector('.carousel-prev-slide').addEventListener('click', moveLeft);
-
-    setupCarousel();
+    // Initial setup
+    cloneSlides(); // Clone all slides and append to the carousel
+    updateCarousel(); // Set the initial position of the carousel
 });
