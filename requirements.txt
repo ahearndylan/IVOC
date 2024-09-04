@@ -6,3 +6,4 @@ gunicorn==22.0.0
 asgiref<4,>=3.3.2
 pytz
 sqlparse>=0.2.2
+whitenoise==6.0.0
