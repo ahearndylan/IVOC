@@ -395,13 +395,10 @@ body, p {
 
 .carousel-wrapper {
     background-color: #AA336A; /* Pink background */
-    padding: 60px 20px; /* Padding to add space around the carousel */
+    padding: 60px 0; /* Adjust padding for top and bottom */
     box-sizing: border-box; /* Ensures padding is included in the width calculation */
-    width: 100vw; /* Full width */
-    margin-left: -50vw; /* Center-align the background */
-    margin-right: -50vw;
-    left: 50%;
-    right: 50%;
+    width: 70%; /* Make the carousel smaller by reducing the width */
+    margin: 0 auto; /* Center the carousel horizontally */
     position: relative;
 }
 
@@ -436,11 +433,11 @@ body, p {
 }
 
 .owl-nav button.owl-prev {
-    left: 12%;
+    left: -60px; /* Move the arrow outside the container */
 }
 
 .owl-nav button.owl-next {
-    right: 12%;
+    right: -60px; /* Move the arrow outside the container */
 }
 
 .owl-nav button:hover {
