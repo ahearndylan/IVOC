@@ -254,6 +254,17 @@
     right: -50px;
 }
 
+.owl-carousel .item {
+    opacity: 0.5;
+    transform: scale(0.8); /* Scale down the non-centered items */
+    transition: all 0.3s ease;
+}
+
+.owl-carousel .center .item {
+    opacity: 1;
+    transform: scale(1.2); /* Scale up the center item */
+}
+
 
 
     .progress-container {
@@ -581,10 +592,9 @@
             loop: true,
             margin: 10,
             nav: true,
-            dots: false, // if you want to remove the dots
-            autoplay: false,
-            autoplayTimeout: 3000, // 3 seconds
-            autoplayHoverPause: true,
+            dots: false,
+            center: true,  // Enable center mode
+            autoplay: false, // Disable auto-rotation
             responsive:{
                 0:{
                     items: 1
@@ -593,11 +603,12 @@
                     items: 2
                 },
                 1000:{
-                    items: 3 // You can change this to show more items on larger screens
+                    items: 3
                 }
             }
         });
     });
+
 </script>
 
 
