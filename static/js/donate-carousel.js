@@ -1,4 +1,4 @@
 $('#myCarousel').carousel({
-    interval: false,  // Disable automatic sliding
-    wrap: true        // Allow it to loop continuously
+    interval: false,  // Disable auto-slide
+    wrap: true        // Allow looping of slides
 });
