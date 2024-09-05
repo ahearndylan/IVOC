@@ -169,33 +169,23 @@
     }
 
     .success-stories-slideshow {
-        flex: 1;
-        padding: 20px;
-        box-sizing: border-box;
-        background-color: #f8f8f8;
-        border-radius: 8px;
-        overflow: hidden;
-        position: relative;
-    }
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* Adjust the width as needed */
+}
 
     .slides-container {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        width: 100%;
-    }
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
 
-    .slide {
-        flex: 0 0 100%;
-        padding: 20px;
-        text-align: center;
-        box-sizing: border-box;
-        min-height: 100%;
-        align-items: center;
-        justify-content: center;
-        background-color: white;
-        border-radius: 5px;
-        margin: 0;
-    }
+.slide {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    min-width: 100%; /* Ensure each slide is the same width as the container */
+    text-align: center; /* Center the text within the slide */
+}
 
     button.prev, button.next {
         cursor: pointer;
@@ -326,17 +316,13 @@
             <button class="prev">&#10094;</button>
             <div class="success-stories-slideshow">
                 <div class="slides-container">
-                    <div class="slide">
-                        <p>"What I like about IVOC is how kids are allowed to participate and create music freely. It is also a space where you can be yourself and where you will never be judged."</p>
+                    <div class="slide">"What I like about IVOC is how kids are allowed to participate and create music freely. It is also a space where you can be yourself and where you will never be judged."
                     </div>
-                    <div class="slide">
-                        <p>"One thing I learned about myself during IVOC is that I am who I am and I don't have to try to please anybody else by being someone that I'm not."</p>
+                    <div class="slide">"One thing I learned about myself during IVOC is that I am who I am and I don't have to try to please anybody else by being someone that I'm not."
                     </div>
-                    <div class="slide">
-                        <p>"Something I learned about myself is how to work with others. For example, how to help a friend when he didn't know how to add on to the beat for the first time in the studio"</p> 
+                    <div class="slide">"Something I learned about myself is how to work with others. For example, how to help a friend when he didn't know how to add on to the beat for the first time in the studio"
                     </div>
-                    <div class="slide">
-                        <p>"The thing I like about IVOC is how the whole thing is just expressing yourself with music and words. It feels like a safe place where you aren't judged"</p>
+                    <div class="slide">"The thing I like about IVOC is how the whole thing is just expressing yourself with music and words. It feels like a safe place where you aren't judged"
                     </div>
                 </div>
             </div>
