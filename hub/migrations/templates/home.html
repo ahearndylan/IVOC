@@ -1379,44 +1379,17 @@ body, p {
 <script src="{% static 'js/homepage-slideshow.js' %}"></script>
 <script>
     $(document).ready(function(){
-    var owl = $('.owl-carousel');
-    if (owl.length > 0) {  // Check if the carousel element exists
-        owl.owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: true,
-            dots: false,
-            navText: ["&#10094;", "&#10095;"],
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 1
-                },
-                1000: {
-                    items: 1
-                }
-            },
-            autoplay: false,
-            autoplayTimeout: 5000,
-            smartSpeed: 800
-        });
-
-        // Adjust carousel height dynamically to ensure it looks good on all devices
-        function adjustCarouselHeight() {
-            $('.owl-item').each(function () {
-                var maxHeight = 0;
-                $(this).find('p').each(function () {
-                    maxHeight = Math.max(maxHeight, $(this).height());
-                });
-                $(this).height(maxHeight);
-            });
-        }
-
-        adjustCarouselHeight();
-        $(window).resize(adjustCarouselHeight);
-    }
+    $('.owl-carousel').owlCarousel({
+        loop: true, 
+        margin: 10, 
+        nav: true, 
+        dots: false, 
+        navText: ["&#10094;", "&#10095;"], 
+        items: 1, 
+        autoplay: false, 
+        autoplayTimeout: 5000,
+        smartSpeed: 800 
+    });
 });
 
 
