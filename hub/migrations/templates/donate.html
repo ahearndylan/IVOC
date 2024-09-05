@@ -169,23 +169,33 @@
     }
 
     .success-stories-slideshow {
-    overflow: hidden;
-    position: relative;
-    width: 100%; /* Adjust the width as needed */
-}
+        flex: 1;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: #f8f8f8;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+    }
 
     .slides-container {
-    display: flex;
-    transition: transform 0.5s ease;
-    will-change: transform;
-}
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
 
-.slide {
-    flex: 0 0 100%;
-    box-sizing: border-box;
-    min-width: 100%; /* Ensure each slide is the same width as the container */
-    text-align: center; /* Center the text within the slide */
-}
+    .slide {
+        flex: 0 0 100%;
+        padding: 20px;
+        text-align: center;
+        box-sizing: border-box;
+        min-height: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border-radius: 5px;
+        margin: 0;
+    }
 
     button.prev, button.next {
         cursor: pointer;
