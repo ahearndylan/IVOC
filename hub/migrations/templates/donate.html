@@ -240,6 +240,21 @@
     overflow: hidden;
 }
 
+.owl-carousel .item img {
+    width: 70%; /* Adjust this percentage as needed */
+    height: auto;
+    margin: 0 auto;
+}
+
+.owl-nav button.owl-prev {
+    left: -50px;
+}
+
+.owl-nav button.owl-next {
+    right: -50px;
+}
+
+
 
     .progress-container {
         width: 100%;
@@ -567,7 +582,7 @@
             margin: 10,
             nav: true,
             dots: false, // if you want to remove the dots
-            autoplay: true,
+            autoplay: false,
             autoplayTimeout: 3000, // 3 seconds
             autoplayHoverPause: true,
             responsive:{
