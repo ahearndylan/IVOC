@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     var slides = document.querySelectorAll('.slide');
     var slidesContainer = document.querySelector('.slides-container');
-    var currentIndex = 1;
+    var currentIndex = 0;
 
     function showSlide(index) {
         var slideWidth = slides[0].clientWidth; 
