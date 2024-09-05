@@ -179,6 +179,46 @@
     margin: auto; /* Center the images */
 }
 
+.carousel-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-item {
+    flex: 0 0 20%; /* Each slide takes up 20% of the width */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0.5; /* Make non-active slides semi-transparent */
+    transform: scale(0.8); /* Scale down non-active slides */
+}
+
+.carousel-item.active {
+    transform: scale(1.2); /* Scale up the active slide */
+    opacity: 1; /* Full opacity for the active slide */
+}
+
+.carousel-control-prev, .carousel-control-next {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    color: #000;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+
 
 
     .progress-container {
