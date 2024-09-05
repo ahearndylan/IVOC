@@ -986,6 +986,28 @@ body, p {
         height: 100%;
         object-fit: cover;
     }
+
+    .owl-nav button.owl-prev, .owl-nav button.owl-next {
+        position: static;  /* Allow buttons to sit within the flow of the document */
+        display: inline-block;  /* Line up buttons next to each other */
+        margin: 10px;  /* Add some margin for spacing */
+        top: auto;
+        transform: none;
+        left: auto;
+        right: auto;
+        width: 40px;  /* Smaller size for mobile */
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .owl-nav {
+        text-align: center;  /* Center the buttons below the carousel */
+    }
+
+    /* Adjust the container for the slides to allow some space for the buttons below */
+    .owl-carousel {
+        margin-bottom: 60px; /* Space below the carousel for the buttons */
+    }
 }
 
 @media (max-width: 480px) {
@@ -1357,18 +1379,46 @@ body, p {
 <script src="{% static 'js/homepage-slideshow.js' %}"></script>
 <script>
     $(document).ready(function(){
-    $('.owl-carousel').owlCarousel({
-        loop: true, 
-        margin: 10, 
-        nav: true, 
-        dots: false, 
-        navText: ["&#10094;", "&#10095;"], 
-        items: 1, 
-        autoplay: false, 
-        autoplayTimeout: 5000,
-        smartSpeed: 800 
-    });
+    var owl = $('.owl-carousel');
+    if (owl.length > 0) {  // Check if the carousel element exists
+        owl.owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            dots: false,
+            navText: ["&#10094;", "&#10095;"],
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            },
+            autoplay: false,
+            autoplayTimeout: 5000,
+            smartSpeed: 800
+        });
+
+        // Adjust carousel height dynamically to ensure it looks good on all devices
+        function adjustCarouselHeight() {
+            $('.owl-item').each(function () {
+                var maxHeight = 0;
+                $(this).find('p').each(function () {
+                    maxHeight = Math.max(maxHeight, $(this).height());
+                });
+                $(this).height(maxHeight);
+            });
+        }
+
+        adjustCarouselHeight();
+        $(window).resize(adjustCarouselHeight);
+    }
 });
+
 
 </script>
 
