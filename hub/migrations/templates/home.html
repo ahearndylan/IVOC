@@ -395,11 +395,16 @@ body, p {
 
 .carousel-wrapper {
     background-color: #AA336A; /* Pink background */
-    padding: 60px 0; /* Adjust padding for top and bottom */
-    box-sizing: border-box; /* Ensures padding is included in the width calculation */
-    width: 70%; /* Make the carousel smaller by reducing the width */
-    margin: 0 auto; /* Center the carousel horizontally */
+    padding: 60px 0; /* Padding for top and bottom */
+    width: 100vw; /* Full-width background */
     position: relative;
+    left: 50%; /* To ensure full width, move the background out from the center */
+    margin-left: -50vw; /* Full-width trick: pulls the content to start from the left edge */
+}
+
+.carousel-content {
+    max-width: 70%; /* Set the max width of the content inside */
+    margin: 0 auto; /* Center the content horizontally */
 }
 
 .owl-carousel .item {
@@ -419,7 +424,7 @@ body, p {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: white; /* White background for the buttons */
+    background-color: #f1d1e8; /* Light pink background for the buttons */
     color: #AA336A; /* Pink color for the button text */
     border: none;
     border-radius: 50%; /* Circular buttons */
@@ -1257,27 +1262,28 @@ body, p {
 <br>
 
 <div class="carousel-wrapper">
-
-    <div class="owl-carousel owl-theme">
-        <div class="item">
-            <p>"The thing I like about IVOC is how the whole thing is just expressing yourself with music and words. It feels like a safe place where you aren't judged"</p>
-            <p class="format-home">Testimonials from our participants</p>
-        </div>
-        <div class="item">
-            <p>"Something I learned about myself is how to work with others. For example, how to help (another member of the group) when he didn't know how to add on to the beat for the first time in the studio"</p>
-            <p class="format-home">Testimonials from our participants</p>
-        </div>
-        <div class="item">
-            <p>"One thing I learned about myself during IVOC is that I am who I am and I don't have to try to please anybody else by being someone that I'm not. I also learned that rapping makes me feel like I can channel all my emotions into the rap and allow people to feel the same way"</p>
-            <p class="format-home">Testimonials from our participants</p>
-        </div>
-        <div class="item">
-            <p>"What I like about IVOC is how kids are allowed to participate and create music freely. It is also a space where you can be yourself and where you will never be judged"</p>
-            <p class="format-home">Testimonials from our participants</p>
-        </div>
-        <div class="item">
-            <p>"My favorite/funniest time at IVOC was when me and (other members of the group) were in a circle, freestyling. Even though I was bad at it, I kept saying random things and we all just started laughing at each other"</p>
-            <p class="format-home">Testimonials from our participants</p>
+    <div class="carousel-content">
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <p>"The thing I like about IVOC is how the whole thing is just expressing yourself with music and words. It feels like a safe place where you aren't judged"</p>
+                <p class="format-home">Testimonials from our participants</p>
+            </div>
+            <div class="item">
+                <p>"Something I learned about myself is how to work with others. For example, how to help (another member of the group) when he didn't know how to add on to the beat for the first time in the studio"</p>
+                <p class="format-home">Testimonials from our participants</p>
+            </div>
+            <div class="item">
+                <p>"One thing I learned about myself during IVOC is that I am who I am and I don't have to try to please anybody else by being someone that I'm not. I also learned that rapping makes me feel like I can channel all my emotions into the rap and allow people to feel the same way"</p>
+                <p class="format-home">Testimonials from our participants</p>
+            </div>
+            <div class="item">
+                <p>"What I like about IVOC is how kids are allowed to participate and create music freely. It is also a space where you can be yourself and where you will never be judged"</p>
+                <p class="format-home">Testimonials from our participants</p>
+            </div>
+            <div class="item">
+                <p>"My favorite/funniest time at IVOC was when me and (other members of the group) were in a circle, freestyling. Even though I was bad at it, I kept saying random things and we all just started laughing at each other"</p>
+                <p class="format-home">Testimonials from our participants</p>
+            </div>
         </div>
     </div>
 </div>
