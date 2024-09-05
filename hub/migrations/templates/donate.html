@@ -246,13 +246,33 @@
     margin: 0 auto;
 }
 
-.owl-nav button.owl-prev {
-    left: -50px;
+/* Increase button size */
+.owl-nav button {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    width: 60px; /* Increase size */
+    height: 60px; /* Increase size */
+    font-size: 30px; /* Increase arrow size */
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px; /* Add some spacing */
 }
 
-.owl-nav button.owl-next {
-    right: -50px;
+/* Position buttons below the carousel */
+.owl-nav {
+    position: relative;
+    text-align: center; /* Center buttons horizontally */
+    margin-top: 20px; /* Add space between carousel and buttons */
 }
+
+/* Optional: Button hover effect */
+.owl-nav button:hover {
+    background-color: #333;
+}
+
 
 .owl-carousel .item {
     opacity: 0.5;
