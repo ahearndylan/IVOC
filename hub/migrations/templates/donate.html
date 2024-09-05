@@ -285,12 +285,6 @@
     transform: scale(1.0); /* Scale up the center item */
 }
 
-.owl-prev-arrow, .owl-next-arrow {
-    font-size: 60px; /* Increase the size of < and > */
-    line-height: 1; /* Adjust line-height to align properly */
-    color: white; /* Arrow color */
-}
-
 
 
     .progress-container {
@@ -619,8 +613,8 @@
             margin: 10,
             nav: true,
             dots: false,
-            autoplay: false,
-            navText: ['<span class="owl-prev-arrow">&lt;</span>', '<span class="owl-next-arrow">&gt;</span>'], // Add custom HTML for arrows
+            center: true,  // Enable center mode
+            autoplay: false, // Disable auto-rotation
             responsive:{
                 0:{
                     items: 1
@@ -634,7 +628,6 @@
             }
         });
     });
-
 
 </script>
 
