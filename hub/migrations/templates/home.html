@@ -393,6 +393,36 @@ body, p {
     font-family: 'Lora', serif;
 }
 
+.owl-nav button.owl-prev, .owl-nav button.owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: #AA336A;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 50px;
+    height: 50px;
+    width: 50px;
+    outline: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.owl-nav button.owl-prev {
+    left: 12%;
+}
+
+.owl-nav button.owl-next {
+    right: 12%;
+}
+
+.owl-nav button:hover {
+    background-color: #cf6094;
+}
+
+
 
 @media (max-width: 1024px) {
     .responsive-video {
@@ -1206,32 +1236,31 @@ body, p {
 <br>
 <br>
 
-<div class="slider">
-    <button class="prev" onclick="changeSlide(-1)" style="outline: none;">&#10094;</button>
-    <div class="slides-container">
-        <div class="slide" id="slide1">
-            <p style="font-family: 'Lora', serif;">"The thing I like about IVOC is how the whole thing is just expressing yourself with music and words. It feels like a safe place where you aren't judged"</p>
-            <p class="format-home">Testimonials from our participants</p>
-        </div>
-        <div class="slide" id="slide2">
-            <p style="font-family: 'Lora', serif;">"Something I learned about myself is how to work with others. For example, how to help (another member of the group) when he didn't know how to add on to the beat for the first time in the studio"</p>
-            <p class="format-home">Testimonials from our participants</p>
-        </div>
-        <div class="slide" id="slide3">
-            <p style="font-family: 'Lora', serif;">"One thing I learned about myself during IVOC is that I am who I am and I don't have to try to please anybody else by being someone that I'm not. I also learned that rapping makes me feel like I can channel all my emotions into the rap and allow people to feel the same way"</p>
-            <p class="format-home">Testimonials from our participants</p>
-        </div>
-        <div class="slide" id="slide4">
-            <p style="font-family: 'Lora', serif;">"What I like about IVOC is how kids are allowed to participate and create music freely. It is also a space where you can be yourself and where you will never be judged"</p>
-            <p class="format-home">Testimonials from our participants</p>
-        </div>
-        <div class="slide" id="slide5">
-            <p style="font-family: 'Lora', serif;">"My favorite/funniest time at IVOC was when me and (other members of the group) were in a circle, freestyling. Even though I was bad at it, I kept saying random things and we all just started laughing at each other"</p>
-            <p class="format-home">Testimonials from our participants</p>
-        </div>
+<div class="owl-carousel owl-theme">
+    <div class="item">
+        <p>"The thing I like about IVOC is how the whole thing is just expressing yourself with music and words. It feels like a safe place where you aren't judged"</p>
+        <p class="format-home">Testimonials from our participants</p>
     </div>
-    <button class="next" onclick="changeSlide(1)" style="outline: none;">&#10095;</button>
+    <div class="item">
+        <p>"Something I learned about myself is how to work with others. For example, how to help (another member of the group) when he didn't know how to add on to the beat for the first time in the studio"</p>
+        <p class="format-home">Testimonials from our participants</p>
+    </div>
+    <div class="item">
+        <p>"One thing I learned about myself during IVOC is that I am who I am and I don't have to try to please anybody else by being someone that I'm not. I also learned that rapping makes me feel like I can channel all my emotions into the rap and allow people to feel the same way"</p>
+        <p class="format-home">Testimonials from our participants</p>
+    </div>
+    <div class="item">
+        <p>"What I like about IVOC is how kids are allowed to participate and create music freely. It is also a space where you can be yourself and where you will never be judged"</p>
+        <p class="format-home">Testimonials from our participants</p>
+    </div>
+    <div class="item">
+        <p>"My favorite/funniest time at IVOC was when me and (other members of the group) were in a circle, freestyling. Even though I was bad at it, I kept saying random things and we all just started laughing at each other"</p>
+        <p class="format-home">Testimonials from our participants</p>
+    </div>
 </div>
+
+
+
 
 <br>
 <br>
@@ -1297,5 +1326,21 @@ body, p {
 
 <script src="{% static 'js/chat-modal.js' %}"></script>
 <script src="{% static 'js/homepage-slideshow.js' %}"></script>
+<script>
+    $(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+        loop: true, // Makes the carousel loop infinitely
+        margin: 10, // Space between items
+        nav: true, // Show next and prev buttons
+        dots: false, // Hide dots if you only want navigation buttons
+        navText: ["&#10094;", "&#10095;"], // Custom arrows
+        items: 1, // Show one slide at a time
+        autoplay: false, // Remove autoplay for manual control
+        autoplayTimeout: 5000,
+        smartSpeed: 800 // Smooth speed for the transition
+    });
+});
+
+</script>
 
 {% endblock extra_js %}
