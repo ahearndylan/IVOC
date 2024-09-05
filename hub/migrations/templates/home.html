@@ -394,40 +394,40 @@ body, p {
 }
 
 .carousel-wrapper {
-    background-color: #AA336A; /* Pink background */
-    padding: 60px 0; /* Padding for top and bottom */
-    width: 100vw; /* Full-width background */
+    background-color: #AA336A; 
+    padding: 60px 0; 
+    width: 100vw;
     position: relative;
-    left: 50%; /* To ensure full width, move the background out from the center */
-    margin-left: -50vw; /* Full-width trick: pulls the content to start from the left edge */
+    left: 50%; 
+    margin-left: -50vw; 
 }
 
 .carousel-content {
-    max-width: 70%; /* Set the max width of the content inside */
-    margin: 0 auto; /* Center the content horizontally */
+    max-width: 70%; 
+    margin: 0 auto; 
 }
 
 .owl-carousel .item {
-    text-align: center; /* Center-align text */
-    color: white; /* White text to contrast with the pink background */
-    font-family: 'Lora', serif; /* Use Lora for body text */
-    font-size: 20px; /* Adjust font size */
-    padding: 20px; /* Add some padding around the text */
+    text-align: center;
+    color: white; 
+    font-family: 'Lora', serif; 
+    font-size: 20px; 
+    padding: 20px; 
 }
 
 .owl-carousel .item p.format-home {
-    font-family: 'Montserrat', sans-serif; /* Use Montserrat for headings */
-    font-size: 18px; /* Adjust the font size for subtext */
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 18px; 
 }
 
 .owl-nav button.owl-prev, .owl-nav button.owl-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #f1d1e8; /* Light pink background for the buttons */
-    color: #AA336A; /* Pink color for the button text */
+    background-color: #f1d1e8; 
+    color: #AA336A; 
     border: none;
-    border-radius: 50%; /* Circular buttons */
+    border-radius: 50%; 
     font-size: 20px;
     line-height: 50px;
     height: 50px;
@@ -438,15 +438,15 @@ body, p {
 }
 
 .owl-nav button.owl-prev {
-    left: -60px; /* Move the arrow outside the container */
+    left: -60px; 
 }
 
 .owl-nav button.owl-next {
-    right: -60px; /* Move the arrow outside the container */
+    right: -60px;
 }
 
 .owl-nav button:hover {
-    background-color: #cf6094; /* Slightly darker pink on hover */
+    background-color: #cf6094;
 }
 
 @media (max-width: 1024px) {
@@ -1358,15 +1358,15 @@ body, p {
 <script>
     $(document).ready(function(){
     $('.owl-carousel').owlCarousel({
-        loop: true, // Makes the carousel loop infinitely
-        margin: 10, // Space between items
-        nav: true, // Show next and prev buttons
-        dots: false, // Hide dots if you only want navigation buttons
-        navText: ["&#10094;", "&#10095;"], // Custom arrows
-        items: 1, // Show one slide at a time
-        autoplay: false, // Remove autoplay for manual control
+        loop: true, 
+        margin: 10, 
+        nav: true, 
+        dots: false, 
+        navText: ["&#10094;", "&#10095;"], 
+        items: 1, 
+        autoplay: false, 
         autoplayTimeout: 5000,
-        smartSpeed: 800 // Smooth speed for the transition
+        smartSpeed: 800 
     });
 });
 
