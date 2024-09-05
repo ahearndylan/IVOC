@@ -181,32 +181,33 @@
 
 .carousel-inner {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Ensure slides align at the start */
     align-items: center;
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-item {
-    flex: 0 0 25%; /* Adjust to show multiple slides (25% width each) */
-    padding: 0 5px; /* Reduce the padding between slides */
+    flex: 0 0 20%; /* Adjust to show 5 slides at a time (20% width each) */
+    margin: 0 5px; /* Reduce the margin between slides */
 }
 
 .carousel-item img {
-    width: 100%; /* Ensure the image takes up the full space of the slide */
+    width: 100%; /* Ensure images take up full space of the carousel item */
     height: auto;
     border-radius: 8px;
 }
 
 .carousel-item.active {
-    transform: scale(1.2); /* Slightly enlarge the active (center) slide */
+    transform: scale(1.05); /* Slightly increase the scale of the active slide */
+    opacity: 1;
 }
 
 .carousel-item-next, .carousel-item-prev {
-    transform: scale(0.9); /* Reduce size of non-active slides */
+    transform: scale(0.9);
 }
 
 .carousel-control-prev, .carousel-control-next {
-    background-color: black; /* Make the controls black */
+    background-color: black;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -216,25 +217,27 @@
 }
 
 .carousel-control-prev span, .carousel-control-next span {
-    color: white; /* White arrows */
+    color: white;
     font-size: 24px;
 }
 
 .carousel-control-prev:hover, .carousel-control-next:hover {
-    background-color: #333; /* Darken the controls on hover */
+    background-color: #333;
 }
 
+/* Position the arrows */
 .carousel-control-prev {
-    left: -20px; /* Adjust positioning of left arrow */
+    left: -20px;
 }
 
 .carousel-control-next {
-    right: -20px; /* Adjust positioning of right arrow */
+    right: -20px;
 }
 
 #myCarousel {
-    width: 80%; /* Make sure the container is wide enough */
+    width: 100%; /* Ensure the carousel takes up the full width of the container */
     margin: auto;
+    overflow: hidden;
 }
 
 
