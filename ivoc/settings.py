@@ -26,8 +26,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-=!==n4h!e3b$v=^o2bd3p&_l(+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
-
+ALLOWED_HOSTS = ['orca-app-bzjln.ondigitalocean.app']
 
 # Application definition
 
