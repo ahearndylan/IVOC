@@ -424,8 +424,6 @@ body, p {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #ffffff; 
-    color: #AA336A; 
     border: none;
     border-radius: 50%; 
     font-size: 20px;
@@ -435,6 +433,25 @@ body, p {
     outline: none;
     cursor: pointer;
     z-index: 10;
+}
+
+.owl-carousel .owl-nav button.owl-prev, 
+.owl-carousel .owl-nav button.owl-next {
+    background-color: white; /* Arrow background to white */
+    color: black; /* Arrow icon to black */
+}
+
+.owl-carousel .owl-nav button.owl-prev > *, 
+.owl-carousel .owl-nav button.owl-next > * {
+    color: black; /* Icons inside buttons to black */
+}
+
+.owl-carousel .owl-nav button.owl-prev:hover, 
+.owl-carousel .owl-nav button.owl-next:hover,
+.owl-carousel .owl-nav button.owl-prev:hover > *, 
+.owl-carousel .owl-nav button.owl-next:hover > * {
+    background-color: #cf6094; /* Hover background to pink */
+    color: white; /* Hover icon to white */
 }
 
 .owl-nav button.owl-prev {
