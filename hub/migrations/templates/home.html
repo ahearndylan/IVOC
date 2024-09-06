@@ -420,12 +420,14 @@ body, p {
     font-size: 18px; 
 }
 
-.owl-nav button.owl-prev, 
-.owl-nav button.owl-next {
-    background-color: white; /* Set the arrow background to white */
-    color: #AA336A; /* This is assuming the arrow icons are controlled by the 'color' property */
+.owl-nav button.owl-prev, .owl-nav button.owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #f1d1e8; 
+    color: #AA336A; 
     border: none;
-    border-radius: 50%;
+    border-radius: 50%; 
     font-size: 20px;
     line-height: 50px;
     height: 50px;
@@ -445,7 +447,7 @@ body, p {
 
 .owl-nav button.owl-prev:hover, 
 .owl-nav button.owl-next:hover {
-    background-color: #FADADD; 
+    background-color: #FADADD; /* Light pink background on hover */
 }
 
 @media (max-width: 1024px) {
@@ -1000,16 +1002,16 @@ body, p {
     }
 
     .owl-nav {
-        text-align: center;
-        font-size: 16px; 
+        text-align: center;  /* Center the buttons below the carousel */
     }
 
+    /* Adjust the container for the slides to allow some space for the buttons below */
     .owl-carousel {
-        margin-bottom: 60px; 
+        margin-bottom: 60px; /* Space below the carousel for the buttons */
     }
 
     .carousel-wrapper {
-        padding: 30px 0;  
+        padding: 30px 0;  /* Reduce top and bottom padding */
     }
 }
 
