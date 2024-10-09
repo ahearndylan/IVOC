@@ -303,12 +303,64 @@
         }            
     }
 
+    @media (max-width: 768px) {
+    button.prev, button.next {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: flex-start; 
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-40%); 
+        border-radius: 50%;
+        background-color: #AA336A;
+        color: white;
+        border: none;
+        cursor: pointer;
+        z-index: 2;
+        padding: 0; 
+        line-height: 1; 
+        align-items: center; 
+
+    }
+
+    button.prev i, button.next i {
+        font-size: 18px; 
+        line-height: 1; 
+    }
+
+    button.prev {
+        left: 20px;
+    }
+
+    button.next {
+        right: 20px;
+    }
+}
+
     
     @media (max-width: 480px) {
 
         .progress-container {
             font-size: 14px;
         }
+
+        button.prev, button.next {
+        width: 40px; 
+        height: 40px; 
+        font-size: 20px;
+        line-height: 40px;
+        top: 45%; 
+    }
+
+    button.next {
+        right: -45px; 
+    }
+
+    button.prev {
+        left: -45px; 
+    }
 }
 </style>
 
