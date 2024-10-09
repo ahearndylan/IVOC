@@ -420,52 +420,42 @@ body, p {
     font-size: 18px; 
 }
 
-.owl-nav button.owl-prev, .owl-nav button.owl-next {
+.custom-prev-slide, .custom-next-slide {
+    cursor: pointer;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    border: none;
-    border-radius: 50%; 
-    font-size: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #f7a9cd;
+    color: #AA336A;
+    font-size: 24px;
+    border: white;
     line-height: 50px;
-    height: 50px;
-    width: 50px;
-    outline: none;
-    cursor: pointer;
+    text-align: center;
     z-index: 10;
+    outline: none !important;
+    transition: background-color 0.3s ease;
+    box-shadow: none !important;
+    outline: none !important;
 }
 
-.owl-carousel .owl-nav button.owl-prev, 
-.owl-carousel .owl-nav button.owl-next {
-    background-color: white; 
-    color: black;
+.custom-prev-slide:hover, .custom-next-slide:hover {
+    background-color: #cf6094;
+    color: white;
 }
 
-.owl-carousel .owl-nav button.owl-prev > *, 
-.owl-carousel .owl-nav button.owl-next > * {
-    color: black; 
+.custom-prev-slide {
+    left: -75px;
 }
 
-.owl-carousel .owl-nav button.owl-prev:hover, 
-.owl-carousel .owl-nav button.owl-next:hover,
-.owl-carousel .owl-nav button.owl-prev:hover > *, 
-.owl-carousel .owl-nav button.owl-next:hover > * {
-    background-color: #cf6094; 
-    color: white; 
+.custom-next-slide {
+    right: -75px;
 }
 
-.owl-nav button.owl-prev {
-    left: -60px; 
-}
 
-.owl-nav button.owl-next {
-    right: -60px;
-}
 
-.owl-nav button.owl-prev:hover, 
-.owl-nav button.owl-next:hover {
-    background-color: #cf6094; 
-}
 
 @media (max-width: 1024px) {
     .responsive-video {
@@ -1005,7 +995,7 @@ body, p {
         object-fit: cover;
     }
 
-    .owl-nav button.owl-prev, .owl-nav button.owl-next {
+    .custom-prev-slide, .custom-next-slide {
         position: static;  
         display: inline-block; 
         margin: 10px;  
@@ -1013,13 +1003,12 @@ body, p {
         transform: none;
         left: auto;
         right: auto;
-        width: 40px;  
-        height: 40px;
+        width: 80px;  
+        height: 80px;
         line-height: 40px;
-    }
-
-    .owl-nav {
-        text-align: center;  
+        box-shadow: none !important;
+        border: none !important;
+        outline: none !important;
     }
 
     .owl-carousel {
@@ -1268,7 +1257,7 @@ body, p {
 
 <div class="responsive-video">
     <video width= 100% height= 900px autoplay loop muted playsinline>
-        <source src="https://ivoc.nyc3.digitaloceanspaces.com/ivoc/Video.mp4" type="video/mp4">
+        <source src="https://ivoc.nyc3.digitaloceanspaces.com/Video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
@@ -1302,7 +1291,7 @@ body, p {
 <br>
 <div class="homepage-video">
     <video width= 1100px height= 650px autoplay muted loop controls playsinline>
-        <source src="https://ivoc.nyc3.digitaloceanspaces.com/ivoc/IVOC Upstream Initiative.mp4" type="video/mp4">
+        <source src="https://ivoc.nyc3.digitaloceanspaces.com/IVOC%20Upstream%20Initiative.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 </div>
@@ -1329,7 +1318,7 @@ body, p {
     <br>
     <div class="homepage-video">
         <video width= 1100px height= 650px controls controls playsinline poster="{% static 'images/birthThumbnail.jpg' %}">
-            <source src="https://ivoc.nyc3.digitaloceanspaces.com/ivoc/The birth of IVOC.mp4" type="video/mp4">
+            <source src="https://ivoc.nyc3.digitaloceanspaces.com/The%20birth%20of%20IVOC.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
@@ -1379,7 +1368,7 @@ body, p {
 <div class="video-container">
     <div class="video-block">
         <video width="320" height="240" controls playsinline poster="{% static 'images/SummerThumbnail.jpg' %}">
-        <source src="https://ivoc.nyc3.digitaloceanspaces.com/ivoc/IVOCSummer.mp4" type="video/mp4">
+        <source src="https://ivoc.nyc3.digitaloceanspaces.com/IVOCSummer.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
         <p></p>
@@ -1387,7 +1376,7 @@ body, p {
     </div>
     <div class="video-block">
         <video width="320" height="240" controls playsinline poster="{% static 'images/ProjectThumbnail.jpg' %}">
-        <source src="https://ivoc.nyc3.digitaloceanspaces.com/ivoc/Project.mp4" type="video/mp4">
+        <source src="https://ivoc.nyc3.digitaloceanspaces.com/Project.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
         <p></p>
@@ -1398,7 +1387,7 @@ body, p {
 <div class="video-container">
     <div class="video-block">
         <video width="320" height="240" controls playsinline poster="{% static 'images/PromiseThumbnail.jpg' %}">
-        <source src="https://ivoc.nyc3.digitaloceanspaces.com/ivoc/Our Promise.mp4" type="video/mp4">
+        <source src="https://ivoc.nyc3.digitaloceanspaces.com/Our%20Promise.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
         <p></p>
@@ -1406,7 +1395,7 @@ body, p {
     </div>
     <div class="video-block">
         <video width="320" height="240" controls playsinline poster="{% static 'images/ThumbnailTestimonial.png' %}">
-        <source src="https://ivoc.nyc3.digitaloceanspaces.com/ivoc/Testimonials.mp4" type="video/mp4">
+        <source src="https://ivoc.nyc3.digitaloceanspaces.com/Testimonials.mp4" type="video/mp4">
         Your browser does not support the video tag.
         </video>
         <p></p>
@@ -1435,20 +1424,29 @@ body, p {
 <script src="{% static 'js/homepage-slideshow.js' %}"></script>
 <script>
     $(document).ready(function(){
-    $('.owl-carousel').owlCarousel({
-        loop: true, 
-        margin: 10, 
-        nav: true, 
-        dots: false, 
-        navText: ["&#10094;", "&#10095;"], 
-        items: 1, 
-        autoplay: false, 
-        autoplayTimeout: 5000,
-        smartSpeed: 800 
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            dots: false,
+            navText: [
+                "<button class='custom-prev-slide'><i class='fas fa-arrow-left'></i></button>",
+                "<button class='custom-next-slide'><i class='fas fa-arrow-right'></i></button>"
+            ],
+            items: 1,
+            autoplay: false,
+            autoplayTimeout: 5000,
+            smartSpeed: 800
+        });
     });
-});
 
+    
 
 </script>
+
+<!-- Begin Constant Contact Active Forms -->
+<script> var _ctct_m = "c7695085a58fb3149869fa253cbcce17"; </script>
+<script id="signupScript" src="https://static.ctctcdn.com/js/signup-form-widget/current/signup-form-widget.min.js" async defer></script>
+<!-- End Constant Contact Active Forms -->
 
 {% endblock extra_js %}

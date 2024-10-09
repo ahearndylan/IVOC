@@ -111,15 +111,15 @@
         background-color: black;
         color: white;
         border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        font-size: 200px; 
+        width: 80px !important;
+        height: 80px !important;
+        font-size: 40px !important;
         border: none;
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        margin: 10px; 
-    }
+        margin: 10px;
+}
 
     .owl-nav {
         position: relative;
@@ -191,7 +191,10 @@
 
     .slide {
         flex: 0 0 100%;
+        display: flex;
         padding: 20px;
+        align-items: center; 
+        justify-content: center;
         text-align: center;
         box-sizing: border-box;
         min-height: 100%;
@@ -207,14 +210,14 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        width: 40px;
-        height: 40px;
-        color: #AA336A;
-        font-size: 24px;
+        width: 60px; 
+        height: 60px; 
+        color: white;
+        font-size: 36px;
         text-align: center;
-        line-height: 40px;
+        line-height: 60px; 
         border-radius: 50%;
-        background-color: #f9f9f9;
+        background-color: #AA336A;
         border: 1px solid #AA336A;
         z-index: 2;
         margin: 0;
@@ -222,18 +225,19 @@
     }
 
     button.next {
-        right: -50px;
+        right: -65px;
     }
 
     button.prev {
-        left: -50px;
+        left: -65px; 
     }
 
     button.prev:hover, button.next:hover {
-        background-color: #AA336A;
+        background-color: #cf6094;
         color: white;
         outline: none;
     }
+
 
     .donation-impact {
         background-color: #fff;
@@ -277,6 +281,11 @@
         outline: none;
     }
 
+    button.prev i, button.next i {
+    font-size: 30px; 
+    line-height: 60px; 
+}
+
     @media (max-width: 1024px) {
 
         .donation-container {
@@ -294,6 +303,7 @@
         }            
     }
 
+    
     @media (max-width: 480px) {
 
         .progress-container {
@@ -328,7 +338,7 @@
 
         <h2>Success Stories</h2>
         <div class="success-stories-container">
-            <button class="prev">&#10094;</button>
+            <button class="prev"><i class="fas fa-arrow-left"></i></button>
             <div class="success-stories-slideshow">
                 <div class="slides-container">
                     <div class="slide">"What I like about IVOC is how kids are allowed to participate and create music freely. It is also a space where you can be yourself and where you will never be judged."
@@ -339,9 +349,11 @@
                     </div>
                     <div class="slide">"The thing I like about IVOC is how the whole thing is just expressing yourself with music and words. It feels like a safe place where you aren't judged"
                     </div>
+                    <div class="slide">"My favorite/funniest time at IVOC was when me and (other members of the group) were in a circle, freestyling. Even though I was bad at it, I kept saying random things and we all just started laughing at each other"</p>
+                    </div>
                 </div>
             </div>
-            <button class="next">&#10095;</button>
+            <button class="next"><i class="fas fa-arrow-right"></i></button>
         </div>
 
         <h2>Your Donation Makes a Difference</h2>
@@ -408,6 +420,5 @@
     });
 
 </script>
-
 
 {% endblock extra_js %}
